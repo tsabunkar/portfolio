@@ -4,19 +4,19 @@ export const FOOTPRINT = [
     platform: 'YouTube',
     icon:     '▶',
     accent:   '#ff453a',
-    handle:   '@YourChannel',
+    handle:   '@tsabunkar',
     desc:     'Deep-dive architecture breakdowns, cloud design patterns, and system-design walkthroughs. No filler, just depth.',
     stat:     '28K subscribers',
-    url:      'https://youtube.com/@YourChannel',
+    url:      'https://www.youtube.com/@tsabunkar',
   },
   {
     platform: 'Medium',
     icon:     'M',
     accent:   '#888888',
-    handle:   '@yourhandle',
+    handle:   '@tsabunkar',
     desc:     'Long-form articles on cloud architecture, well-architected frameworks, and solutions design trade-offs.',
     stat:     '150K+ reads',
-    url:      'https://medium.com/@yourhandle',
+    url:      'https://medium.com/@tsabunkar',
   },
 ];
 
