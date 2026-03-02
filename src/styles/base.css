@@ -1,0 +1,52 @@
+/* styles/base.css — Reset, root variables, body defaults */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  /* Tokens injected dynamically via theme/index.js */
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.45s ease, color 0.45s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.25);
+  border-radius: 3px;
+}
+
+/* Focus outline for accessibility */
+:focus-visible {
+  outline: 2px solid #0071e3;
+  outline-offset: 3px;
+}
+
+/* Smooth transition for interactive elements */
+a,
+button {
+  transition-property: color, background, border-color, box-shadow, opacity, transform;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}

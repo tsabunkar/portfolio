@@ -1,0 +1,36 @@
+/* components/ui/SectionHeader/SectionHeader.module.css */
+
+.wrapper {
+  text-align:    center;
+  margin-bottom: clamp(44px, 8vw, 72px);
+}
+
+.eyebrow {
+  font-size:      clamp(10px, 1.3vw, 12px);
+  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 2.2px;
+  font-weight:    700;
+  margin:         0 0 12px;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size:      clamp(28px, 5.5vw, 60px);
+  font-weight:    800;
+  color:          var(--text);
+  letter-spacing: clamp(-0.8px, -0.026em, -2px);
+  margin:         0 0 14px;
+  line-height:    1.07;
+  transition:     color 0.45s ease;
+}
+
+.sub {
+  font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size:    clamp(14px, 1.7vw, 17px);
+  color:        var(--text-mid);
+  max-width:    480px;
+  margin:       0 auto;
+  line-height:  1.68;
+  transition:   color 0.45s ease;
+}

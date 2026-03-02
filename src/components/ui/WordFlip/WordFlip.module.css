@@ -1,0 +1,25 @@
+/* components/ui/WordFlip/WordFlip.module.css */
+
+.viewport {
+  display:        inline-block;
+  min-width:      clamp(200px, 52vw, 720px);
+  text-align:     center;
+  overflow:       hidden;
+  vertical-align: bottom;
+  height:         1.08em;
+}
+
+.word {
+  display:        inline-block;
+  white-space:    nowrap;
+  transform-origin: center bottom;
+  perspective:    600px;
+}
+
+.enter {
+  animation: wordIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.exit {
+  animation: wordOut 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}

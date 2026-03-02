@@ -1,0 +1,12 @@
+/* sections/Proof/Proof.module.css */
+
+.statsGrid {
+  display:       grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap:           2px;
+  background:    var(--divider);
+  border-radius: 20px;
+  overflow:      hidden;
+  margin-bottom: clamp(32px, 5vw, 52px);
+  transition:    background 0.45s ease;
+}

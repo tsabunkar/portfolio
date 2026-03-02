@@ -1,0 +1,109 @@
+/* sections/About/About.module.css */
+
+.grid {
+  /* grid-2 utility handles columns */
+}
+
+.eyebrow {
+  color:          #30d158;
+  font-size:      clamp(10px, 1.3vw, 12px);
+  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 2.2px;
+  font-weight:    700;
+  margin:         0 0 12px;
+  text-transform: uppercase;
+}
+
+.heading {
+  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size:      clamp(26px, 4.5vw, 50px);
+  font-weight:    800;
+  color:          var(--text);
+  letter-spacing: clamp(-0.8px, -0.026em, -1.8px);
+  margin:         0 0 20px;
+  line-height:    1.1;
+  transition:     color 0.45s ease;
+}
+
+.body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size:   clamp(14px, 1.5vw, 15px);
+  color:       var(--text-mid);
+  line-height: 1.85;
+  margin:      0 0 14px;
+  transition:  color 0.45s ease;
+}
+
+.actions {
+  display:    flex;
+  gap:        12px;
+  flex-wrap:  wrap;
+  margin-top: 16px;
+}
+
+/* Stack card */
+.stackCard {
+  padding: clamp(22px, 3.5vw, 32px);
+}
+
+.cardLabel {
+  font-size:      clamp(9px, 1.1vw, 10px);
+  color:          var(--text-low);
+  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 1.8px;
+  font-weight:    700;
+  margin:         0 0 14px;
+  text-transform: uppercase;
+  transition:     color 0.45s ease;
+}
+
+.tags {
+  display:        flex;
+  flex-direction: column;
+  gap:            clamp(6px, 1vw, 9px);
+}
+
+.tagRow {
+  display:  flex;
+  flex-wrap: wrap;
+  gap:      clamp(6px, 1vw, 8px);
+}
+
+.tag {
+  background:     var(--skill-bg);
+  color:          var(--text-mid);
+  border-radius:  7px;
+  padding:        5px 12px;
+  font-size:      clamp(10px, 1.2vw, 12px);
+  font-family:    'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  border:         1px solid var(--skill-border);
+  transition:     background 0.45s ease, color 0.45s ease, border-color 0.45s ease;
+}
+
+.statusRow {
+  margin-top:  22px;
+  padding-top: 20px;
+  border-top:  1px solid var(--border);
+}
+
+.status {
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+}
+
+.statusDot {
+  width:         8px;
+  height:        8px;
+  border-radius: 50%;
+  background:    #30d158;
+  box-shadow:    0 0 7px rgba(48, 209, 88, 0.55);
+  flex-shrink:   0;
+}
+
+.statusText {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size:   clamp(12px, 1.4vw, 13px);
+  color:       var(--text-mid);
+  transition:  color 0.45s ease;
+}

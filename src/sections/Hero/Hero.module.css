@@ -1,0 +1,192 @@
+/* sections/Hero/Hero.module.css */
+
+.hero {
+  min-height:      100svh;
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+  justify-content: center;
+  position:        relative;
+  overflow:        hidden;
+  padding-top:     clamp(80px, 12vw, 100px);
+  padding-bottom:  clamp(60px, 8vw, 80px);
+  transition:      background 0.55s ease;
+}
+
+/* ── Stars ──────────────────────────────────────────────── */
+.stars {
+  position:       absolute;
+  inset:          0;
+  pointer-events: none;
+}
+
+.star {
+  position:      absolute;
+  border-radius: 50%;
+  background:    #fff;
+  animation:     starTwinkle ease-in-out infinite;
+}
+
+/* ── Orbs ───────────────────────────────────────────────── */
+.orbs {
+  position:       absolute;
+  inset:          0;
+  overflow:       hidden;
+  pointer-events: none;
+}
+
+.orb1 {
+  position:      absolute;
+  width:         50vw;
+  max-width:     640px;
+  height:        50vw;
+  max-height:    640px;
+  top:           -8%;
+  left:          2%;
+  border-radius: 50%;
+  background:    radial-gradient(circle, var(--hero-glow-1) 0%, transparent 70%);
+  filter:        blur(60px);
+}
+
+.orb2 {
+  position:      absolute;
+  width:         36vw;
+  max-width:     480px;
+  height:        36vw;
+  max-height:    480px;
+  bottom:        4%;
+  right:         3%;
+  border-radius: 50%;
+  background:    radial-gradient(circle, var(--hero-glow-2) 0%, transparent 70%);
+  filter:        blur(80px);
+}
+
+/* ── Content ────────────────────────────────────────────── */
+.content {
+  text-align:   center;
+  position:     relative;
+  z-index:      2;
+  padding:      0 clamp(20px, 5vw, 40px);
+  max-width:    980px;
+  width:        100%;
+}
+
+/* Shared fade-up entry animation for staggered children */
+.content > * {
+  opacity:    0;
+  transform:  translateY(22px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.content > *.loaded {
+  opacity:   1;
+  transform: translateY(0);
+}
+
+/* ── Badge ──────────────────────────────────────────────── */
+.badge {
+  display:       inline-flex;
+  align-items:   center;
+  gap:           8px;
+  background:    rgba(0, 113, 227, 0.12);
+  border:        1px solid rgba(0, 113, 227, 0.32);
+  border-radius: 100px;
+  padding:       6px 18px;
+  margin-bottom: clamp(20px, 4vw, 28px);
+}
+
+[data-theme='light'] .badge {
+  background: rgba(0, 113, 227, 0.07);
+  border-color: rgba(0, 113, 227, 0.20);
+}
+
+.dot {
+  width:         7px;
+  height:        7px;
+  border-radius: 50%;
+  background:    #30d158;
+  box-shadow:    0 0 6px rgba(48, 209, 88, 0.6);
+  flex-shrink:   0;
+}
+
+.badgeText {
+  color:          #0071e3;
+  font-size:      clamp(10px, 1.3vw, 12px);
+  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 1.1px;
+  font-weight:    600;
+}
+
+/* ── Headline ───────────────────────────────────────────── */
+.headline {
+  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight:    800;
+  line-height:    1.04;
+  font-size:      clamp(38px, 8vw, 90px);
+  color:          var(--text);
+  letter-spacing: clamp(-1px, -0.035em, -3.5px);
+  margin:         0 0 clamp(4px, 1vw, 8px);
+  transition:     color 0.45s ease;
+}
+
+/* ── Flip row ───────────────────────────────────────────── */
+.flipRow {
+  font-size:      clamp(36px, 8vw, 90px);
+  font-weight:    800;
+  line-height:    1.04;
+  letter-spacing: clamp(-1px, -0.035em, -3.5px);
+  margin:         0 0 clamp(20px, 4vw, 32px);
+  min-height:     1.1em;
+  display:        flex;
+  justify-content: center;
+  align-items:    flex-start;
+  perspective:    800px;
+}
+
+/* ── Subtitle ───────────────────────────────────────────── */
+.sub {
+  font-family:   -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size:     clamp(15px, 2.2vw, 20px);
+  color:         var(--text-mid);
+  max-width:     600px;
+  margin:        0 auto clamp(28px, 5vw, 44px);
+  line-height:   1.68;
+  font-weight:   400;
+  transition:    color 0.45s ease;
+}
+
+/* ── CTA row ────────────────────────────────────────────── */
+.ctas {
+  display:         flex;
+  gap:             clamp(10px, 2vw, 14px);
+  justify-content: center;
+  flex-wrap:       wrap;
+}
+
+/* ── Scroll cue ─────────────────────────────────────────── */
+.scrollCue {
+  position:   absolute;
+  bottom:     clamp(22px, 4vw, 36px);
+  left:       50%;
+  opacity:    0.32;
+  animation:  scrollBob 2.4s ease-in-out infinite;
+}
+
+.scrollRing {
+  width:         24px;
+  height:        40px;
+  border:        2px solid var(--scroll-ring);
+  border-radius: 12px;
+  display:       flex;
+  justify-content: center;
+  padding-top:   7px;
+}
+
+.scrollDot {
+  width:         3px;
+  height:        7px;
+  background:    var(--text);
+  border-radius: 2px;
+  animation:     scrollDot 2s ease-in-out infinite;
+}

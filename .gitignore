@@ -1,0 +1,27 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+
+# Terraform / Infra
+infra/.terraform/
+infra/.terraform.lock.hcl
+infra/terraform.tfstate
+infra/terraform.tfstate.*
+infra/*.tfvars
+infra/*.tfvars.json
+
+# Local IDE / VSCode
+.vscode/
+
+# Mac system files
+Thumbs.db
+
+# Build artifacts (safety)
+coverage/
+

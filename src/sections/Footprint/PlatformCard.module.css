@@ -1,0 +1,76 @@
+/* sections/Footprint/PlatformCard.module.css */
+
+.card {
+  padding:         clamp(26px, 4vw, 44px) clamp(22px, 4vw, 40px);
+  text-decoration: none;
+  display:         block;
+  transition:      border-color 0.25s, transform 0.25s, background 0.45s !important;
+}
+
+.header {
+  display:     flex;
+  align-items: center;
+  gap:         14px;
+  margin-bottom: 16px;
+}
+
+.iconWrap {
+  width:           clamp(40px, 5.5vw, 50px);
+  height:          clamp(40px, 5.5vw, 50px);
+  border-radius:   13px;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  flex-shrink:     0;
+}
+
+.icon {
+  font-weight: 900;
+  font-family: Georgia, serif;
+}
+
+.platform {
+  font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight:  700;
+  font-size:    clamp(14px, 1.7vw, 16px);
+  color:        var(--text);
+  margin:       0 0 2px;
+  transition:   color 0.45s ease;
+}
+
+.handle {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size:   clamp(10px, 1.1vw, 11px);
+  color:       var(--text-low);
+  margin:      0;
+  transition:  color 0.45s ease;
+}
+
+.desc {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size:   clamp(13px, 1.4vw, 14px);
+  color:       var(--text-mid);
+  line-height: 1.78;
+  margin:      0 0 18px;
+  transition:  color 0.45s ease;
+}
+
+.footer {
+  display:     flex;
+  align-items: center;
+  gap:         10px;
+}
+
+.stat {
+  background:     rgba(191, 90, 242, 0.12);
+  color:          #bf5af2;
+  font-size:      clamp(9px, 1.1vw, 11px);
+  padding:        3px 12px;
+}
+
+.cta {
+  color:       var(--text-low);
+  font-size:   clamp(11px, 1.2vw, 12px);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  transition:  color 0.45s ease;
+}

@@ -1,0 +1,63 @@
+/* sections/Proof/TestimonialCard.module.css */
+
+.card {
+  padding: clamp(22px, 4vw, 36px) clamp(18px, 3vw, 32px);
+}
+
+.openQuote {
+  display:     block;
+  font-size:   clamp(24px, 4vw, 34px);
+  color:       #ff9f0a;
+  font-family: Georgia, serif;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.quote {
+  font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size:    clamp(13px, 1.5vw, 15px);
+  color:        var(--text-mid);
+  line-height:  1.8;
+  margin:       0 0 22px;
+  font-style:   italic;
+  transition:   color 0.45s ease;
+}
+
+.author {
+  display:     flex;
+  align-items: center;
+  gap:         11px;
+  font-style:  normal;
+}
+
+.avatar {
+  width:           36px;
+  height:          36px;
+  border-radius:   50%;
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  font-size:       12px;
+  font-weight:     700;
+  color:           #fff;
+  font-family:     -apple-system, BlinkMacSystemFont, sans-serif;
+  flex-shrink:     0;
+}
+
+.name {
+  display:        block;
+  font-size:      clamp(12px, 1.4vw, 13px);
+  font-weight:    600;
+  color:          var(--text);
+  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  font-style:     normal;
+  transition:     color 0.45s ease;
+}
+
+.role {
+  display:     block;
+  font-size:   clamp(10px, 1.2vw, 11px);
+  color:       var(--text-low);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  transition:  color 0.45s ease;
+}
