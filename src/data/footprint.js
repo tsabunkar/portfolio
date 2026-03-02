@@ -18,6 +18,15 @@ export const FOOTPRINT = [
     stat:     '150K+ reads',
     url:      'https://medium.com/@tsabunkar',
   },
+  {
+    platform: 'Instagram',
+    icon:     '◉',
+    accent:   '#e4405f',
+    handle:   '@arch2lead',
+    desc:     'Bite-sized visual insights on software architecture, technical leadership, system design, and engineering excellence.',
+    stat:     'Growing community',
+    url:      'https://www.instagram.com/arch2lead/',
+  },
 ];
 
 export const ARTICLES = [
