@@ -8,6 +8,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "deploy": "npm run build && cd infra && terraform apply -var='domain_name=tsabunkar.com' -var='www_domain=www.tsabunkar.com'",
     "lint": "eslint src --ext .js,.jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
