@@ -28,8 +28,8 @@ export default function ConnectSection() {
             remarkable.
           </h2>
           <p className={styles.sub}>
-            New engagement, advisory, speaking, or just a great architecture
-            discussion — I'm always interested.
+            New engagement, advisory, speaking, or just a great
+            techincal/leadership discussion - I'm always interested.
           </p>
         </div>
 

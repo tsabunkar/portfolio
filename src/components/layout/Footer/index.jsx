@@ -13,7 +13,7 @@ const Footer = memo(function Footer() {
         <span className={styles.logo}>&lt;Tejas Sabunkar /&gt;</span>
 
         <span className={styles.copy}>
-          © 2025 · Solutions Architect · Built with React
+          © 2026 · Solutions Architect · Built with React
         </span>
 
         <nav className={styles.links} aria-label="Footer social links">
