@@ -13,3 +13,4 @@ export { TESTIMONIALS }                from './testimonials';
 export { FOOTPRINT, ARTICLES }         from './footprint';
 export { CONNECT_LINKS }               from './connectLinks';
 export { TECH_STACK }                  from './techStack';
+export { EDUCATION }                   from './education';

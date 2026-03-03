@@ -107,3 +107,136 @@
   color:       var(--text-mid);
   transition:  color 0.45s ease;
 }
+
+/* Card flip container */
+.flipContainer {
+  position: relative;
+  perspective: 1000px;
+  min-height: 300px;
+}
+
+.flipInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flipContainer.flipped .flipInner {
+  transform: rotateY(180deg);
+}
+
+.flipFront,
+.flipBack {
+  width: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.flipBack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+}
+
+.flipButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 8px 16px;
+  background: var(--skill-bg);
+  border: 1px solid var(--skill-border);
+  border-radius: 7px;
+  color: var(--text-mid);
+  font-size: clamp(10px, 1.2vw, 11px);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.flipButton:hover {
+  background: var(--border);
+  transform: translateY(-1px);
+}
+
+.flipIcon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.flipContainer.flipped .flipIcon {
+  transform: rotateY(180deg);
+}
+
+/* Education section */
+.educationContent {
+  padding: clamp(22px, 3.5vw, 32px);
+}
+
+.institution {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(15px, 1.8vw, 18px);
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 8px;
+  line-height: 1.3;
+  transition: color 0.45s ease;
+}
+
+.degree {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(13px, 1.5vw, 15px);
+  font-weight: 600;
+  color: var(--text-mid);
+  margin: 0 0 4px;
+  transition: color 0.45s ease;
+}
+
+.field {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(12px, 1.4vw, 13px);
+  color: var(--text-low);
+  margin: 0 0 12px;
+  line-height: 1.5;
+  transition: color 0.45s ease;
+}
+
+.eduMeta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metaLabel {
+  font-size: clamp(9px, 1.1vw, 10px);
+  color: var(--text-low);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: color 0.45s ease;
+}
+
+.metaValue {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(13px, 1.5vw, 15px);
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.45s ease;
+}
