@@ -1,27 +1,61 @@
 /* sections/Footprint/PlatformCard.module.css */
 
 .card {
-  padding:         clamp(26px, 4vw, 44px) clamp(22px, 4vw, 40px);
+  padding: 26px 22px;
   text-decoration: none;
-  display:         block;
-  transition:      border-color 0.25s, transform 0.25s, background 0.45s !important;
+  display: block;
+  transition: border-color 0.25s, transform 0.25s, background 0.45s !important;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 32px 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 44px 40px;
+  }
 }
 
 .header {
-  display:     flex;
+  display: flex;
   align-items: center;
-  gap:         14px;
-  margin-bottom: 16px;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+@media (min-width: 640px) {
+  .header {
+    gap: 14px;
+    margin-bottom: 16px;
+  }
 }
 
 .iconWrap {
-  width:           clamp(40px, 5.5vw, 50px);
-  height:          clamp(40px, 5.5vw, 50px);
-  border-radius:   13px;
-  display:         flex;
-  align-items:     center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  flex-shrink:     0;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .iconWrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .iconWrap {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .icon {

@@ -10,8 +10,20 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 14px;
   /* Tokens injected dynamically via theme/index.js */
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 body {
@@ -21,6 +33,7 @@ body {
   background: var(--bg);
   color: var(--text);
   transition: background 0.45s ease, color 0.45s ease;
+  min-width: 320px;
 }
 
 /* Custom scrollbar */

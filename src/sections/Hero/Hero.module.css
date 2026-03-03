@@ -1,16 +1,36 @@
 /* sections/Hero/Hero.module.css */
 
 .hero {
-  min-height:      100svh;
-  display:         flex;
-  flex-direction:  column;
-  align-items:     center;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  position:        relative;
-  overflow:        hidden;
-  padding-top:     clamp(80px, 12vw, 100px);
-  padding-bottom:  clamp(60px, 8vw, 80px);
-  transition:      background 0.55s ease;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: background 0.55s ease;
+}
+
+@media (min-width: 640px) {
+  .hero {
+    padding-top: 90px;
+    padding-bottom: 70px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 80px;
+    padding-left: 48px;
+    padding-right: 48px;
+  }
 }
 
 /* ── Stars ──────────────────────────────────────────────── */
@@ -63,12 +83,11 @@
 
 /* ── Content ────────────────────────────────────────────── */
 .content {
-  text-align:   center;
-  position:     relative;
-  z-index:      2;
-  padding:      0 clamp(20px, 5vw, 40px);
-  max-width:    980px;
-  width:        100%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  max-width: 980px;
+  width: 100%;
 }
 
 /* Shared fade-up entry animation for staggered children */
@@ -86,14 +105,28 @@
 
 /* ── Badge ──────────────────────────────────────────────── */
 .badge {
-  display:       inline-flex;
-  align-items:   center;
-  gap:           8px;
-  background:    rgba(0, 113, 227, 0.12);
-  border:        1px solid rgba(0, 113, 227, 0.32);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0, 113, 227, 0.12);
+  border: 1px solid rgba(0, 113, 227, 0.32);
   border-radius: 100px;
-  padding:       6px 18px;
-  margin-bottom: clamp(20px, 4vw, 28px);
+  padding: 5px 14px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 640px) {
+  .badge {
+    gap: 8px;
+    padding: 6px 18px;
+    margin-bottom: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .badge {
+    margin-bottom: 28px;
+  }
 }
 
 [data-theme='light'] .badge {
@@ -120,48 +153,124 @@
 
 /* ── Headline ───────────────────────────────────────────── */
 .headline {
-  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight:    800;
-  line-height:    1.04;
-  font-size:      clamp(38px, 8vw, 90px);
-  color:          var(--text);
-  letter-spacing: clamp(-1px, -0.035em, -3.5px);
-  margin:         0 0 clamp(4px, 1vw, 8px);
-  transition:     color 0.45s ease;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  line-height: 1.08;
+  font-size: 36px;
+  color: var(--text);
+  letter-spacing: -0.8px;
+  margin: 0 0 4px;
+  transition: color 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .headline {
+    font-size: 56px;
+    letter-spacing: -1.8px;
+    margin: 0 0 6px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .headline {
+    font-size: 80px;
+    letter-spacing: -2.8px;
+    line-height: 1.04;
+    margin: 0 0 8px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .headline {
+    font-size: 90px;
+    letter-spacing: -3.5px;
+  }
 }
 
 /* ── Flip row ───────────────────────────────────────────── */
 .flipRow {
-  font-size:      clamp(36px, 8vw, 90px);
-  font-weight:    800;
-  line-height:    1.04;
-  letter-spacing: clamp(-1px, -0.035em, -3.5px);
-  margin:         0 0 clamp(20px, 4vw, 32px);
-  min-height:     1.1em;
-  display:        flex;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.8px;
+  margin: 0 0 18px;
+  min-height: 1.2em;
+  display: flex;
   justify-content: center;
-  align-items:    flex-start;
-  perspective:    800px;
+  align-items: flex-start;
+  perspective: 800px;
+}
+
+@media (min-width: 640px) {
+  .flipRow {
+    font-size: 54px;
+    letter-spacing: -1.8px;
+    margin: 0 0 24px;
+    min-height: 1.15em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .flipRow {
+    font-size: 80px;
+    letter-spacing: -2.8px;
+    line-height: 1.04;
+    margin: 0 0 28px;
+    min-height: 1.1em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .flipRow {
+    font-size: 90px;
+    letter-spacing: -3.5px;
+    margin: 0 0 32px;
+  }
 }
 
 /* ── Subtitle ───────────────────────────────────────────── */
 .sub {
-  font-family:   -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size:     clamp(15px, 2.2vw, 20px);
-  color:         var(--text-mid);
-  max-width:     600px;
-  margin:        0 auto clamp(28px, 5vw, 44px);
-  line-height:   1.68;
-  font-weight:   400;
-  transition:    color 0.45s ease;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  color: var(--text-mid);
+  max-width: 600px;
+  margin: 0 auto 28px;
+  line-height: 1.68;
+  font-weight: 400;
+  transition: color 0.45s ease;
+  padding: 0 10px;
+}
+
+@media (min-width: 640px) {
+  .sub {
+    font-size: 17px;
+    margin: 0 auto 36px;
+    padding: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sub {
+    font-size: 20px;
+    margin: 0 auto 44px;
+  }
 }
 
 /* ── CTA row ────────────────────────────────────────────── */
 .ctas {
-  display:         flex;
-  gap:             clamp(10px, 2vw, 14px);
+  display: flex;
+  gap: 12px;
   justify-content: center;
-  flex-wrap:       wrap;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .ctas {
+    flex-direction: row;
+    gap: 14px;
+  }
 }
 
 /* ── Scroll cue ─────────────────────────────────────────── */

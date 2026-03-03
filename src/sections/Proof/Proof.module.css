@@ -1,12 +1,26 @@
 /* sections/Proof/Proof.module.css */
 
 .statsGrid {
-  display:       grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap:           2px;
-  background:    var(--divider);
-  border-radius: 20px;
-  overflow:      hidden;
-  margin-bottom: clamp(32px, 5vw, 52px);
-  transition:    background 0.45s ease;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--divider);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  transition: background 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .statsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    border-radius: 20px;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .statsGrid {
+    margin-bottom: 52px;
+  }
 }

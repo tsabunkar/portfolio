@@ -1,7 +1,19 @@
 /* sections/Proof/TestimonialCard.module.css */
 
 .card {
-  padding: clamp(22px, 4vw, 36px) clamp(18px, 3vw, 32px);
+  padding: 22px 18px;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 28px 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 36px 32px;
+  }
 }
 
 .openQuote {

@@ -1,12 +1,32 @@
 /* components/ui/WordFlip/WordFlip.module.css */
 
 .viewport {
-  display:        inline-block;
-  min-width:      clamp(200px, 52vw, 720px);
-  text-align:     center;
-  overflow:       hidden;
+  display: inline-block;
+  min-width: 240px;
+  text-align: center;
+  overflow: hidden;
   vertical-align: bottom;
-  height:         1.08em;
+  height: 1.12em;
+}
+
+@media (min-width: 640px) {
+  .viewport {
+    min-width: 380px;
+    height: 1.1em;
+  }
+}
+
+@media (min-width: 1024px) {
+  .viewport {
+    min-width: 600px;
+    height: 1.08em;
+  }
+}
+
+@media (min-width: 1280px) {
+  .viewport {
+    min-width: 720px;
+  }
 }
 
 .word {

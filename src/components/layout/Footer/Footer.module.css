@@ -8,13 +8,21 @@
 }
 
 .inner {
-  max-width:      1200px;
-  margin:         0 auto;
-  display:        flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
   justify-content: space-between;
-  align-items:    center;
-  flex-wrap:      wrap;
-  gap:            12px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .inner {
+    flex-direction: row;
+    gap: 12px;
+  }
 }
 
 .logo {
@@ -34,7 +42,21 @@
 
 .links {
   display: flex;
-  gap:     clamp(14px, 2.5vw, 22px);
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .links {
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .links {
+    gap: 22px;
+  }
 }
 
 .link {

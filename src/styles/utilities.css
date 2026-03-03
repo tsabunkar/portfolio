@@ -2,26 +2,72 @@
 
 /* ── Layout ───────────────────────────────────────────────── */
 .section {
-  padding:    clamp(80px, 11vw, 128px) clamp(16px, 5vw, 48px);
+  padding: 60px 20px;
   transition: background 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .section {
+    padding: 80px 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 100px 48px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section {
+    padding: 128px 48px;
+  }
 }
 
 .inner {
   max-width: 1120px;
-  margin:    0 auto;
+  margin: 0 auto;
 }
 
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
-  gap: clamp(12px, 2vw, 20px);
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 20px;
+  }
 }
 
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
-  gap:             clamp(32px, 6vw, 80px);
-  align-items:     center;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 50px;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-2 {
+    gap: 80px;
+  }
 }
 
 /* ── Typography ───────────────────────────────────────────── */
@@ -44,44 +90,80 @@
 
 /* ── Buttons ──────────────────────────────────────────────── */
 .btn-primary {
-  display:         inline-block;
-  background:      #0071e3;
-  color:           #fff;
-  border-radius:   980px;
-  font-family:     -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight:     500;
+  display: inline-block;
+  background: #0071e3;
+  color: #fff;
+  border-radius: 980px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
   text-decoration: none;
-  border:          none;
-  cursor:          pointer;
-  padding:         clamp(11px, 1.8vw, 14px) clamp(20px, 3vw, 28px);
-  font-size:       clamp(13px, 1.6vw, 15px);
-  transition:      transform 0.2s, box-shadow 0.2s, background 0.2s;
+  border: none;
+  cursor: pointer;
+  padding: 12px 24px;
+  font-size: 14px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
+}
+
+@media (min-width: 640px) {
+  .btn-primary {
+    padding: 13px 26px;
+    font-size: 14px;
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn-primary {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
 }
 
 .btn-primary:hover {
-  background:  #0077ed;
-  transform:   scale(1.04);
-  box-shadow:  0 8px 28px var(--shadow-blue);
+  background: #0077ed;
+  transform: scale(1.04);
+  box-shadow: 0 8px 28px var(--shadow-blue);
 }
 
 .btn-ghost {
-  display:         inline-block;
-  background:      transparent;
-  border-radius:   980px;
-  font-family:     -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight:     500;
+  display: inline-block;
+  background: transparent;
+  border-radius: 980px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
   text-decoration: none;
-  cursor:          pointer;
-  color:           var(--text);
-  border:          1px solid var(--border);
-  padding:         clamp(11px, 1.8vw, 14px) clamp(20px, 3vw, 28px);
-  font-size:       clamp(13px, 1.6vw, 15px);
-  transition:      transform 0.2s, border-color 0.2s, background 0.45s, color 0.45s;
+  cursor: pointer;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 12px 24px;
+  font-size: 14px;
+  transition: transform 0.2s, border-color 0.2s, background 0.45s, color 0.45s;
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
+}
+
+@media (min-width: 640px) {
+  .btn-ghost {
+    padding: 13px 26px;
+    font-size: 14px;
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .btn-ghost {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
 }
 
 .btn-ghost:hover {
   border-color: var(--border-hover);
-  transform:    scale(1.04);
+  transform: scale(1.04);
 }
 
 /* ── Card ─────────────────────────────────────────────────── */

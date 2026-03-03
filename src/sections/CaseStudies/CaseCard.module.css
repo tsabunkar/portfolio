@@ -1,18 +1,39 @@
 /* sections/CaseStudies/CaseCard.module.css */
 
 .card {
-  padding:     clamp(24px, 4vw, 44px) clamp(20px, 3.5vw, 40px);
-  cursor:      default;
-  transition:  border-color 0.25s, box-shadow 0.25s, transform 0.25s,
-               background 0.45s !important;
+  padding: 24px 20px;
+  cursor: default;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s,
+              background 0.45s !important;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 32px 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 44px 40px;
+  }
 }
 
 .header {
-  display:         flex;
+  display: flex;
   justify-content: space-between;
-  align-items:     flex-start;
-  margin-bottom:   20px;
-  gap:             10px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 12px;
+  flex-direction: column;
+}
+
+@media (min-width: 640px) {
+  .header {
+    flex-direction: row;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
 }
 
 .tag {
@@ -22,25 +43,49 @@
 }
 
 .stat {
-  text-align: right;
+  text-align: left;
   flex-shrink: 0;
 }
 
+@media (min-width: 640px) {
+  .stat {
+    text-align: right;
+  }
+}
+
 .statNum {
-  display:        block;
-  font-size:      clamp(22px, 4vw, 38px);
-  font-weight:    800;
-  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
-  line-height:    1;
+  display: block;
+  font-size: 28px;
+  font-weight: 800;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  line-height: 1;
+}
+
+@media (min-width: 640px) {
+  .statNum {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .statNum {
+    font-size: 38px;
+  }
 }
 
 .statLabel {
-  display:        block;
-  font-size:      clamp(9px, 1vw, 11px);
-  color:          var(--text-low);
-  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
-  margin-top:     2px;
-  transition:     color 0.45s ease;
+  display: block;
+  font-size: 10px;
+  color: var(--text-low);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin-top: 2px;
+  transition: color 0.45s ease;
+}
+
+@media (min-width: 1024px) {
+  .statLabel {
+    font-size: 11px;
+  }
 }
 
 .title {

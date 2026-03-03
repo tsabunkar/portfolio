@@ -19,24 +19,49 @@
 }
 
 .inner {
-  max-width:     1200px;
-  margin:        0 auto;
-  height:        56px;
-  display:       flex;
-  align-items:   center;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 56px;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding:       0 clamp(16px, 4vw, 44px);
+  padding: 0 20px;
+}
+
+@media (min-width: 640px) {
+  .inner {
+    padding: 0 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    padding: 0 44px;
+  }
 }
 
 .logo {
-  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight:    800;
-  font-size:      clamp(14px, 2vw, 17px);
-  color:          var(--text);
-  letter-spacing: -0.5px;
-  flex-shrink:    0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--text);
+  letter-spacing: -0.4px;
+  flex-shrink: 0;
   text-decoration: none;
-  transition:     color 0.45s ease;
+  transition: color 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .logo {
+    font-size: 16px;
+    letter-spacing: -0.5px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    font-size: 17px;
+  }
 }
 
 .desktopLinks {
@@ -82,14 +107,26 @@
 }
 
 .drawerLink {
-  display:         block;
-  color:           var(--text);
-  font-size:       15px;
-  font-family:     -apple-system, BlinkMacSystemFont, sans-serif;
+  display: block;
+  color: var(--text);
+  font-size: 15px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   text-decoration: none;
-  padding:         12px clamp(16px, 4vw, 44px);
-  border-bottom:   1px solid var(--border);
-  transition:      color 0.45s ease;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .drawerLink {
+    padding: 12px 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .drawerLink {
+    padding: 12px 44px;
+  }
 }
 
 .drawerLink:hover {

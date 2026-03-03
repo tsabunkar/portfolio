@@ -35,10 +35,18 @@
 }
 
 .actions {
-  display:    flex;
-  gap:        12px;
-  flex-wrap:  wrap;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
   margin-top: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+  }
 }
 
 /* Stack card */
@@ -239,4 +247,88 @@
   font-weight: 600;
   color: var(--text);
   transition: color 0.45s ease;
+}
+
+/* Experience section */
+.experienceSection {
+  margin-top: 50px;
+}
+
+@media (min-width: 640px) {
+  .experienceSection {
+    margin-top: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .experienceSection {
+    margin-top: 80px;
+  }
+}
+
+.experienceHeader {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .experienceHeader {
+    margin-bottom: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .experienceHeader {
+    margin-bottom: 40px;
+  }
+}
+
+.experienceHeading {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  margin: 8px 0 0;
+  line-height: 1.2;
+  transition: color 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .experienceHeading {
+    font-size: 28px;
+    letter-spacing: -0.8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .experienceHeading {
+    font-size: 36px;
+    letter-spacing: -1.2px;
+  }
+}
+
+.experienceGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .experienceGrid {
+    gap: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .experienceGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .experienceGrid {
+    gap: 20px;
+  }
 }

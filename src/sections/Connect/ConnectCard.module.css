@@ -1,22 +1,51 @@
 /* sections/Connect/ConnectCard.module.css */
 
 .card {
-  padding:         clamp(22px, 4vw, 32px) clamp(16px, 3vw, 22px);
+  padding: 24px 18px;
   text-decoration: none;
-  display:         block;
-  text-align:      center;
-  transition:      border-color 0.25s, box-shadow 0.25s, transform 0.25s,
-                   background 0.45s !important;
+  display: block;
+  text-align: center;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s,
+              background 0.45s !important;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 28px 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 32px 22px;
+  }
 }
 
 .iconWrap {
-  width:           clamp(40px, 6vw, 50px);
-  height:          clamp(40px, 6vw, 50px);
-  border-radius:   13px;
-  display:         flex;
-  align-items:     center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
   justify-content: center;
-  margin:          0 auto clamp(14px, 2.2vw, 18px);
+  margin: 0 auto 14px;
+}
+
+@media (min-width: 640px) {
+  .iconWrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+    margin: 0 auto 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .iconWrap {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 18px;
+  }
 }
 
 .icon {

@@ -1,0 +1,447 @@
+/* sections/About/ExperienceCard.module.css */
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  cursor: default;
+  animation: slideInCard 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(var(--card-index) * 0.1s);
+  position: relative;
+  isolation: isolate;
+  contain: layout style;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 20px;
+    border-radius: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 24px;
+  }
+}
+
+@keyframes slideInCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotateX(10deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+.card:not([data-expanded="true"]):hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  border-color: var(--accent, var(--border));
+}
+
+.card[data-expanded="true"] {
+  transform: scale(1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card[data-expanded="true"]:hover {
+  transform: scale(1);
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logoCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0071e3, #30d158);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .logoCircle {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    font-size: 20px;
+  }
+}
+
+.card:not([data-expanded="true"]):hover .logoCircle {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.companyInfo {
+  flex: 1;
+}
+
+.company {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  transition: color 0.45s ease;
+  line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+  .company {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .company {
+    font-size: 18px;
+  }
+}
+
+.totalDuration {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11px;
+  color: var(--text-low);
+  margin: 2px 0 0;
+  transition: color 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .totalDuration {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .totalDuration {
+    font-size: 13px;
+  }
+}
+
+.expandBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--skill-bg);
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.expandBtn:hover {
+  background: var(--border);
+  transform: rotate(90deg);
+}
+
+.expandBtn:active {
+  transform: scale(0.95);
+}
+
+.card[data-expanded="true"] .expandBtn {
+  transform: rotate(180deg);
+}
+
+.card[data-expanded="true"] .expandBtn:hover {
+  transform: rotate(180deg) scale(1.05);
+}
+
+/* Content */
+.content {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  animation: fadeIn 0.4s ease;
+  display: block;
+  opacity: 1;
+}
+
+@media (min-width: 640px) {
+  .content {
+    margin-top: 16px;
+    padding-top: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    margin-top: 18px;
+    padding-top: 18px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Position tabs */
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 14px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tabs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tabs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+@media (min-width: 640px) {
+  .tabs {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+}
+
+.tab {
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-low);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 5;
+}
+
+@media (min-width: 640px) {
+  .tab {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}
+
+.tab:hover {
+  background: var(--skill-bg);
+  color: var(--text-mid);
+}
+
+.activeTab {
+  background: var(--skill-bg);
+  color: var(--text);
+  border-color: var(--skill-border);
+  font-weight: 600;
+}
+
+/* Position details */
+.position {
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.positionHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.role {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+  transition: color 0.45s ease;
+  line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+  .role {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .role {
+    font-size: 16px;
+  }
+}
+
+.period {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10px;
+  color: var(--text-low);
+  font-weight: 500;
+  transition: color 0.45s ease;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .period {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .period {
+    font-size: 12px;
+  }
+}
+
+.duration {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11px;
+  color: var(--text-mid);
+  margin: 0 0 3px;
+  transition: color 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .duration {
+    font-size: 12px;
+    margin: 0 0 4px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .duration {
+    font-size: 13px;
+  }
+}
+
+.location {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10px;
+  color: var(--text-low);
+  margin: 0 0 10px;
+  transition: color 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .location {
+    font-size: 11px;
+    margin: 0 0 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .location {
+    font-size: 12px;
+  }
+}
+
+.description {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin: 0 0 12px;
+  transition: color 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .description {
+    font-size: 13px;
+    margin: 0 0 14px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .description {
+    line-height: 1.65;
+  }
+}
+
+/* Skills */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+@media (min-width: 640px) {
+  .skills {
+    gap: 6px;
+  }
+}
+
+.skill {
+  background: var(--skill-bg);
+  color: var(--text-mid);
+  border-radius: 5px;
+  padding: 4px 8px;
+  font-size: 9px;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  border: 1px solid var(--skill-border);
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+@media (min-width: 640px) {
+  .skill {
+    padding: 4px 10px;
+    font-size: 10px;
+    border-radius: 6px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .skill {
+    font-size: 11px;
+  }
+}
