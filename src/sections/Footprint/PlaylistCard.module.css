@@ -1,0 +1,175 @@
+/* sections/Footprint/PlaylistCard.module.css */
+
+.playlistCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.playlistCard:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.playlistHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  width: 100%;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s;
+}
+
+@media (min-width: 640px) {
+  .playlistHeader {
+    padding: 18px 20px;
+  }
+}
+
+.playlistHeader:hover {
+  background: var(--bg-hover);
+}
+
+.playlistIcon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff453a 0%, #ff5e52 100%);
+  border-radius: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(255, 69, 58, 0.25);
+}
+
+.iconSymbol {
+  font-size: 20px;
+  color: white;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.playlistInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.playlistTitle {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 4px;
+  transition: color 0.45s ease;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+  .playlistTitle {
+    font-size: 15px;
+  }
+}
+
+.playlistMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-low);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: color 0.45s ease;
+}
+
+.videoCount {
+  font-weight: 500;
+}
+
+.divider {
+  opacity: 0.5;
+}
+
+.visibility {
+  opacity: 0.7;
+}
+
+.expandIcon {
+  flex-shrink: 0;
+  color: var(--text-low);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s;
+}
+
+.expanded .expandIcon {
+  transform: rotate(180deg);
+}
+
+.playlistHeader:hover .expandIcon {
+  color: var(--text);
+}
+
+.chevron {
+  display: block;
+}
+
+.playlistDetails {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.expanded .playlistDetails {
+  max-height: 200px;
+}
+
+.detailsContent {
+  padding: 0 18px 18px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+}
+
+@media (min-width: 640px) {
+  .detailsContent {
+    padding: 0 20px 20px;
+    padding-top: 16px;
+  }
+}
+
+.lastUpdated {
+  font-size: 12px;
+  color: var(--text-low);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0 0 12px;
+  transition: color 0.45s ease;
+}
+
+.viewPlaylistBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #ff453a 0%, #ff5e52 100%);
+  color: white;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(255, 69, 58, 0.2);
+}
+
+.viewPlaylistBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 69, 58, 0.3);
+}
+
+.viewPlaylistBtn:active {
+  transform: translateY(0);
+}

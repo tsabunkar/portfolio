@@ -49,3 +49,30 @@ export const ARTICLES = [
     url:   '#',
   },
 ];
+
+export const YOUTUBE_PLAYLISTS = [
+  {
+    title: 'Claude',
+    videoCount: 1,
+    visibility: 'Public',
+    lastUpdated: 'Updated today',
+    thumbnail: '▶',
+    url: 'https://www.youtube.com/@tsabunkar/playlists',
+  },
+  {
+    title: 'AI Automation LinkedIn Post',
+    videoCount: 2,
+    visibility: 'Public',
+    lastUpdated: 'Updated 4 days ago',
+    thumbnail: '▶',
+    url: 'https://www.youtube.com/@tsabunkar/playlists',
+  },
+  {
+    title: 'Face Recognition App - Live Coding',
+    videoCount: 5,
+    visibility: 'Public',
+    lastUpdated: 'Recently updated',
+    thumbnail: '▶',
+    url: 'https://www.youtube.com/@tsabunkar/playlists',
+  },
+];

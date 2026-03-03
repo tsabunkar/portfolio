@@ -105,3 +105,39 @@
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   transition:  color 0.45s ease;
 }
+
+/* YouTube Playlists Section */
+.playlistsSection {
+  margin-top: clamp(32px, 4vw, 48px);
+}
+
+.playlistsLabel {
+  font-size:      clamp(9px, 1.1vw, 10px);
+  color:          var(--text-low);
+  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 1.8px;
+  font-weight:    700;
+  margin:         0 0 20px;
+  text-transform: uppercase;
+  transition:     color 0.45s ease;
+}
+
+.playlistsGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .playlistsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .playlistsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}

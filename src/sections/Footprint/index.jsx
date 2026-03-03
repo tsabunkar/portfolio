@@ -5,7 +5,8 @@
 import { useReveal } from '@/hooks/useReveal';
 import SectionHeader from '@/components/ui/SectionHeader';
 import PlatformCard from './PlatformCard';
-import { FOOTPRINT, ARTICLES } from '@/data';
+import PlaylistCard from './PlaylistCard';
+import { FOOTPRINT, ARTICLES, YOUTUBE_PLAYLISTS } from '@/data';
 import styles from './Footprint.module.css';
 
 export default function FootprintSection() {
@@ -47,6 +48,16 @@ export default function FootprintSection() {
                   <span className={styles.date}>{a.date}</span>
                 </span>
               </a>
+            ))}
+          </div>
+        </div>
+
+        {/* YouTube Playlists */}
+        <div className={styles.playlistsSection}>
+          <p className={styles.playlistsLabel}>YouTube Playlists</p>
+          <div className={styles.playlistsGrid}>
+            {YOUTUBE_PLAYLISTS.map((playlist) => (
+              <PlaylistCard key={playlist.title} playlist={playlist} />
             ))}
           </div>
         </div>
