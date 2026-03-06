@@ -10,7 +10,9 @@
   background: var(--bg);
   border: 2px solid var(--border);
   border-radius: 16px;
-  transition: border-color 0.25s, transform 0.25s !important;
+  transition:
+    border-color 0.25s,
+    transform 0.25s !important;
 }
 
 /* Boarding Pass Header */
@@ -19,7 +21,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 20px;
-  border-bottom: 2px solid var(--border);
+  border-bottom: 1px solid var(--border);
   background: var(--bg);
 }
 
@@ -195,14 +197,16 @@
   padding: 10px 24px;
   background: #ffd60a;
   color: #000;
-  border: 2px solid var(--border);
+  border: 1.5px solid var(--border);
   border-radius: 8px;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(11px, 1.2vw, 13px);
   font-weight: 700;
   letter-spacing: 0.5px;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .ctaButton:hover {
