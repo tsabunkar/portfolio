@@ -20,8 +20,8 @@ export default function HeroSection() {
   }, []);
 
   const heroBg = dark
-    ? 'radial-gradient(ellipse 140% 90% at 50% 108%, #07072a 0%, #000 58%)'
-    : 'radial-gradient(ellipse 140% 90% at 50% 108%, #dbe8ff 0%, #fff 58%)';
+    ? 'radial-gradient(ellipse 140% 90% at 50% 108%, #2a2a2a 0%, #1a1a1a 58%)'
+    : 'radial-gradient(ellipse 140% 90% at 50% 108%, #FFF9E6 0%, #F5F3ED 58%)';
 
   return (
     <section

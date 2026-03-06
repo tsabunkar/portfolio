@@ -1,10 +1,30 @@
 /* sections/CaseStudies/CaseCard.module.css */
 
 .card {
-  padding: 24px 20px;
+  padding: 24px 20px 24px 48px;
   cursor: default;
-  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s,
-              background 0.45s !important;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s,
+              background 0.3s !important;
+}
+
+.boardingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.boardingLabel {
+  color: var(--text-low);
+}
+
+.boardingTag {
+  color: var(--text-low);
 }
 
 @media (min-width: 640px) {

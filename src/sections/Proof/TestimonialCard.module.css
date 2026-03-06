@@ -19,7 +19,7 @@
 .openQuote {
   display:     block;
   font-size:   clamp(24px, 4vw, 34px);
-  color:       #ff9f0a;
+  color:       var(--text-low);
   font-family: Georgia, serif;
   line-height: 1;
   margin-bottom: 12px;

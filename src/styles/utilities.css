@@ -72,36 +72,38 @@
 
 /* ── Typography ───────────────────────────────────────────── */
 .grad-text {
-  background:              linear-gradient(135deg, #0071e3 0%, #30d158 52%, #ff9f0a 100%);
+  background: linear-gradient(135deg, #f4c542 0%, #f5d060 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip:         text;
+  background-clip: text;
 }
 
 /* ── Pill / badge ─────────────────────────────────────────── */
 .pill {
-  display:      inline-flex;
-  align-items:  center;
+  display: inline-flex;
+  align-items: center;
   border-radius: 100px;
-  font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight:  600;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
   letter-spacing: 0.5px;
 }
 
 /* ── Buttons ──────────────────────────────────────────────── */
 .btn-primary {
   display: inline-block;
-  background: #0071e3;
-  color: #fff;
+  background: var(--accent-yellow);
+  color: #1a1a1a;
   border-radius: 980px;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: none;
-  border: none;
+  border: 2px solid #1a1a1a;
   cursor: pointer;
-  padding: 12px 24px;
-  font-size: 14px;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  padding: 12px 28px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, background 0.2s;
   text-align: center;
   width: 100%;
   max-width: 280px;
@@ -109,23 +111,22 @@
 
 @media (min-width: 640px) {
   .btn-primary {
-    padding: 13px 26px;
-    font-size: 14px;
+    padding: 14px 32px;
+    font-size: 13px;
     width: auto;
   }
 }
 
 @media (min-width: 1024px) {
   .btn-primary {
-    padding: 14px 28px;
-    font-size: 15px;
+    padding: 15px 36px;
+    font-size: 14px;
   }
 }
 
 .btn-primary:hover {
-  background: #0077ed;
-  transform: scale(1.04);
-  box-shadow: 0 8px 28px var(--shadow-blue);
+  background: #f5d060;
+  transform: scale(1.05);
 }
 
 .btn-ghost {
@@ -133,14 +134,16 @@
   background: transparent;
   border-radius: 980px;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
   color: var(--text);
-  border: 1px solid var(--border);
-  padding: 12px 24px;
-  font-size: 14px;
-  transition: transform 0.2s, border-color 0.2s, background 0.45s, color 0.45s;
+  border: 2px solid var(--border);
+  padding: 12px 28px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: transform 0.2s, border-color 0.2s, background 0.3s, color 0.3s;
   text-align: center;
   width: 100%;
   max-width: 280px;
@@ -148,55 +151,103 @@
 
 @media (min-width: 640px) {
   .btn-ghost {
-    padding: 13px 26px;
-    font-size: 14px;
+    padding: 14px 32px;
+    font-size: 13px;
     width: auto;
   }
 }
 
 @media (min-width: 1024px) {
   .btn-ghost {
-    padding: 14px 28px;
-    font-size: 15px;
+    padding: 15px 36px;
+    font-size: 14px;
   }
 }
 
 .btn-ghost:hover {
   border-color: var(--border-hover);
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 /* ── Card ─────────────────────────────────────────────────── */
 .card {
-  background:   var(--bg-card);
-  border:       1px solid var(--border);
-  border-radius: 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px var(--shadow-card);
   transition:
-    border-color 0.25s,
-    box-shadow   0.25s,
-    transform    0.25s,
-    background   0.45s;
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s,
+    background 0.3s;
+  position: relative;
 }
 
 .card:hover {
-  background:   var(--bg-card-hover);
+  background: var(--bg-card-hover);
   border-color: var(--border-hover);
+  box-shadow: 0 4px 12px var(--shadow-card);
+  transform: translateY(-2px);
 }
 
 /* ── Responsive visibility ────────────────────────────────── */
-@media (max-width: 767px)  { .dt-only { display: none !important; } }
-@media (min-width: 768px)  { .mb-only { display: none !important; } }
+@media (max-width: 767px) {
+  .dt-only {
+    display: none !important;
+  }
+}
+@media (min-width: 768px) {
+  .mb-only {
+    display: none !important;
+  }
+}
 
 /* ── Nav link ─────────────────────────────────────────────── */
 .nav-link {
-  color:           var(--text-mid);
+  color: var(--text-mid);
   text-decoration: none;
-  font-size:       clamp(12px, 1.3vw, 13px);
-  font-family:     -apple-system, BlinkMacSystemFont, sans-serif;
-  letter-spacing:  0.15px;
-  transition:      color 0.18s;
+  font-size: clamp(12px, 1.3vw, 13px);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 0.15px;
+  transition: color 0.18s;
 }
 
 .nav-link:hover {
   color: var(--text);
+}
+
+/* ── Barcode decoration (Brightwyn style) ────────────────── */
+.barcode {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 2px;
+  opacity: 0.15;
+}
+
+.barcode span {
+  width: 2px;
+  height: 50px;
+  background: var(--text);
+}
+
+.barcode span:nth-child(1) {
+  height: 35px;
+}
+.barcode span:nth-child(2) {
+  height: 45px;
+}
+.barcode span:nth-child(3) {
+  height: 50px;
+}
+.barcode span:nth-child(4) {
+  height: 40px;
+}
+.barcode span:nth-child(5) {
+  height: 48px;
+}
+.barcode span:nth-child(6) {
+  height: 42px;
 }

@@ -14,15 +14,23 @@ const CaseCard = memo(function CaseCard({ cs, delayClass }) {
     <article
       ref={ref}
       className={`reveal card ${delayClass} ${styles.card}`}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = `${cs.accent}44`;
-        e.currentTarget.style.boxShadow   = `0 0 55px ${cs.accent}15`;
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = '';
-        e.currentTarget.style.boxShadow   = '';
-      }}
     >
+      {/* Barcode decoration */}
+      <div className="barcode" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      {/* Boarding pass header */}
+      <div className={styles.boardingHeader}>
+        <span className={styles.boardingLabel}>PROJECT BRIEF</span>
+        <span className={styles.boardingTag}>CASE STUDY</span>
+      </div>
+
       {/* Tag + stat */}
       <header className={styles.header}>
         <span

@@ -306,7 +306,11 @@
 
 @media (max-width: 479px) {
   .activeTab {
-    background: linear-gradient(135deg, rgba(0, 113, 227, 0.15), rgba(48, 209, 88, 0.15));
+    background: linear-gradient(
+      135deg,
+      rgba(0, 113, 227, 0.15),
+      rgba(48, 209, 88, 0.15)
+    );
     border-color: rgba(0, 113, 227, 0.3);
   }
 }

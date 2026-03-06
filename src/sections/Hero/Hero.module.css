@@ -108,8 +108,8 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(0, 113, 227, 0.12);
-  border: 1px solid rgba(0, 113, 227, 0.32);
+  background: transparent;
+  border: 2px solid var(--border);
   border-radius: 100px;
   padding: 5px 14px;
   margin-bottom: 18px;
@@ -129,26 +129,21 @@
   }
 }
 
-[data-theme='light'] .badge {
-  background: rgba(0, 113, 227, 0.07);
-  border-color: rgba(0, 113, 227, 0.20);
-}
-
 .dot {
   width:         7px;
   height:        7px;
   border-radius: 50%;
-  background:    #30d158;
-  box-shadow:    0 0 6px rgba(48, 209, 88, 0.6);
+  background:    var(--accent-yellow);
+  box-shadow:    0 0 6px rgba(244, 197, 66, 0.6);
   flex-shrink:   0;
 }
 
 .badgeText {
-  color:          #0071e3;
+  color:          var(--text);
   font-size:      clamp(10px, 1.3vw, 12px);
   font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: 1.1px;
-  font-weight:    600;
+  font-weight:    700;
 }
 
 /* ── Headline ───────────────────────────────────────────── */

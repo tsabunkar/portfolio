@@ -12,12 +12,12 @@ const DELAYS = ['d1', 'd2', 'd3', 'd4'];
 
 export default function ProofSection() {
   return (
-    <section id="proof" className="section" style={{ background: 'var(--bg-alt)' }}>
+    <section id="proof" className="section" style={{ background: 'var(--bg)' }}>
       <div className="inner">
         <SectionHeader
           eyebrow="Proof"
           title="The numbers.<br/>The people."
-          eyebrowColor="#ff9f0a"
+          eyebrowColor="#999999"
         />
 
         {/* Stats grid */}
