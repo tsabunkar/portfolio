@@ -46,7 +46,13 @@ export default function ConnectSection() {
 
         {/* Email CTA */}
         <a href="mailto:tsabunkar@gmail.com" className={styles.emailBtn}>
-          Send a Direct Email →
+          <span className={styles.emailBtnIcon} aria-hidden="true">
+            ✈
+          </span>
+          <span>Send Direct Email</span>
+          <span className={styles.emailBtnArrow} aria-hidden="true">
+            →
+          </span>
         </a>
       </div>
     </section>
