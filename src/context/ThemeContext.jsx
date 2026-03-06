@@ -1,7 +1,7 @@
 /**
  * context/ThemeContext.jsx
  * Provides { dark, toggleTheme } via React context.
- * Initialises from localStorage, defaults to dark.
+ * Initialises from localStorage, defaults to light.
  */
 
 import { createContext, useCallback, useEffect, useState } from 'react';
@@ -13,9 +13,9 @@ export function ThemeProvider({ children }) {
   const [dark, setDark] = useState(() => {
     try {
       const stored = localStorage.getItem('portfolio-theme');
-      return stored ? stored === 'dark' : true; // default: dark
+      return stored ? stored === 'dark' : false; // default: light
     } catch {
-      return true;
+      return false;
     }
   });
 
