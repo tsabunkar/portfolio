@@ -1,21 +1,24 @@
 /* components/layout/NavBar/NavBar.module.css */
 
 .nav {
-  position:          fixed;
-  top:               0;
-  left:              0;
-  right:             0;
-  z-index:           999;
-  background:        transparent;
-  border-bottom:     1px solid transparent;
-  transition:        background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease,
+    backdrop-filter 0.4s;
 }
 
 .scrolled {
-  background:        var(--nav-bg);
-  backdrop-filter:   blur(22px) saturate(180%);
+  background: var(--nav-bg);
+  backdrop-filter: blur(22px) saturate(180%);
   -webkit-backdrop-filter: blur(22px) saturate(180%);
-  border-bottom:     1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .inner {
@@ -65,45 +68,47 @@
 }
 
 .desktopLinks {
-  display:     flex;
+  display: flex;
   align-items: center;
-  gap:         clamp(20px, 2.8vw, 34px);
+  gap: clamp(20px, 2.8vw, 34px);
 }
 
 .mobileControls {
-  display:     flex;
+  display: flex;
   align-items: center;
-  gap:         12px;
+  gap: 12px;
 }
 
 .hamburger {
-  background:  none;
-  border:      none;
-  cursor:      pointer;
-  display:     flex;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
   flex-direction: column;
-  gap:         5px;
-  padding:     4px;
-  outline:     none;
+  gap: 5px;
+  padding: 4px;
+  outline: none;
 }
 
 .bar {
-  display:       block;
-  width:         22px;
-  height:        2px;
+  display: block;
+  width: 22px;
+  height: 2px;
   border-radius: 1px;
-  background:    var(--text);
-  transition:    transform 0.28s ease, opacity 0.2s ease;
+  background: var(--text);
+  transition:
+    transform 0.28s ease,
+    opacity 0.2s ease;
 }
 
 /* Mobile drawer */
 .drawer {
-  overflow:          hidden;
-  transition:        max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  background:        var(--nav-bg);
-  backdrop-filter:   blur(22px) saturate(180%);
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--nav-bg);
+  backdrop-filter: blur(22px) saturate(180%);
   -webkit-backdrop-filter: blur(22px) saturate(180%);
-  border-top:        1px solid var(--border);
+  border-top: 1px solid var(--border);
 }
 
 .drawerLink {
