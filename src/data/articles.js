@@ -34,7 +34,9 @@ export const ARTICLES_CONTENT = [
             </ul>
 
             <p>Live site: <a href="https://tsabunkar.com/" target="_blank" rel="noopener noreferrer">https://tsabunkar.com/</a></p>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/s6ZavhRB0TM?si=UoRxCI2HDE9Yv3S-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-container">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/s6ZavhRB0TM?si=UoRxCI2HDE9Yv3S-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
             <hr />
 
             <h2>Architecture Overview</h2>

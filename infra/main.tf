@@ -122,6 +122,20 @@ resource "aws_cloudfront_distribution" "cdn" {
     }
   }
 
+  custom_error_response {
+    error_code            = 403
+    response_code         = 200
+    response_page_path    = "/index.html"
+    error_caching_min_ttl = 300
+  }
+
+  custom_error_response {
+    error_code            = 404
+    response_code         = 200
+    response_page_path    = "/index.html"
+    error_caching_min_ttl = 300
+  }
+
   viewer_certificate {
     acm_certificate_arn = aws_acm_certificate_validation.cert_validation_complete.certificate_arn
     ssl_support_method  = "sni-only"
