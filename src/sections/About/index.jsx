@@ -15,7 +15,7 @@ export default function AboutSection() {
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <section id="about" className="section" style={{ background: "var(--bg)" }}>
+    <section id="about" className="section" style={{ background: "transparent" }}>
       <div className="inner">
         {/* Top grid: Text + Flip card */}
         <div className={`grid-2 ${styles.grid}`}>

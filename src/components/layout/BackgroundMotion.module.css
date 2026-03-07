@@ -1,0 +1,36 @@
+.background {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.08; /* Subtle background */
+  transition: opacity 0.5s ease;
+}
+
+.light {
+  mix-blend-mode: multiply; /* Removes white from sketch */
+  filter: grayscale(100%);
+}
+
+.dark {
+  mix-blend-mode: screen; /* Lightens and blends with dark bg */
+  filter: invert(1) grayscale(100%); /* Inverts black lines to white */
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: pan 45s linear infinite;
+}
+
+@keyframes pan {
+  0% { transform: scale(1.1) translate(0%, 0%); }
+  25% { transform: scale(1.1) translate(-2%, 2%); }
+  50% { transform: scale(1.1) translate(-4%, 0%); }
+  75% { transform: scale(1.1) translate(-2%, -2%); }
+  100% { transform: scale(1.1) translate(0%, 0%); }
+}

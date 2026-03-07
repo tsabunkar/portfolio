@@ -12,7 +12,7 @@ const DELAYS = ['d1', 'd2', 'd3', 'd4'];
 
 export default function ProofSection() {
   return (
-    <section id="proof" className="section" style={{ background: 'var(--bg)' }}>
+    <section id="proof" className="section" style={{ background: 'transparent' }}>
       <div className="inner">
         <SectionHeader
           eyebrow="Proof"

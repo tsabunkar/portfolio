@@ -13,7 +13,7 @@ export default function FootprintSection() {
   const tableRef = useReveal();
 
   return (
-    <section id="footprint" className="section" style={{ background: 'var(--bg-alt)' }}>
+    <section id="footprint" className="section" style={{ background: 'transparent' }}>
       <div className="inner">
         <SectionHeader
           eyebrow="Digital Footprint"

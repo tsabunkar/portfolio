@@ -20,14 +20,14 @@ export default function HeroSection() {
   }, []);
 
   const heroBg = dark
-    ? 'radial-gradient(ellipse 140% 90% at 50% 108%, #2a2a2a 0%, #1a1a1a 58%)'
-    : 'radial-gradient(ellipse 140% 90% at 50% 108%, #FFF9E6 0%, #F5F3ED 58%)';
+    ? 'radial-gradient(ellipse 140% 90% at 50% 108%, rgba(42, 42, 42, 0.85) 0%, rgba(26, 26, 26, 0.8) 58%)'
+    : 'radial-gradient(ellipse 140% 90% at 50% 108%, rgba(255, 249, 230, 0.85) 0%, rgba(245, 243, 237, 0.8) 58%)';
 
   return (
     <section
       id="work"
       className={styles.hero}
-      style={{ background: heroBg }}
+      style={{ backgroundColor: 'transparent', backgroundImage: heroBg }}
     >
       {/* Star field — rendered only in dark mode */}
       {dark && (

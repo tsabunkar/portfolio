@@ -10,7 +10,7 @@ const DELAYS = ['d1', 'd2', 'd3'];
 
 export default function CaseStudiesSection() {
   return (
-    <section id="case-studies" className="section" style={{ background: 'var(--bg)' }}>
+    <section id="case-studies" className="section" style={{ background: 'transparent' }}>
       <div className="inner">
         <SectionHeader
           eyebrow="Case Studies"

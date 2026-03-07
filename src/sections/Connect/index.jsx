@@ -16,7 +16,9 @@ export default function ConnectSection() {
     <section
       id="connect"
       className={`section ${styles.section}`}
-      style={{ background: "var(--bg)" }}
+      style={{
+        backgroundColor: "transparent",
+      }}
     >
       <div className={styles.inner}>
         {/* Header */}

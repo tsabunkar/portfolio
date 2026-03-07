@@ -4,6 +4,7 @@
  * Wraps the app in ThemeProvider and renders layout + sections.
  */
 
+import BackgroundMotion from '@/components/layout/BackgroundMotion';
 import { ThemeProvider } from '@/context/ThemeContext';
 import NavBar            from '@/components/layout/NavBar';
 import Footer            from '@/components/layout/Footer';
@@ -17,6 +18,7 @@ import ConnectSection    from '@/sections/Connect';
 export default function App() {
   return (
     <ThemeProvider>
+      <BackgroundMotion />
       <NavBar />
       <main>
         <HeroSection />
