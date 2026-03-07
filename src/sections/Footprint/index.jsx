@@ -33,7 +33,7 @@ export default function FootprintSection() {
             ref={tableRef}
             className={`reveal card d3 ${styles.articlesCard}`}
           >
-            <p className={styles.tableLabel}>Recent Articles on Medium</p>
+            <p className={styles.tableLabel}>Recent Articles </p>
             {ARTICLES.map((a, i) => (
               <a
                 key={a.title}

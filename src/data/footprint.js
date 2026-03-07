@@ -31,9 +31,9 @@ export const FOOTPRINT = [
 
 export const ARTICLES = [
   {
-    title: 'How I Designed a Zero-Downtime Migration for 80TB of Production Data',
-    reads: '24K reads',
-    date:  'Mar 2025',
+    title: 'From Localhost to Live on AWS: How I Deployed My React Portfolio the Right Way',
+    reads: '1.5K reads',
+    date:  'Marc 2026',
     url:   '#',
   },
   {
@@ -41,13 +41,7 @@ export const ARTICLES = [
     reads: '19K reads',
     date:  'Jan 2025',
     url:   '#',
-  },
-  {
-    title: 'The Hidden Costs Nobody Talks About When Moving to Microservices',
-    reads: '33K reads',
-    date:  'Dec 2024',
-    url:   '#',
-  },
+  }
 ];
 
 export const YOUTUBE_PLAYLISTS = [

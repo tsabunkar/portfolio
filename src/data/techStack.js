@@ -1,6 +1,7 @@
 /** data/techStack.js */
 export const TECH_STACK = [
-  ["AWS", "GCP", "Terraform", "CDK"],
-  ["Kubernetes", "Docker", "Kafka"],
-  ["Python", "Go", "TypeScript", "Java"],
+  ["AWS", "Terraform", "Git", "Jenkins"],
+  ["Kubernetes", "Docker", "Prometheus (with Grafana)"],
+  ["TypeScript", "Python", "Go"],
+  ["Miro", "Excalidraw"],
 ];

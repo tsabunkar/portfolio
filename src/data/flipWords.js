@@ -2,7 +2,9 @@
 export const FLIP_WORDS = [
   'Resilient Architecture',
   'Relentless Execution',
-  'Vibe Coding',
+  'AI-Templated Coding',
   'Endurance Mindset',
   'Strong Arabic Coffee',
+  'Curiosity-Driven Upskilling',
+  'Leading Teams to Deliver'
 ];

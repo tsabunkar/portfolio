@@ -90,9 +90,10 @@ export default function HeroSection() {
           className={`${styles.sub} ${loaded ? styles.loaded : ''}`}
           style={{ transitionDelay: '0.2s' }}
         >
-          Solutions Architect designing cloud platforms, integration patterns,
-          and enterprise systems — turning complexity into clarity for
-          organisations at scale.
+        Specializing in designing and delivering scalable, secure, and resilient distributed systems that drive business impact.
+        <div style={{ marginTop: '0.2rem' }}>
+          I combine architecture with hands-on development while leading diverse teams with clarity, consistency, a strong focus on learning.
+        </div>
         </p>
 
         {/* CTA buttons */}
