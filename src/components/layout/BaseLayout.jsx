@@ -5,11 +5,14 @@
 import BackgroundMotion from "./BackgroundMotion";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function BaseLayout({ children }) {
+  const { zenMode } = useTheme();
+
   return (
     <>
-      <BackgroundMotion />
+      {!zenMode && <BackgroundMotion />}
       <NavBar />
       <main>{children}</main>
       <Footer />

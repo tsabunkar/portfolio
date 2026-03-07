@@ -13,18 +13,98 @@
   margin-bottom: 48px;
 }
 
+.headerTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
 .backLink {
   display: inline-block;
-  color: var(--text-dim);
+  color: var(--text-mid);
   text-decoration: none;
   font-size: 0.9rem;
-  margin-bottom: 24px;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
   transition: color 0.2s ease;
 }
 
 .backLink:hover {
-  color: var(--accent);
+  color: var(--accent-yellow);
 }
+
+.zenSwitch {
+  background: transparent;
+  border: none;
+  color: var(--text-mid);
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  outline: none;
+}
+
+.zenSwitch:hover {
+  opacity: 0.8;
+}
+
+.zenLabel {
+  color: var(--text-mid);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  font-weight: 400;
+  transition: color 0.2s ease;
+}
+
+.zenSwitch:hover .zenLabel {
+  color: var(--accent-yellow);
+}
+
+.zenSlider {
+  width: 44px;
+  height: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.zenCircle {
+  width: 20px;
+  height: 20px;
+  background: var(--bg);
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.zenSwitch.active .zenSlider {
+  background: var(--accent-yellow);
+  border-color: var(--accent-yellow);
+}
+
+.zenSwitch.active .zenCircle {
+  left: 21px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Removed .zenSwitch.active .zenLabel color change */
 
 .heroImage {
   width: 100%;
