@@ -39,13 +39,6 @@ export const ARTICLES = [
     url: "/article/localhost-to-aws",
     internal: true,
   },
-  {
-    title:
-      "Active-Active vs Active-Passive: When Each Pattern Actually Makes Sense",
-    reads: "19K reads",
-    date: "Jan 2025",
-    url: "#",
-  },
 ];
 
 export const YOUTUBE_PLAYLISTS = [
