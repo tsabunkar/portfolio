@@ -2,18 +2,23 @@
  * sections/Footprint/index.jsx
  */
 
-import { useReveal } from '@/hooks/useReveal';
-import SectionHeader from '@/components/ui/SectionHeader';
-import PlatformCard from './PlatformCard';
-import PlaylistCard from './PlaylistCard';
-import { FOOTPRINT, ARTICLES, YOUTUBE_PLAYLISTS } from '@/data';
-import styles from './Footprint.module.css';
+import { Link } from "react-router-dom";
+import { useReveal } from "@/hooks/useReveal";
+import SectionHeader from "@/components/ui/SectionHeader";
+import PlatformCard from "./PlatformCard";
+import PlaylistCard from "./PlaylistCard";
+import { FOOTPRINT, ARTICLES, YOUTUBE_PLAYLISTS } from "@/data";
+import styles from "./Footprint.module.css";
 
 export default function FootprintSection() {
   const tableRef = useReveal();
 
   return (
-    <section id="footprint" className="section" style={{ background: 'transparent' }}>
+    <section
+      id="footprint"
+      className="section"
+      style={{ background: "transparent" }}
+    >
       <div className="inner">
         <SectionHeader
           eyebrow="Digital Footprint"
@@ -34,21 +39,41 @@ export default function FootprintSection() {
             className={`reveal card d3 ${styles.articlesCard}`}
           >
             <p className={styles.tableLabel}>Recent Articles </p>
-            {ARTICLES.map((a, i) => (
-              <a
-                key={a.title}
-                href={a.url}
-                target="_blank"
-                rel="noreferrer"
-                className={`${styles.articleRow} ${i < ARTICLES.length - 1 ? styles.divided : ''}`}
-              >
-                <span className={styles.articleTitle}>{a.title}</span>
-                <span className={styles.articleMeta}>
-                  <span className={styles.reads}>{a.reads}</span>
-                  <span className={styles.date}>{a.date}</span>
-                </span>
-              </a>
-            ))}
+            {ARTICLES.map((a, i) => {
+              const rowContent = (
+                <>
+                  <span className={styles.articleTitle}>{a.title}</span>
+                  <span className={styles.articleMeta}>
+                    <span className={styles.reads}>{a.reads}</span>
+                    <span className={styles.date}>{a.date}</span>
+                  </span>
+                </>
+              );
+
+              if (a.internal) {
+                return (
+                  <Link
+                    key={a.title}
+                    to={a.url}
+                    className={`${styles.articleRow} ${i < ARTICLES.length - 1 ? styles.divided : ""}`}
+                  >
+                    {rowContent}
+                  </Link>
+                );
+              }
+
+              return (
+                <a
+                  key={a.title}
+                  href={a.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`${styles.articleRow} ${i < ARTICLES.length - 1 ? styles.divided : ""}`}
+                >
+                  {rowContent}
+                </a>
+              );
+            })}
           </div>
         </div>
 

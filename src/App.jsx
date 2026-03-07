@@ -1,34 +1,25 @@
 /**
  * App.jsx
- * Root application component.
- * Wraps the app in ThemeProvider and renders layout + sections.
  */
-
-import BackgroundMotion from '@/components/layout/BackgroundMotion';
-import { ThemeProvider } from '@/context/ThemeContext';
-import NavBar            from '@/components/layout/NavBar';
-import Footer            from '@/components/layout/Footer';
-import HeroSection       from '@/sections/Hero';
-import CaseStudiesSection from '@/sections/CaseStudies';
-import ProofSection      from '@/sections/Proof';
-import AboutSection      from '@/sections/About';
-import FootprintSection  from '@/sections/Footprint';
-import ConnectSection    from '@/sections/Connect';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@/context/ThemeContext";
+import BaseLayout from "@/components/layout/BaseLayout";
+import HomePage from "@/pages/Home";
+import ArticleView from "@/pages/ArticleView";
+import ScrollManager from "@/components/utils/ScrollManager";
 
 export default function App() {
   return (
     <ThemeProvider>
-      <BackgroundMotion />
-      <NavBar />
-      <main>
-        <HeroSection />
-        <CaseStudiesSection />
-        <ProofSection />
-        <AboutSection />
-        <FootprintSection />
-        <ConnectSection />
-      </main>
-      <Footer />
+      <Router>
+        <ScrollManager />
+        <BaseLayout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/article/:slug" element={<ArticleView />} />
+          </Routes>
+        </BaseLayout>
+      </Router>
     </ThemeProvider>
   );
 }

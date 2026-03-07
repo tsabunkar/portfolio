@@ -4,18 +4,19 @@
  * Collapses into a hamburger on mobile.
  */
 
+import { Link } from "react-router-dom";
 import { memo, useCallback, useEffect, useState } from "react";
 import ThemeToggle from "@/components/ui/ThemeToggle";
 import { useTheme } from "@/hooks/useTheme";
 import styles from "./NavBar.module.css";
 
 const NAV_LINKS = [
-  { label: "Work", href: "#work" },
-  { label: "Case Studies", href: "#case-studies" },
-  { label: "Proof", href: "#proof" },
-  { label: "About", href: "#about" },
-  { label: "Footprint", href: "#footprint" },
-  { label: "Connect", href: "#connect" },
+  { label: "Work", href: "/#work" },
+  { label: "Case Studies", href: "/#case-studies" },
+  { label: "Proof", href: "/#proof" },
+  { label: "About", href: "/#about" },
+  { label: "Footprint", href: "/#footprint" },
+  { label: "Connect", href: "/#connect" },
 ];
 
 const NavBar = memo(function NavBar() {
@@ -58,16 +59,16 @@ const NavBar = memo(function NavBar() {
     >
       <div className={styles.inner}>
         {/* Logo */}
-        <a href="#work" className={styles.logo} aria-label="Home">
+        <Link to="/" className={styles.logo} aria-label="Home">
           &lt;Tejas Sabunkar /&gt;
-        </a>
+        </Link>
 
         {/* Desktop links */}
         <div className={`${styles.desktopLinks} dt-only`}>
           {NAV_LINKS.map(({ label, href }) => (
-            <a key={label} href={href} className="nav-link">
+            <Link key={label} to={href} className="nav-link">
               {label}
-            </a>
+            </Link>
           ))}
           <ThemeToggle dark={dark} onToggle={toggleTheme} />
         </div>
@@ -109,14 +110,14 @@ const NavBar = memo(function NavBar() {
         aria-hidden={!menuOpen}
       >
         {NAV_LINKS.map(({ label, href }) => (
-          <a
+          <Link
             key={label}
-            href={href}
+            to={href}
             onClick={closeMenu}
             className={styles.drawerLink}
           >
             {label}
-          </a>
+          </Link>
         ))}
       </div>
     </nav>
