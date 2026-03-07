@@ -8,160 +8,219 @@ export const ARTICLES_CONTENT = [
     author: "Tejas Sabunkar",
     readTime: "6 min read",
     heroImage: "/assets/aws_architecture_diagram_hero.png",
-    content: `
-      <p>Most developers build a portfolio.</p>
-      <p>Few architect it.</p>
-      <p>Recently, I decided to take my React portfolio beyond simple hosting and deploy it using a production-grade AWS architecture — the same way I would design a real-world system.</p>
-      <p>This wasn’t about “just making it live.”</p>
-      <p>It was about building it properly.</p>
-      <p>Here’s how I did it — and why it matters.</p>
+    content: `<p><strong>Architecting a Portfolio Like a Production System</strong></p>
 
-      <hr />
+            <p>Most developers build a portfolio. Few architect it.</p>
 
-      <h2>The Goal</h2>
-      <p>I wanted my portfolio to be:</p>
-      <ul>
-        <li>Secure (HTTPS everywhere)</li>
-        <li>Globally performant</li>
-        <li>Infrastructure-as-Code driven</li>
-        <li>Scalable</li>
-        <li>Architecturally clean</li>
-        <li>Easy to extend and redeploy</li>
-      </ul>
-      <p>Live site: <a href="https://tsabunkar.com/" target="_blank" rel="noopener noreferrer">https://tsabunkar.com/</a></p>
+            <p>Recently, I decided to take my React portfolio beyond simple hosting and deploy it using a production-grade cloud architecture — the same approach I would use when designing a real-world system.</p>
 
-      <hr />
+            <p>This exercise wasn’t about simply making a website live. It was about building it the right way — secure, scalable, and architecturally sound.</p>
 
-      <h2>The Architecture</h2>
-      <p>The frontend is built with React (Vite build output).</p>
-      <p>Instead of deploying it to basic hosting platforms, I used:</p>
-      <ul>
-        <li>Static hosting via Amazon S3</li>
-        <li>Global CDN delivery using Amazon CloudFront</li>
-        <li>SSL certificate managed by AWS Certificate Manager</li>
-        <li>DNS management via Amazon Route 53</li>
-        <li>Domain purchased through GoDaddy</li>
-        <li>Infrastructure provisioned entirely with Terraform</li>
-      </ul>
-      <p>This setup ensures:</p>
-      <ul>
-        <li>Low latency worldwide</li>
-        <li>Secure HTTPS connections</li>
-        <li>Clean DNS routing</li>
-        <li>Edge-level redirect handling (www → root)</li>
-        <li>Full infrastructure reproducibility</li>
-      </ul>
+            <p>Here’s how I approached it, and why the process itself matters.</p>
 
-      <hr />
+            <hr />
 
-      <h2>Why Not Just Use Netlify or Vercel?</h2>
-      <p>They’re great tools.</p>
-      <p>But I wanted:</p>
-      <ul>
-        <li>Full control</li>
-        <li>Production-grade AWS exposure</li>
-        <li>Terraform-driven provisioning</li>
-        <li>Real architectural depth</li>
-      </ul>
-      <p>As a Solutions Architect, I believe even small systems should be designed thoughtfully.</p>
+            <h2>The Objective</h2>
 
-      <hr />
+            <p>When designing the deployment, I set a few clear goals. The portfolio needed to be:</p>
 
-      <h2>Infrastructure as Code (Terraform)</h2>
-      <p>Every component was created via Terraform:</p>
-      <ul>
-        <li>S3 bucket (private, not public)</li>
-        <li>CloudFront distribution</li>
-        <li>ACM certificate (validated via DNS)</li>
-        <li>Route 53 hosted zone</li>
-        <li>Alias records for root and www</li>
-        <li>Canonical redirect configuration</li>
-      </ul>
-      <p>No manual clicking.</p>
-      <p>This means:</p>
-      <ul>
-        <li>Reproducible infrastructure</li>
-        <li>Easy environment replication</li>
-        <li>Clean DevOps workflow</li>
-      </ul>
+            <ul>
+            <li>Secure with HTTPS everywhere</li>
+            <li>Globally performant</li>
+            <li>Managed using Infrastructure as Code</li>
+            <li>Scalable and resilient</li>
+            <li>Architecturally clean</li>
+            <li>Easy to redeploy and extend in the future</li>
+            </ul>
 
-      <hr />
+            <p>Live site: <a href="https://tsabunkar.com/" target="_blank" rel="noopener noreferrer">https://tsabunkar.com/</a></p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/s6ZavhRB0TM?si=UoRxCI2HDE9Yv3S-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <hr />
 
-      <h2>Handling DNS & Domain Setup</h2>
-      <p>One of the most interesting parts was connecting the domain from GoDaddy to Route 53.</p>
-      <p>The key steps:</p>
-      <ol>
-        <li>Create hosted zone in Route 53</li>
-        <li>Update nameservers at GoDaddy</li>
-        <li>Validate ACM certificate via DNS</li>
-        <li>Configure alias records to CloudFront</li>
-      </ol>
-      <p>Understanding the difference between <strong>Registrar</strong>, <strong>DNS</strong>, <strong>CDN</strong>, and <strong>Certificate validation</strong> is crucial for anyone working in cloud architecture.</p>
+            <h2>Architecture Overview</h2>
 
-      <hr />
+            <p>The frontend application is built using React with a Vite build output. Instead of deploying it through a simple hosting platform, I implemented a cloud-native deployment architecture.</p>
 
-      <h2>Making It Responsive</h2>
-      <p>The React application was designed mobile-first.</p>
-      <p>Responsiveness wasn’t an afterthought — it was tested across:</p>
-      <ul>
-        <li>Desktop</li>
-        <li>Tablet</li>
-        <li>Mobile devices</li>
-      </ul>
-      <p>A portfolio should reflect engineering discipline, not just design aesthetics.</p>
+            <p>The system consists of:</p>
 
-      <hr />
+            <ul>
+            <li>Static hosting via Amazon S3</li>
+            <li>Global content delivery using Amazon CloudFront</li>
+            <li>SSL certificate management through AWS Certificate Manager</li>
+            <li>DNS routing with Amazon Route 53</li>
+            <li>Domain registration handled through GoDaddy</li>
+            <li>Infrastructure provisioned entirely using Terraform</li>
+            </ul>
 
-      <h2>Adding a Feature Using Claude (Locally)</h2>
-      <p>One of the most interesting experiments was integrating AI into the workflow.</p>
-      <p>I used Claude locally to:</p>
-      <ul>
-        <li>Generate a new feature</li>
-        <li>Refactor a component</li>
-        <li>Improve structure</li>
-        <li>Speed up development iteration</li>
-      </ul>
-      <p>Then I:</p>
-      <ul>
-        <li>Built the app</li>
-        <li>Deployed to S3</li>
-        <li>Invalidated CloudFront cache</li>
-        <li>Verified it live in production</li>
-      </ul>
-      <p>This showed how AI-assisted development fits into real DevOps processes. Not magic — just leverage.</p>
+            <p>This setup ensures:</p>
 
-      <hr />
+            <ul>
+            <li>Low latency delivery worldwide</li>
+            <li>Secure HTTPS connections</li>
+            <li>Clean DNS routing</li>
+            <li>Edge-level redirect handling (www → root)</li>
+            <li>Fully reproducible infrastructure</li>
+            </ul>
 
-      <h2>Key Lessons</h2>
-      <p>1️⃣ <strong>Hosting ≠ Architecture:</strong> Using S3 + CloudFront + Route 53 + ACM forces you to understand how the internet actually works.</p>
-      <p>2️⃣ <strong>DNS & HTTPS are where real learning happens:</strong> Propagation delays, certificate validation, root vs www — cloud fundamentals matter.</p>
-      <p>3️⃣ <strong>Infrastructure as Code builds discipline:</strong> Terraform removes “click-ops” and forces system thinking.</p>
-      <p>4️⃣ <strong>Production mindset is in the details:</strong> Edge redirects, HTTPS enforcement, CDN caching, responsiveness — small decisions define quality.</p>
-      <p>5️⃣ <strong>AI accelerates execution, not architecture:</strong> Using Claude helped build faster. But system design still requires human judgment.</p>
+            <hr />
 
-      <hr />
+            <h2>Why Not Use Netlify or Vercel?</h2>
 
-      <h2>Why This Matters</h2>
-      <p>A portfolio is more than a website.</p>
-      <p>It’s a reflection of how you think.</p>
-      <p>Anyone can deploy a frontend.</p>
-      <p>Architecting it properly shows:</p>
-      <ul>
-        <li>Systems thinking</li>
-        <li>Cloud fluency</li>
-        <li>DevOps maturity</li>
-        <li>Attention to detail</li>
-        <li>Production mindset</li>
-      </ul>
-      <p>For me, building resilient systems isn’t just work — it’s how I approach everything.</p>
+            <p>Platforms like Netlify and Vercel are excellent tools and make deployment extremely simple.</p>
 
-      <hr />
+            <p>However, my goal for this project was different.</p>
 
-      <p>If you’re building your own portfolio, I’d encourage you: Don’t just host it. Architect it.</p>
-      <p>And if you’re experimenting with AI-assisted workflows, integrate it into your deployment process — not just your code editor.</p>
-      <p>Would love to hear how others are deploying their frontend apps — simple hosting or full cloud architecture?</p>
+            <p>I wanted:</p>
 
-      <p><strong>#AWS #ReactJS #Terraform #CloudArchitecture #DevOps #SolutionsArchitect #BuildInPublic #InfrastructureAsCode #CloudFront #Route53</strong></p>
-    `,
+            <ul>
+            <li>Full infrastructure control</li>
+            <li>Hands-on experience with production-grade cloud architecture</li>
+            <li>Terraform-driven provisioning</li>
+            <li>Deeper architectural understanding</li>
+            </ul>
+
+            <p>As a Solutions Architect, I believe even small systems benefit from thoughtful design and clean architectural decisions.</p>
+
+            <hr />
+
+            <h2>Infrastructure as Code (Terraform)</h2>
+
+            <p>Every component of the system was provisioned using Terraform.</p>
+
+            <ul>
+            <li>Private S3 bucket for hosting assets</li>
+            <li>CloudFront distribution for global delivery</li>
+            <li>ACM certificate validated via DNS</li>
+            <li>Route 53 hosted zone</li>
+            <li>Alias records for root and www domains</li>
+            <li>Canonical redirect configuration</li>
+            </ul>
+
+            <p>No manual configuration was required.</p>
+
+            <p>This approach enables:</p>
+
+            <ul>
+            <li>Reproducible infrastructure</li>
+            <li>Easy environment replication</li>
+            <li>A clean and consistent DevOps workflow</li>
+            </ul>
+
+            <hr />
+
+            <h2>DNS and Domain Integration</h2>
+
+            <p>One of the most interesting parts of the setup was connecting the domain purchased through GoDaddy with Route 53.</p>
+
+            <p>The process involved the following steps:</p>
+
+            <ol>
+            <li>Create a hosted zone in Route 53</li>
+            <li>Update the nameservers in GoDaddy</li>
+            <li>Validate the SSL certificate through DNS</li>
+            <li>Create alias records pointing to CloudFront</li>
+            </ol>
+
+            <p>This highlights the importance of understanding how key internet components interact:</p>
+
+            <ul>
+            <li>Domain registrars</li>
+            <li>DNS providers</li>
+            <li>Content delivery networks</li>
+            <li>Certificate validation systems</li>
+            </ul>
+
+            <p>These fundamentals are essential for anyone working in cloud architecture.</p>
+
+            <hr />
+
+            <h2>Building a Responsive Experience</h2>
+
+            <p>The React application was designed with a mobile-first approach.</p>
+
+            <p>Responsiveness was tested across:</p>
+
+            <ul>
+            <li>Desktop environments</li>
+            <li>Tablet devices</li>
+            <li>Mobile devices</li>
+            </ul>
+
+            <p>A portfolio should reflect engineering discipline — not just design aesthetics.</p>
+
+            <hr />
+
+            <h2>Experimenting with AI-Assisted Development</h2>
+
+            <p>I also experimented with integrating AI into the development workflow using Claude locally.</p>
+
+            <p>It helped with:</p>
+
+            <ul>
+            <li>Generating a new feature</li>
+            <li>Refactoring a component</li>
+            <li>Improving project structure</li>
+            <li>Speeding up development iteration</li>
+            </ul>
+
+            <p>Once changes were ready, the deployment workflow remained consistent:</p>
+
+            <ol>
+            <li>Build the application</li>
+            <li>Deploy the build to S3</li>
+            <li>Invalidate the CloudFront cache</li>
+            <li>Verify the update in production</li>
+            </ol>
+
+            <p>This demonstrated how AI can accelerate development without replacing architectural thinking.</p>
+
+            <hr />
+
+            <h2>Key Takeaways</h2>
+
+            <p><strong>1. Hosting is not the same as architecture.</strong><br/>
+            Using S3, CloudFront, Route 53, and ACM helps developers understand how the internet infrastructure actually works.</p>
+
+            <p><strong>2. DNS and HTTPS teach real cloud fundamentals.</strong><br/>
+            Certificate validation, propagation delays, and domain routing are core cloud concepts.</p>
+
+            <p><strong>3. Infrastructure as Code builds discipline.</strong><br/>
+            Terraform eliminates manual configuration and encourages system thinking.</p>
+
+            <p><strong>4. Production quality lives in the details.</strong><br/>
+            Edge redirects, HTTPS enforcement, CDN caching strategies, and responsive design all contribute to reliability.</p>
+
+            <p><strong>5. AI accelerates execution, not architecture.</strong><br/>
+            Tools like Claude can speed up development, but system design decisions still require human judgment.</p>
+
+            <hr />
+
+            <h2>Why This Matters</h2>
+
+            <p>A portfolio is more than a website. It reflects how you think as an engineer.</p>
+
+            <p>Anyone can deploy a frontend application. Architecting it properly demonstrates:</p>
+
+            <ul>
+            <li>Systems thinking</li>
+            <li>Cloud fluency</li>
+            <li>DevOps maturity</li>
+            <li>Attention to detail</li>
+            <li>A production mindset</li>
+            </ul>
+
+            <p>For me, building resilient systems isn’t just part of my job — it’s how I approach engineering challenges.</p>
+
+            <hr />
+
+            <p>If you’re building your own portfolio, consider going one step further.</p>
+
+            <p><strong>Don’t just host it. Architect it.</strong></p>
+
+            <p>If you're experimenting with AI-assisted workflows, try integrating them into your deployment process — not just your code editor.</p>
+
+            <p>I’d love to hear how others are deploying their frontend applications: simple hosting platforms or full cloud architecture?</p>
+
+            <p><strong>#AWS #ReactJS #Terraform #CloudArchitecture #DevOps #SolutionsArchitect #InfrastructureAsCode #CloudFront #Route53</strong></p>`,
   },
 ];
