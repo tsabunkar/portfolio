@@ -16,6 +16,7 @@ const NAV_LINKS = [
   { label: "Proof", href: "/#proof" },
   { label: "About", href: "/#about" },
   { label: "Footprint", href: "/#footprint" },
+  { label: "Support", href: "/#support" },
   { label: "Connect", href: "/#connect" },
 ];
 

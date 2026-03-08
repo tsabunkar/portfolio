@@ -6,6 +6,7 @@ import CaseStudiesSection from "@/sections/CaseStudies";
 import ProofSection from "@/sections/Proof";
 import AboutSection from "@/sections/About";
 import FootprintSection from "@/sections/Footprint";
+import SupportSection from "@/sections/Support";
 import ConnectSection from "@/sections/Connect";
 
 export default function HomePage() {
@@ -16,6 +17,7 @@ export default function HomePage() {
       <ProofSection />
       <AboutSection />
       <FootprintSection />
+      <SupportSection />
       <ConnectSection />
     </>
   );
