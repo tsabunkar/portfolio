@@ -21,12 +21,12 @@ export default function SupportSection() {
           eyebrowColor="#f59e0b"
         />
 
-        <div className={`grid-3 ${styles.methods}`}>
+        <div className={styles.methods}>
           <article ref={coffeeRef} className={`reveal card d1 ${styles.card}`}>
             <img
               src="/assets/coffee.png"
               alt="Buy Me a Coffee"
-              className={styles.image}
+              className={styles.iconImage}
             />
             <h3 className={styles.title}>Buy Me a Coffee</h3>
             <p className={styles.sub}>A quick way to support upcoming blogs and tutorials.</p>
@@ -41,6 +41,11 @@ export default function SupportSection() {
           </article>
 
           <article ref={paypalRef} className={`reveal card d2 ${styles.card}`}>
+            <img
+              src="/coffee/paypal.svg"
+              alt="PayPal"
+              className={styles.iconImage}
+            />
             <h3 className={styles.title}>PayPal</h3>
             <p className={styles.sub}>
               Prefer PayPal? You can support directly through this payment method.
@@ -59,7 +64,7 @@ export default function SupportSection() {
             <img
               src="/assets/upi_qr.png"
               alt="UPI QR code for support payments"
-              className={styles.image}
+              className={styles.qrImage}
             />
             <h3 className={styles.title}>QR Scanner (India)</h3>
             <p className={styles.sub}>

@@ -5,22 +5,51 @@
 }
 
 .methods {
-  margin-top: clamp(8px, 2vw, 16px);
+  margin: clamp(8px, 2vw, 16px) auto 0;
+  max-width: 920px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
 
 .card {
-  padding: clamp(20px, 3vw, 28px);
+  padding: clamp(16px, 2.2vw, 22px);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   min-height: 100%;
+  max-width: 290px;
+  width: 100%;
+  margin: 0 auto;
+  border: 3px solid #202124;
+  border-radius: 22px;
+  background: var(--bg-card);
+  box-shadow: 0 8px 0 #202124;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.3s ease;
 }
 
-.image {
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 0 #202124;
+}
+
+.iconImage {
+  width: 74px;
+  height: 74px;
+  border-radius: 14px;
+  object-fit: contain;
+  background: transparent;
+}
+
+.qrImage {
   width: 100%;
-  max-width: 260px;
+  max-width: 150px;
   border-radius: 12px;
   border: 1px solid var(--border);
   object-fit: contain;
@@ -29,7 +58,7 @@
 
 .title {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(17px, 2.4vw, 21px);
+  font-size: clamp(16px, 1.8vw, 19px);
   color: var(--text);
   line-height: 1.2;
   margin: 0;
@@ -38,44 +67,62 @@
 
 .sub {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(13px, 1.5vw, 15px);
+  font-size: clamp(12px, 1.25vw, 13px);
   color: var(--text-mid);
-  line-height: 1.62;
+  line-height: 1.55;
   margin: 0;
   transition: color 0.45s ease;
 }
 
 .upiId {
   display: block;
-  margin-top: 8px;
+  margin-top: 6px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
-  font-size: clamp(12px, 1.45vw, 14px);
+  font-size: clamp(11px, 1.15vw, 12px);
   color: var(--text);
   word-break: break-word;
 }
 
 .link {
-  margin-top: auto;
+  margin-top: 4px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  border: 1px solid var(--border-hover);
-  background: var(--bg-card-hover);
+  border: 2px solid #202124;
+  background: #f8f8f8;
   color: var(--text);
   text-decoration: none;
-  padding: 10px 16px;
+  padding: 10px 14px;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(12px, 1.4vw, 14px);
-  font-weight: 600;
+  font-size: clamp(11px, 1.2vw, 12px);
+  font-weight: 700;
   transition:
     border-color 0.2s ease,
     background 0.2s ease,
-    transform 0.2s ease;
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 0 #202124;
 }
 
 .link:hover {
-  border-color: var(--text-mid);
+  border-color: #202124;
+  background: #fff;
   transform: translateY(-1px);
+  box-shadow: 0 5px 0 #202124;
+}
+
+@media (min-width: 700px) {
+  .methods {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1040px) {
+  .methods {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
 }
