@@ -29,7 +29,9 @@ export default function SupportSection() {
               className={styles.iconImage}
             />
             <h3 className={styles.title}>Buy Me a Coffee</h3>
-            <p className={styles.sub}>A quick way to support upcoming blogs and tutorials.</p>
+            <p className={styles.sub}>
+              A quick way to support upcoming blogs and tutorials.
+            </p>
             <a
               href="https://buymeacoffee.com/tsabunkar"
               target="_blank"
@@ -46,9 +48,10 @@ export default function SupportSection() {
               alt="PayPal"
               className={styles.iconImage}
             />
-            <h3 className={styles.title}>PayPal</h3>
+            {/* <h3 className={styles.title}>PayPal</h3> */}
             <p className={styles.sub}>
-              Prefer PayPal? You can support directly through this payment method.
+              Prefer PayPal? You can support directly through this payment
+              method.
             </p>
             <a
               href="https://paypal.me/tsabunkar"
