@@ -48,7 +48,7 @@ export default function SupportSection() {
               alt="PayPal"
               className={styles.iconImage}
             />
-            {/* <h3 className={styles.title}>PayPal</h3> */}
+            <h3 className={styles.title}>Buy Me a Cookie</h3>
             <p className={styles.sub}>
               Prefer PayPal? You can support directly through this payment
               method.
