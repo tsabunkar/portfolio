@@ -35,8 +35,16 @@ export const ARTICLES = [
     title:
       "From Localhost to Live on AWS: How I Deployed My React Portfolio the Right Way",
     reads: "1.5K reads",
-    date: "March 2026",
+    date: "Feb 2026",
     url: "/article/localhost-to-aws",
+    internal: true,
+  },
+  {
+    slug: "hiv-awareness-website",
+    title: "From git push to Global Deployment",
+    reads: "1K reads",
+    date: "March 2026",
+    url: "/article/hiv-awareness-website",
     internal: true,
   },
 ];
