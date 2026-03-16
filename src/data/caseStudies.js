@@ -3,7 +3,7 @@ export const CASE_STUDIES = [
   {
     tag: "CLOUD ARCHITECTURE",
     title: "Enterprise ETL Transformation",
-    desc: "Led the design and implementation of an enterprise-scale data transformation solution that processed billions of legacy records and converted them into unified, harmonized business objects, enabling standardized data access across multiple departments through a centralized user interface.",
+    desc: "Led design and implementation of an enterprise-scale data transformation platform processing billions of legacy records into unified business objects, enabling standardized access across departments through centralized interface.",
     stat: "800M+",
     statLabel: "Data Processed (Billions)",
     accent: "#0071e3",
@@ -11,7 +11,7 @@ export const CASE_STUDIES = [
   {
     tag: "INTEGRATION DESIGN",
     title: "3D Visualization Platform (In-house Solution)",
-    desc: "Designed, architected, and delivered a Proof of Concept for an in-house 3D user interface solution that replicated and competed with third-party vendor capabilities, enabling full 3D functionality within the application UI and resulting in significant cost savings by eliminating external dependencies interms of resources, led time for development, licensing.",
+    desc: "Designed and delivered an in-house 3D User interface solution replacing third-party software, reducing licensing costs, development time, and external dependencies while improving scalability, performance, and long-term maintainability",
     stat: "40%",
     statLabel: "Backlog Impact",
     accent: "#30d158",
@@ -19,7 +19,7 @@ export const CASE_STUDIES = [
   {
     tag: "COST OPTIMISATION",
     title: "FinOps Restructure",
-    desc: "Led a cloud cost-optimisation engagement — right-sizing compute, introducing Spot strategy, and implementing RI/SP coverage — saving $2.4M annually.",
+    desc: "Led cloud cost-optimization initiative by right-sizing compute, adopting Spot instances, and implementing Reserved Instances/Savings Plans coverage, reducing infrastructure spend and achieving annual savings of $2.4M across environments.",
     stat: "$2.4M",
     statLabel: "Annual Savings",
     accent: "#ff9f0a",
