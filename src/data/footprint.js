@@ -47,6 +47,14 @@ export const ARTICLES = [
     url: "/article/hiv-awareness-website",
     internal: true,
   },
+  {
+    slug: "developer-to-architect-roadmap",
+    title: "Roadmap: From Software Developer to Solutions Architect",
+    reads: "3K reads",
+    date: "March 2026",
+    url: "/article/developer-to-architect-roadmap",
+    internal: true,
+  },
 ];
 
 export const YOUTUBE_PLAYLISTS = [

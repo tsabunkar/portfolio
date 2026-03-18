@@ -2,6 +2,7 @@
  * pages/ArticleView.jsx
  */
 import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { ARTICLES_CONTENT } from "@/data/articles";
 import { useTheme } from "@/hooks/useTheme";
 import styles from "./ArticleView.module.css";
@@ -10,6 +11,15 @@ export default function ArticleView() {
   const { slug } = useParams();
   const { zenMode, toggleZenMode } = useTheme();
   const article = ARTICLES_CONTENT.find((a) => a.slug === slug);
+  const [html, setHtml] = useState("");
+
+  useEffect(() => {
+    if (article?.contentFile) {
+      fetch(article.contentFile)
+        .then((res) => res.text())
+        .then((text) => setHtml(text));
+    }
+  }, [article]);
 
   if (!article) {
     return (
@@ -57,7 +67,7 @@ export default function ArticleView() {
 
       <div
         className={styles.content}
-        dangerouslySetInnerHTML={{ __html: article.content }}
+        dangerouslySetInnerHTML={{ __html: html }}
       />
 
       <footer className={styles.footer}>

@@ -1,0 +1,303 @@
+<h2>
+  Building a CI/CD System with Jenkins, Terraform, and AWS — for a Social
+  Awareness Project
+</h2>
+<p>
+  Modern software engineering is no longer just about writing application code.
+  The real challenge is how quickly and reliably that code reaches production.
+</p>
+
+<p>
+  High-performing engineering teams solve this with CI/CD pipelines, automation,
+  and Infrastructure as Code. Instead of manual deployments, the entire release
+  process becomes a system that runs automatically.
+</p>
+
+<p>
+  In this project, I built a production-style CI/CD architecture where pushing
+  code triggers a full deployment pipeline — building an Angular application and
+  publishing it live on the internet.
+</p>
+
+<p><strong>But this project has another purpose.</strong></p>
+
+<p>
+  The website was created to spread awareness about HIV and contribute toward
+  reducing stigma through accessible information. Technology is powerful not
+  only for building products, but also for sharing knowledge and driving social
+  awareness.
+</p>
+
+<p>
+  The solution integrates GitHub, Jenkins, Terraform, and scalable
+  infrastructure from Amazon Web Services.
+</p>
+
+<p>
+  Live site:
+  <a
+    href="https://d59s5g9yk2nky.cloudfront.net/"
+    target="_blank"
+    rel="noopener noreferrer"
+    >https://d59s5g9yk2nky.cloudfront.net/</a
+  >
+</p>
+<div class="video-container">
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/aMh91uK5pYk?si=2MziiL5XbAQ4e9kI"
+    title="YouTube video player"
+    frameborder="0"
+    allow="
+      accelerometer;
+      autoplay;
+      clipboard-write;
+      encrypted-media;
+      gyroscope;
+      picture-in-picture;
+      web-share;
+    "
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+</div>
+<hr />
+
+<h2>The Problem with Traditional Deployments</h2>
+
+<p>Not long ago, deployments often looked like this:</p>
+
+<ul>
+  <li>Build the application locally</li>
+  <li>Upload files manually to servers</li>
+  <li>Restart services</li>
+  <li>Clear caches manually</li>
+</ul>
+
+<p>This approach creates several challenges:</p>
+
+<ul>
+  <li>High chances of human error</li>
+  <li>Inconsistent environments</li>
+  <li>Slow release cycles</li>
+  <li>Difficult rollbacks</li>
+</ul>
+
+<p>Modern DevOps practices aim to remove manual steps entirely.</p>
+
+<p>
+  <strong
+    >A developer pushes code → the system builds and deploys
+    automatically.</strong
+  >
+</p>
+
+<hr />
+
+<h2>The Architecture Behind the System</h2>
+
+<p>
+  The CI/CD pipeline connects multiple cloud components that automate the entire
+  delivery process.
+</p>
+
+<h3>Source Control</h3>
+<ul>
+  <li>Application code lives in GitHub</li>
+  <li>Developers push changes through Git</li>
+</ul>
+
+<h3>CI/CD Automation</h3>
+<ul>
+  <li>Jenkins acts as the pipeline engine</li>
+  <li>Automatically builds and deploys the application</li>
+</ul>
+
+<h3>Compute Infrastructure</h3>
+<ul>
+  <li>Jenkins runs on an instance hosted on Amazon EC2</li>
+  <li>Persistent storage is provided by Amazon Elastic Block Store</li>
+</ul>
+
+<h3>Application Hosting</h3>
+<ul>
+  <li>Static build artifacts are deployed to Amazon S3</li>
+</ul>
+
+<h3>Global Content Delivery</h3>
+<ul>
+  <li>The website is delivered worldwide through Amazon CloudFront</li>
+</ul>
+
+<p>
+  This architecture is widely used for modern frontend deployments at scale.
+</p>
+
+<hr />
+
+<h2>What Actually Happens After a Code Push</h2>
+
+<p>
+  Once the system is configured, the deployment pipeline becomes completely
+  automated.
+</p>
+
+<p><strong>A developer simply runs:</strong></p>
+
+<pre><code>git push origin main</code></pre>
+
+<p>Behind the scenes, several automated processes begin:</p>
+
+<ul>
+  <li>GitHub sends a webhook event</li>
+  <li>Jenkins triggers the CI/CD pipeline</li>
+  <li>The Angular application is built automatically</li>
+  <li>Build artifacts are uploaded to Amazon S3</li>
+  <li>Amazon CloudFront cache is invalidated</li>
+  <li>The updated website becomes live globally</li>
+</ul>
+
+<p>A single code push now triggers an end-to-end automated deployment.</p>
+
+<hr />
+
+<h2>Infrastructure as Code Changes Everything</h2>
+
+<p>
+  A major part of this architecture relies on Infrastructure as Code,
+  implemented using Terraform.
+</p>
+
+<p>
+  Instead of manually provisioning servers and networking components, the entire
+  infrastructure stack is defined through configuration files.
+</p>
+
+<p>This introduces powerful engineering benefits:</p>
+
+<ul>
+  <li>Infrastructure becomes version-controlled</li>
+  <li>Environments can be recreated instantly</li>
+  <li>Deployments remain consistent across environments</li>
+  <li>Broken environments can be rebuilt in minutes</li>
+</ul>
+
+<p>
+  This approach reflects how modern platform teams manage cloud infrastructure.
+</p>
+
+<hr />
+
+<h2>Cloud Optimization in Practice</h2>
+
+<p>Another important aspect of cloud architecture is cost optimization.</p>
+
+<p>
+  During development, the Jenkins server running on Amazon EC2 initially used a
+  <strong>t3.medium</strong> instance.
+</p>
+
+<p>
+  After evaluating the workload, the instance was resized to
+  <strong>t3.small</strong>. The pipeline continued to perform efficiently while
+  reducing infrastructure cost.
+</p>
+
+<p>
+  <strong>Always right-size resources based on actual workload needs.</strong>
+</p>
+
+<p>
+  Small infrastructure optimizations can significantly improve long-term cost
+  efficiency.
+</p>
+
+<hr />
+
+<h2>Real DevOps Engineering</h2>
+
+<p>Building automated systems rarely works perfectly on the first attempt.</p>
+
+<p>
+  Like most real-world DevOps projects, this system required multiple iterations
+  to stabilize.
+</p>
+
+<p>Common engineering tasks included:</p>
+
+<ul>
+  <li>Debugging Terraform configurations</li>
+  <li>Rebuilding infrastructure environments</li>
+  <li>Fixing Jenkins pipeline issues</li>
+  <li>Validating the end-to-end deployment flow</li>
+</ul>
+
+<p>
+  These challenges are part of the real DevOps workflow — systems improve
+  through testing, debugging, and continuous refinement.
+</p>
+
+<hr />
+
+<h2>Technologies Used</h2>
+
+<ul>
+  <li>Angular – Frontend application</li>
+  <li>Jenkins – CI/CD automation</li>
+  <li>Terraform – Infrastructure as Code</li>
+  <li>GitHub – Source code management</li>
+  <li>Amazon EC2 – Compute infrastructure</li>
+  <li>Amazon S3 – Static website hosting</li>
+  <li>Amazon CloudFront – Global CDN delivery</li>
+</ul>
+
+<p>Together they create a complete automated deployment ecosystem.</p>
+
+<hr />
+
+<h2>Technology with Purpose</h2>
+
+<p>
+  While the architecture demonstrates DevOps practices, the purpose of the
+  project is equally important.
+</p>
+
+<p>
+  The website was built to share information and encourage open conversation
+  about HIV, helping reduce misinformation and stigma.
+</p>
+
+<p>
+  Technology often focuses on scale and efficiency — but it can also play a role
+  in spreading awareness and making information accessible.
+</p>
+
+<p>
+  Sometimes the most meaningful projects are not just about building systems,
+  but about using engineering skills to support social impact.
+</p>
+
+<hr />
+
+<h2>Final Thoughts</h2>
+
+<p>
+  The goal of modern engineering is not just writing software — it is building
+  systems that deliver software automatically and reliably.
+</p>
+
+<p>
+  By combining Jenkins pipelines, Infrastructure as Code using Terraform, and
+  scalable services from Amazon Web Services, developers can create powerful
+  automation workflows.
+</p>
+
+<p>And in this case, that automation helps support a simple mission:</p>
+
+<p>
+  <strong
+    >Using technology to share knowledge and reduce stigma around HIV.</strong
+  >
+  🚀
+</p>

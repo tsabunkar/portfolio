@@ -1,0 +1,2611 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Roadmap: From Software Developer to Solutions Architect — Tejas Sabunkar
+    </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f9f8f5;
+        --surface: #ffffff;
+        --border: #e8e5de;
+        --text: #1a1916;
+        --muted: #6b6860;
+        --hint: #9e9b93;
+        --accent: #2a5caa;
+        --warn-bg: #fdf6ec;
+        --warn-border: #e8a033;
+        --success-bg: #edf7f1;
+        --success-border: #3a9e6a;
+        --info-bg: #eef3fb;
+        --tag-bg: #f0ede6;
+        --serif: "Lora", Georgia, serif;
+        --sans: "DM Sans", system-ui, sans-serif;
+        --mono: "DM Mono", monospace;
+        --radius: 10px;
+        --radius-sm: 6px;
+        --max: 740px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: var(--sans);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.75;
+        font-size: 16px;
+      }
+      .page {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 4rem 1.5rem 6rem;
+      }
+
+      /* HERO */
+      .hero {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        color: var(--accent);
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+      h1 {
+        font-family: var(--serif);
+        font-size: clamp(24px, 5vw, 34px);
+        font-weight: 600;
+        line-height: 1.25;
+        color: var(--text);
+        margin-bottom: 14px;
+      }
+      .subtitle {
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.65;
+        margin-bottom: 16px;
+        max-width: 580px;
+      }
+      .meta {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        color: var(--hint);
+      }
+
+      /* TOC */
+      .toc {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.25rem 1.5rem;
+        margin-bottom: 2rem;
+      }
+      .toc-label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--hint);
+        margin-bottom: 10px;
+      }
+      .toc-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px 24px;
+      }
+      @media (max-width: 480px) {
+        .toc-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .toc-item {
+        font-size: 13px;
+        color: var(--muted);
+        padding: 4px 0;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        gap: 6px;
+        align-items: baseline;
+      }
+      .toc-item:last-child,
+      .toc-item:nth-last-child(2) {
+        border-bottom: none;
+      }
+      .toc-item a {
+        color: var(--muted);
+        text-decoration: none;
+      }
+      .toc-item a:hover {
+        color: var(--accent);
+      }
+      .toc-num {
+        font-size: 10px;
+        color: var(--hint);
+        min-width: 18px;
+        font-family: var(--mono);
+      }
+
+      /* SECTIONS */
+      .section {
+        margin-bottom: 0;
+        scroll-margin-top: 1rem;
+        padding: 3rem 0 0;
+      }
+      .section-header {
+        display: flex;
+        /* gap: 16px; */
+        margin-bottom: 1.5rem;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--border);
+        align-content: stretch;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
+      .sec-num {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        font-size: 13px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-family: var(--mono);
+        background: var(--info-bg);
+        color: var(--accent);
+        border: 1px solid #c5d8f5;
+      }
+      .sec-num.warm {
+        background: var(--warn-bg);
+        color: #9a6010;
+        border-color: #f0c878;
+      }
+      .sec-num.green {
+        background: var(--success-bg);
+        color: #1f7a4a;
+        border-color: #b0dfc2;
+      }
+      .sec-num.red {
+        background: #fdeaea;
+        color: #8a2020;
+        border-color: #f0b8b8;
+      }
+      h2 {
+        font-family: var(--serif);
+        font-size: clamp(26px, 5vw, 36px);
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.15;
+        flex: 1;
+      }
+      h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text);
+        margin: 2rem 0 0.6rem;
+      }
+      p {
+        font-size: 14px;
+        color: var(--text);
+        line-height: 1.85;
+        margin-bottom: 1rem;
+      }
+      p em {
+        color: var(--muted);
+        font-style: italic;
+      }
+      .bridge {
+        font-size: 13px;
+        color: var(--muted);
+        font-style: italic;
+        border-top: 1px solid var(--border);
+        padding-top: 10px;
+        margin-top: 1rem;
+        margin-bottom: 0;
+      }
+
+      /* CALLOUTS */
+      .callout {
+        border-left: 3px solid var(--accent);
+        background: var(--info-bg);
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        padding: 12px 16px;
+        margin: 1.25rem 0;
+      }
+      .callout.warn {
+        border-left-color: var(--warn-border);
+        background: var(--warn-bg);
+      }
+      .callout.ok {
+        border-left-color: var(--success-border);
+        background: var(--success-bg);
+      }
+      .callout-label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        color: var(--accent);
+      }
+      .callout.warn .callout-label {
+        color: #9a6010;
+      }
+      .callout.ok .callout-label {
+        color: #1f7a4a;
+      }
+      .callout p {
+        font-size: 13px;
+        color: var(--text);
+        margin: 0;
+        line-height: 1.65;
+      }
+
+      /* QUOTE */
+      .quote {
+        border-left: 3px solid var(--border);
+        padding: 8px 18px;
+        margin: 1.5rem 0;
+      }
+      .quote p {
+        font-family: var(--serif);
+        font-size: 15px;
+        font-style: italic;
+        color: var(--text);
+        line-height: 1.65;
+        margin-bottom: 5px;
+      }
+      .quote cite {
+        font-size: 12px;
+        color: var(--hint);
+        font-style: normal;
+      }
+
+      /* CARDS */
+      .grid {
+        display: grid;
+        gap: 10px;
+        margin: 1rem 0;
+      }
+      .grid-2 {
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      }
+      .grid-3 {
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem;
+      }
+      .card-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+      .card-body {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .badge {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 20px;
+        margin-top: 7px;
+      }
+      .b-must {
+        background: #fdeaea;
+        color: #8a2020;
+      }
+      .b-good {
+        background: var(--warn-bg);
+        color: #9a6010;
+      }
+      .b-bonus {
+        background: var(--success-bg);
+        color: #1f7a4a;
+      }
+
+      /* PHASES */
+      .phase {
+        display: flex;
+        gap: 14px;
+        margin-bottom: 16px;
+        align-items: flex-start;
+      }
+      .pdot {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 600;
+        flex-shrink: 0;
+        font-family: var(--mono);
+      }
+      .p1 {
+        background: var(--info-bg);
+        color: var(--accent);
+        border: 1px solid #c5d8f5;
+      }
+      .p2 {
+        background: var(--warn-bg);
+        color: #9a6010;
+        border: 1px solid #f0c878;
+      }
+      .p3 {
+        background: var(--success-bg);
+        color: #1f7a4a;
+        border: 1px solid #b0dfc2;
+      }
+      .p4 {
+        background: #fdeaea;
+        color: #8a2020;
+        border: 1px solid #f0b8b8;
+      }
+      .phase-content {
+        flex: 1;
+      }
+      .phase-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .phase-years {
+        font-size: 11px;
+        color: var(--hint);
+        margin-bottom: 3px;
+        font-family: var(--mono);
+      }
+      .phase-body {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      /* DEVSECOPS */
+      .dso-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        margin: 1rem 0;
+      }
+      @media (max-width: 520px) {
+        .dso-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .dso {
+        border-radius: var(--radius);
+        padding: 1rem;
+        border: 1px solid var(--border);
+      }
+      .dso.dev {
+        background: var(--info-bg);
+        border-color: #c5d8f5;
+      }
+      .dso.ops {
+        background: var(--warn-bg);
+        border-color: #f0c878;
+      }
+      .dso.sec {
+        background: #fdeaea;
+        border-color: #f0b8b8;
+      }
+      .dso-label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+      }
+      .dso.dev .dso-label {
+        color: var(--accent);
+      }
+      .dso.ops .dso-label {
+        color: #9a6010;
+      }
+      .dso.sec .dso-label {
+        color: #8a2020;
+      }
+      .dso-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .dso-body {
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      /* STORAGE */
+      .store-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 8px;
+        margin: 1rem 0;
+      }
+      .store {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 10px 12px;
+      }
+      .store-type {
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--hint);
+        margin-bottom: 2px;
+        font-family: var(--mono);
+      }
+      .store-name {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+      .store-eg {
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      /* DOSSIER sub-section divider */
+      .sub-divider {
+        display: flex;
+        align-items: center;
+        /* gap: 10px; */
+        /* margin: 2.5rem 0 1.25rem; */
+      }
+      .sub-divider-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+      .sub-divider-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--hint);
+        white-space: nowrap;
+        padding: 0 4px;
+      }
+
+      /* DOSSIER NFR cards */
+      .dossier-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+        margin: 1rem 0;
+      }
+      .dossier-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem;
+      }
+      .dossier-card-label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+        color: var(--accent);
+      }
+      .dossier-card-body {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      /* FLOW */
+      .flow-step {
+        display: flex;
+        gap: 14px;
+        align-items: stretch;
+      }
+      .flow-left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40px;
+        flex-shrink: 0;
+      }
+      .flow-circle {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+      .flow-line {
+        width: 1px;
+        background: var(--border);
+        flex: 1;
+        min-height: 12px;
+        margin: 3px 0;
+      }
+      .flow-content {
+        flex: 1;
+        padding-bottom: 1.25rem;
+      }
+      .flow-role {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        margin-bottom: 3px;
+      }
+      .flow-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+      .flow-body {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .flow-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-top: 7px;
+      }
+      .flow-tag {
+        font-size: 10px;
+        padding: 2px 8px;
+        border-radius: 20px;
+        background: var(--tag-bg);
+        color: var(--muted);
+      }
+      .fc-blue {
+        background: var(--info-bg);
+        border: 1px solid #c5d8f5;
+      }
+      .ft-blue {
+        color: var(--accent);
+      }
+      .fc-teal {
+        background: #e4f5ee;
+        border: 1px solid #a8dfc2;
+      }
+      .ft-teal {
+        color: #1a6a42;
+      }
+      .fc-amber {
+        background: var(--warn-bg);
+        border: 1px solid #f0c878;
+      }
+      .ft-amber {
+        color: #9a6010;
+      }
+      .fc-purple {
+        background: #f0effe;
+        border: 1px solid #c8c4f5;
+      }
+      .ft-purple {
+        color: #4a42a0;
+      }
+      .fc-coral {
+        background: #fdeaea;
+        border: 1px solid #f0b8b8;
+      }
+      .ft-coral {
+        color: #8a2020;
+      }
+
+      /* BOUNDARY TABLE */
+      .boundary {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin: 1rem 0;
+      }
+      .boundary-hdr {
+        background: var(--tag-bg);
+        padding: 9px 14px;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        border-bottom: 1px solid var(--border);
+      }
+      .brow {
+        display: flex;
+        padding: 9px 14px;
+        border-bottom: 1px solid var(--border);
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .brow:last-child {
+        border-bottom: none;
+      }
+      .bcol {
+        font-size: 11px;
+        font-weight: 600;
+        min-width: 90px;
+        flex-shrink: 0;
+        padding-top: 1px;
+      }
+      .bval {
+        font-size: 12px;
+        color: var(--muted);
+        flex: 1;
+        line-height: 1.65;
+      }
+      .own {
+        color: #1f7a4a;
+      }
+      .collab {
+        color: #9a6010;
+      }
+      .advise {
+        color: var(--accent);
+      }
+
+      /* ADR */
+      .adr {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin: 1rem 0;
+      }
+      .adr-hdr {
+        background: var(--tag-bg);
+        padding: 9px 14px;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        border-bottom: 1px solid var(--border);
+      }
+      .adr-row {
+        display: flex;
+        padding: 8px 14px;
+        border-bottom: 1px solid var(--border);
+        gap: 12px;
+      }
+      .adr-row:last-child {
+        border-bottom: none;
+      }
+      .adr-field {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        min-width: 88px;
+        font-family: var(--mono);
+      }
+      .adr-val {
+        font-size: 12px;
+        color: var(--text);
+        flex: 1;
+        line-height: 1.6;
+      }
+
+      /* CERTS */
+      .cert-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+      }
+      .cert {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 12px 14px;
+        flex: 1;
+        min-width: 165px;
+      }
+      .cert-level {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .cl-green {
+        color: #1f7a4a;
+      }
+      .cl-amber {
+        color: #9a6010;
+      }
+      .cl-blue {
+        color: var(--accent);
+      }
+      .cert-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 3px;
+      }
+      .cert-body {
+        font-size: 11px;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      /* PERSONAL BRAND */
+      .pb-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 10px;
+        margin: 1rem 0;
+      }
+      .pb {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1rem;
+      }
+      .pb-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+      .pb-body {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .pb-benefit {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 20px;
+        margin-top: 6px;
+        background: var(--success-bg);
+        color: #1f7a4a;
+      }
+
+      /* BOOKS */
+      .book-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+        gap: 8px;
+        margin: 1rem 0;
+      }
+      .book {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        padding: 10px 12px;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .spine {
+        width: 4px;
+        border-radius: 2px;
+        align-self: stretch;
+        flex-shrink: 0;
+      }
+      .book-title {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+      .book-author {
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      /* CHECKLIST */
+      .check-item {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        margin-bottom: 8px;
+      }
+      .check-box {
+        width: 15px;
+        height: 15px;
+        border: 1.5px solid var(--border);
+        border-radius: 3px;
+        flex-shrink: 0;
+        margin-top: 3px;
+        background: var(--surface);
+      }
+      .check-item span {
+        font-size: 13px;
+        color: var(--text);
+        line-height: 1.65;
+      }
+
+      /* TAGS */
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 1.25rem 0;
+      }
+      .tag {
+        font-size: 11px;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: var(--tag-bg);
+        color: var(--muted);
+      }
+
+      /* MINDSET */
+      .mindset-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 1rem 0;
+      }
+      @media (max-width: 460px) {
+        .mindset-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 2rem 0;
+      }
+
+      /* LINKS */
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid #c5d8f5;
+        transition: border-color 0.15s;
+      }
+      a:hover {
+        border-bottom-color: var(--accent);
+      }
+
+      /* FOOTER */
+      .footer {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        font-size: 12px;
+        color: var(--hint);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .footer a {
+        color: var(--accent);
+        border-bottom: none;
+      }
+      .social-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .social-links a {
+        font-size: 12px;
+        color: var(--accent);
+        border-bottom: none;
+      }
+      .social-links a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- HERO -->
+
+      <p class="subtitle">
+        A practitioner's honest guide — the skills, mindset shifts, on-the-job
+        realities, and personal brand habits no job description will tell you
+        about.
+      </p>
+      <!-- TOC -->
+      <div class="toc">
+        <div class="toc-label">In this article</div>
+        <div class="toc-grid">
+          <div class="toc-item">
+            <span class="toc-num">01</span
+            ><a href="#s1">The moment that changed everything</a>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">02</span
+            ><a href="#s2">What a Solutions Architect actually is</a>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">03</span
+            ><a href="#s3">Four phases of the journey</a>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">04</span
+            ><a href="#s4">Primary technical skills</a>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">05</span
+            ><a href="#s5">Architecture Dossier</a>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">06</span><a href="#s6">On-the-job reality</a>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">07</span><a href="#s7">Secondary skills</a>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">08</span
+            ><a href="#s8">Certifications worth having</a>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">09</span
+            ><a href="#s9">Building your personal brand</a>
+          </div>
+          <div class="toc-item">
+            <span class="toc-num">10</span
+            ><a href="#s10">Mindset shift + checklist</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- S1 -->
+      <div class="section" id="s1">
+        <div class="section-header">
+          <div class="sec-num">1</div>
+          <h2>The moment that changed everything</h2>
+        </div>
+        <p>
+          When I was a software developer, I used to sit in
+          <a
+            href="https://scaledagileframework.com/pi-planning/"
+            target="_blank"
+            >SAFe PI Planning</a
+          >
+          sessions completely in awe. A Solutions Architect would stand up,
+          deliver the Architecture Vision, and map out how an entire system
+          would be built — before a single line of code was written. I remember
+          thinking:
+          <em>how does someone see all of this so clearly, so early?</em>
+        </p>
+        <p>
+          The way they talked about data flowing between systems reminded me of
+          tracing data through a well-written function — but at ten times the
+          scale. That moment sparked a real hunger in me. Not just to write
+          great code inside one layer, but to understand how all the layers
+          connect, and how better decisions at the architecture level make every
+          developer's life easier downstream.
+        </p>
+        <p>
+          I wanted what I now call <strong>vertical breadth</strong> — an
+          informed opinion across infrastructure, data, security, APIs, and
+          business logic, all at once. This article is my honest account of what
+          it actually takes to get there.
+        </p>
+        <div class="callout warn">
+          <div class="callout-label">A word on imposter syndrome</div>
+          <p>
+            If you're a senior developer reading this, you probably already have
+            more of what it takes than you realise. The gap between senior
+            developer and Solutions Architect is not a cliff — it's a gradual
+            widening of perspective. This is a map, not a gate.
+          </p>
+        </div>
+        <p class="bridge">
+          Next: what the role actually is — because it's widely misunderstood
+          even inside tech teams.
+        </p>
+      </div>
+
+      <!-- S2 -->
+      <div class="section" id="s2">
+        <div class="section-header">
+          <div class="sec-num">2</div>
+          <h2>What a Solutions Architect actually is</h2>
+        </div>
+        <p>
+          Not a senior developer who stopped coding. Not a PowerPoint architect
+          who draws boxes and delegates everything. A Solutions Architect holds
+          the technical thread from business problem all the way to running
+          software — making sure every decision stays anchored to real needs.
+        </p>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-title">Visionary</div>
+            <div class="card-body">
+              Translates ambiguous business problems into concrete technical
+              solutions. Sees the end state before the team sees the first
+              sprint.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Trade-off analyst</div>
+            <div class="card-body">
+              Weighs performance, cost, team capability, and long-term
+              maintainability. Never picks a favourite technology — picks what
+              fits best.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Communicator</div>
+            <div class="card-body">
+              Makes complex architecture legible to both engineers and business
+              stakeholders. The same diagram must work for both audiences.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">NFR guardian</div>
+            <div class="card-body">
+              Keeps
+              <a
+                href="https://en.wikipedia.org/wiki/Non-functional_requirement"
+                target="_blank"
+                >non-functional requirements</a
+              >
+              — performance, security, observability, cost — alive throughout
+              the entire system lifecycle.
+            </div>
+          </div>
+        </div>
+        <div class="callout">
+          <div class="callout-label">The T-shape principle</div>
+          <p>
+            The best architects are
+            <a
+              href="https://en.wikipedia.org/wiki/T-shaped_skills"
+              target="_blank"
+              >T-shaped</a
+            >
+            — deeply expert in at least one domain, broadly knowledgeable across
+            all others. You don't need expertise in everything. You need enough
+            in every area to ask the right questions and spot a bad decision
+            early.
+          </p>
+        </div>
+        <p class="bridge">
+          Now that we know the destination, let's map the realistic journey — in
+          phases, not giant leaps.
+        </p>
+      </div>
+
+      <!-- S3 -->
+      <div class="section" id="s3">
+        <div class="section-header">
+          <div class="sec-num">3</div>
+          <h2>Four phases of the journey</h2>
+        </div>
+        <p>
+          This transition unfolds gradually. Each phase has its own focus — and
+          its own temptation to skip ahead before you're ready.
+        </p>
+        <div style="margin: 1.25rem 0">
+          <div class="phase">
+            <div class="pdot p1">1–3y</div>
+            <div class="phase-content">
+              <div class="phase-title">Phase 1 — Build solid foundations</div>
+              <div class="phase-years">Years 1–3 · Software developer</div>
+              <div class="phase-body">
+                Master one language deeply. Understand OS fundamentals,
+                networking, and databases. Write clean, testable code.
+                Contribute seriously to code reviews. The depth you build here
+                is what gives your future architecture opinions credibility.
+              </div>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="pdot p2">3–5y</div>
+            <div class="phase-content">
+              <div class="phase-title">Phase 2 — Expand across the stack</div>
+              <div class="phase-years">
+                Years 3–5 · Senior developer / tech lead
+              </div>
+              <div class="phase-body">
+                Learn
+                <a
+                  href="https://www.geeksforgeeks.org/system-design-tutorial/"
+                  target="_blank"
+                  >system design</a
+                >
+                patterns. Own a feature end-to-end. Write your first
+                <a href="https://adr.github.io/" target="_blank">ADR</a>. Run a
+                <a
+                  href="https://en.wikipedia.org/wiki/Proof_of_concept"
+                  target="_blank"
+                  >PoC</a
+                >. Study cloud platforms. Most importantly: practise explaining
+                technical decisions to non-technical people — this skill
+                accelerates everything else.
+              </div>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="pdot p3">5–7y</div>
+            <div class="phase-content">
+              <div class="phase-title">Phase 3 — Think in systems</div>
+              <div class="phase-years">
+                Years 5–7 · Principal / lead engineer
+              </div>
+              <div class="phase-body">
+                Design
+                <a
+                  href="https://www.geeksforgeeks.org/what-is-high-level-design-learn-system-design/"
+                  target="_blank"
+                  >HLD</a
+                >
+                and
+                <a
+                  href="https://www.geeksforgeeks.org/what-is-low-level-design-or-lld/"
+                  target="_blank"
+                  >LLD</a
+                >
+                architectures. Define NFRs. Drive technology strategy rather
+                than just implement it. This is the phase where most people
+                plateau — keep pushing through it.
+              </div>
+            </div>
+          </div>
+          <div class="phase">
+            <div class="pdot p4">7y+</div>
+            <div class="phase-content">
+              <div class="phase-title">Phase 4 — Architect</div>
+              <div class="phase-years">7+ years · Solutions Architect</div>
+              <div class="phase-body">
+                Own the end-to-end architecture vision. Lead planning sessions.
+                Mentor developers deliberately. Balance technical excellence
+                with business value, budget, and timeline — all at once.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="callout warn">
+          <div class="callout-label">On timelines</div>
+          <p>
+            These are indicative, not prescriptive. I've seen engineers make
+            this shift in 5 years through deliberate practice. The calendar is
+            irrelevant — intentional growth at every stage is what matters.
+          </p>
+        </div>
+        <p class="bridge">
+          Phases tell you when. The next section tells you what to actually
+          build.
+        </p>
+      </div>
+
+      <!-- S4 -->
+      <div class="section" id="s4">
+        <div class="section-header">
+          <div class="sec-num">4</div>
+          <h2>Primary technical skills</h2>
+        </div>
+        <p>
+          These are the domains where an architect needs real competence — not
+          expert-level mastery in every area, but enough depth to design with
+          them, evaluate them, and recognise when something is wrong.
+        </p>
+
+        <h3>4.1 — OS &amp; networking basics</h3>
+        <p>
+          You don't need to configure every router — but you must reason about
+          why a system is slow, why a connection drops, and what happens when a
+          certificate expires at 3am. These fundamentals are the invisible
+          scaffolding behind every architecture decision.
+        </p>
+        <div class="tag-row">
+          <span class="tag"
+            ><a href="https://linuxjourney.com/" target="_blank"
+              >Linux process management</a
+            ></span
+          >
+          <span class="tag"
+            ><a
+              href="https://www.cloudflare.com/learning/network-layer/what-is-the-tcp-ip-model/"
+              target="_blank"
+              >TCP/IP model</a
+            ></span
+          >
+          <span class="tag"
+            ><a
+              href="https://www.cloudflare.com/learning/dns/what-is-dns/"
+              target="_blank"
+              >DNS &amp; CDN</a
+            ></span
+          >
+          <span class="tag"
+            ><a
+              href="https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/"
+              target="_blank"
+              >TLS/mTLS</a
+            ></span
+          >
+          <span class="tag"
+            ><a
+              href="https://aws.amazon.com/what-is/load-balancing/"
+              target="_blank"
+              >Load balancers</a
+            ></span
+          >
+          <span class="tag"
+            ><a
+              href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html"
+              target="_blank"
+              >Firewalls &amp; VPCs</a
+            ></span
+          >
+          <span class="tag"
+            ><a
+              href="https://web.dev/articles/performance-http2"
+              target="_blank"
+              >HTTP/2 &amp; gRPC</a
+            ></span
+          >
+        </div>
+
+        <h3>4.2 — DevSecOps — from code to production, securely</h3>
+        <p>
+          <a
+            href="https://www.redhat.com/en/topics/devops/what-is-devsecops"
+            target="_blank"
+            >DevSecOps</a
+          >
+          means weaving development speed, operational reliability, and security
+          into one continuous workflow. A system that ships fast but breaks
+          often, or works well but is insecure, is a failure of architecture —
+          not just operations.
+        </p>
+        <div class="dso-grid">
+          <div class="dso dev">
+            <div class="dso-label">Dev</div>
+            <div class="dso-title">Development</div>
+            <div class="dso-body">
+              Languages &amp; frameworks · App servers · SQL &amp; NoSQL ·
+              Frontend ·
+              <a
+                href="https://auth0.com/docs/get-started/identity-fundamentals/authentication-and-authorization"
+                target="_blank"
+                >Auth (OAuth2, OIDC, RBAC)</a
+              >
+              · <a href="https://restfulapi.net/" target="_blank">API design</a>
+            </div>
+          </div>
+          <div class="dso ops">
+            <div class="dso-label">Ops</div>
+            <div class="dso-title">Operations</div>
+            <div class="dso-body">
+              <a
+                href="https://www.atlassian.com/continuous-delivery/principles/continuous-integration-vs-delivery-vs-deployment"
+                target="_blank"
+                >CI/CD pipelines</a
+              >
+              ·
+              <a
+                href="https://www.docker.com/resources/what-container/"
+                target="_blank"
+                >Docker</a
+              >
+              &amp;
+              <a
+                href="https://kubernetes.io/docs/concepts/overview/"
+                target="_blank"
+                >Kubernetes</a
+              >
+              ·
+              <a href="https://www.terraform.io/intro" target="_blank"
+                >IaC (Terraform)</a
+              >
+              · Artifactory · Observability
+            </div>
+          </div>
+          <div class="dso sec">
+            <div class="dso-label">Sec</div>
+            <div class="dso-title">Security</div>
+            <div class="dso-body">
+              <a href="https://letsencrypt.org/how-it-works/" target="_blank"
+                >Certificate management</a
+              >
+              ·
+              <a
+                href="https://www.cloudflare.com/learning/ssl/what-is-encryption/"
+                target="_blank"
+                >Encryption at rest &amp; in transit</a
+              >
+              ·
+              <a
+                href="https://developer.hashicorp.com/vault/docs/what-is-vault"
+                target="_blank"
+                >Secrets management</a
+              >
+              ·
+              <a href="https://owasp.org/www-project-top-ten/" target="_blank"
+                >OWASP Top 10</a
+              >
+              · SAST &amp; DAST
+            </div>
+          </div>
+        </div>
+        <div class="callout ok">
+          <div class="callout-label">Practice tip</div>
+          <p>
+            Build one personal project touching all three pillars: a
+            containerised app with a CI/CD pipeline, Terraform-provisioned
+            infra, and TLS certs via Let's Encrypt. Document every decision
+            publicly on GitHub. This single project teaches more than six months
+            of reading.
+          </p>
+        </div>
+
+        <h3>4.3 — Storage &amp; databases</h3>
+        <p>
+          Every architecture eventually bottlenecks at the data layer. The wrong
+          database choice at architecture time can cost years of engineering
+          effort to undo.
+        </p>
+        <div class="store-grid">
+          <div class="store">
+            <div class="store-type">Relational</div>
+            <div class="store-name">
+              <a href="https://www.postgresql.org/about/" target="_blank"
+                >SQL</a
+              >
+            </div>
+            <div class="store-eg">
+              PostgreSQL, MySQL — ACID, joins, strong consistency
+            </div>
+          </div>
+          <div class="store">
+            <div class="store-type">Document</div>
+            <div class="store-name">
+              <a href="https://www.mongodb.com/nosql-explained" target="_blank"
+                >NoSQL</a
+              >
+            </div>
+            <div class="store-eg">
+              MongoDB, Firestore — flexible schema, horizontal scale
+            </div>
+          </div>
+          <div class="store">
+            <div class="store-type">Key-Value</div>
+            <div class="store-name">
+              <a href="https://redis.io/docs/about/" target="_blank"
+                >Cache / KV</a
+              >
+            </div>
+            <div class="store-eg">
+              Redis, DynamoDB — ultra-low latency, sessions
+            </div>
+          </div>
+          <div class="store">
+            <div class="store-type">Wide-Column</div>
+            <div class="store-name">
+              <a
+                href="https://cassandra.apache.org/_/index.html"
+                target="_blank"
+                >Columnar</a
+              >
+            </div>
+            <div class="store-eg">
+              Cassandra — time-series, write-heavy workloads
+            </div>
+          </div>
+          <div class="store">
+            <div class="store-type">Search</div>
+            <div class="store-name">
+              <a
+                href="https://www.elastic.co/what-is/elasticsearch"
+                target="_blank"
+                >Search engine</a
+              >
+            </div>
+            <div class="store-eg">Elasticsearch — full-text, analytics</div>
+          </div>
+          <div class="store">
+            <div class="store-type">Graph</div>
+            <div class="store-name">
+              <a
+                href="https://neo4j.com/developer/graph-database/"
+                target="_blank"
+                >Graph DB</a
+              >
+            </div>
+            <div class="store-eg">Neo4j — relationships, fraud detection</div>
+          </div>
+          <div class="store">
+            <div class="store-type">Object</div>
+            <div class="store-name">
+              <a href="https://aws.amazon.com/s3/faqs/" target="_blank"
+                >Object store</a
+              >
+            </div>
+            <div class="store-eg">S3, GCS — files, backups, media at scale</div>
+          </div>
+          <div class="store">
+            <div class="store-type">Analytical</div>
+            <div class="store-name">
+              <a
+                href="https://cloud.google.com/bigquery/docs/introduction"
+                target="_blank"
+                >Data warehouse</a
+              >
+            </div>
+            <div class="store-eg">BigQuery, Redshift — OLAP, BI, reporting</div>
+          </div>
+        </div>
+
+        <h3>4.4 — System design</h3>
+        <p>
+          System design is the architect's primary language. It has two layers —
+          and keeping them separate is itself a skill.
+        </p>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-title">
+              <a
+                href="https://www.geeksforgeeks.org/what-is-high-level-design-learn-system-design/"
+                target="_blank"
+                >High-Level Design (HLD)</a
+              >
+            </div>
+            <div class="card-body">
+              The functional view — how components interact: microservices,
+              APIs, databases, queues, caches. Non-technical stakeholders must
+              be able to follow it. If they can't, it's not done.
+            </div>
+            <div class="badge b-must">Must-have</div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <a
+                href="https://www.geeksforgeeks.org/what-is-low-level-design-or-lld/"
+                target="_blank"
+                >Low-Level Design (LLD)</a
+              >
+            </div>
+            <div class="card-body">
+              The engineering view — class diagrams, sequence diagrams, schemas,
+              API contracts. This is what the dev team implements from.
+              Ambiguity here becomes bugs later.
+            </div>
+            <div class="badge b-must">Must-have</div>
+          </div>
+        </div>
+        <p class="bridge">
+          Technical skills sorted. Now the big section — thinking holistically
+          about system quality before a single line of code is written.
+        </p>
+      </div>
+
+      <!-- S5 — ARCHITECTURE DOSSIER -->
+      <div class="section" id="s5">
+        <div class="section-header">
+          <div class="sec-num">5</div>
+          <h2>Architecture Dossier — define this before you build anything</h2>
+        </div>
+        <p>
+          Think of the Architecture Dossier as the single source of truth for
+          your system. It's the collection of quality targets, standards, and
+          decisions that the whole team aligns to before building starts.
+          Without it, every developer makes their own assumptions — and those
+          assumptions quietly accumulate into technical debt, security gaps, and
+          production surprises you can't explain.
+        </p>
+        <p>The Dossier has four areas. Every architect must own all four.</p>
+
+        <!-- 5.1 Quality Targets -->
+        <div class="sub-divider">
+          <div class="sub-divider-line"></div>
+          <div class="sub-divider-label">5.1 — Quality targets (NFRs)</div>
+          <div class="sub-divider-line"></div>
+        </div>
+        <p>
+          Developers think about <em>what</em> a system does. Architects think
+          about <em>how well</em> it does it — and what happens when it doesn't.
+          These quality properties shape every technology choice and every
+          design decision that follows. Define them upfront, not after the first
+          production incident.
+        </p>
+        <div class="dossier-grid">
+          <div class="dossier-card">
+            <div class="dossier-card-label">Performance &amp; latency</div>
+            <div class="dossier-card-body">
+              <a href="https://en.wikipedia.org/wiki/Percentile" target="_blank"
+                >P99 response times</a
+              >, throughput targets, caching layers, CDN positioning. Define
+              these before you pick a tech stack, not after you've already built
+              it.
+            </div>
+          </div>
+          <div class="dossier-card">
+            <div class="dossier-card-label">Scalability</div>
+            <div class="dossier-card-body">
+              <a
+                href="https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling"
+                target="_blank"
+                >Horizontal vs vertical scaling</a
+              >, stateless service design, auto-scaling policies, database
+              sharding strategy for when traffic grows.
+            </div>
+          </div>
+          <div class="dossier-card">
+            <div class="dossier-card-label">Reliability &amp; availability</div>
+            <div class="dossier-card-body">
+              <a
+                href="https://sre.google/sre-book/service-level-objectives/"
+                target="_blank"
+                >SLAs &amp; SLOs</a
+              >, redundancy design, multi-region failover, and
+              <a href="https://principlesofchaos.org/" target="_blank"
+                >chaos engineering</a
+              >
+              practices to test resilience before customers do.
+            </div>
+          </div>
+          <div class="dossier-card">
+            <div class="dossier-card-label">Security</div>
+            <div class="dossier-card-body">
+              AuthN/AuthZ, encryption at rest and in transit,
+              <a href="https://owasp.org/www-project-top-ten/" target="_blank"
+                >OWASP Top 10</a
+              >
+              mitigations, and
+              <a
+                href="https://csrc.nist.gov/publications/detail/sp/800-207/final"
+                target="_blank"
+                >zero-trust principles</a
+              >
+              for access control.
+            </div>
+          </div>
+          <div class="dossier-card">
+            <div class="dossier-card-label">Maintainability</div>
+            <div class="dossier-card-body">
+              Code quality gates, dependency management, backward-compatible API
+              versioning, and
+              <a href="https://semver.org/" target="_blank"
+                >semantic versioning</a
+              >
+              standards that keep upgrades predictable.
+            </div>
+          </div>
+          <div class="dossier-card">
+            <div class="dossier-card-label">Cost efficiency</div>
+            <div class="dossier-card-body">
+              Cloud right-sizing, reserved vs spot instances, resource tagging
+              strategy, cost alerting thresholds, and
+              <a
+                href="https://www.finops.org/introduction/what-is-finops/"
+                target="_blank"
+                >FinOps practices</a
+              >
+              to keep the bill from shocking you.
+            </div>
+          </div>
+          <div class="dossier-card">
+            <div class="dossier-card-label">Deployability</div>
+            <div class="dossier-card-body">
+              <a
+                href="https://martinfowler.com/bliki/BlueGreenDeployment.html"
+                target="_blank"
+                >Blue-green</a
+              >,
+              <a
+                href="https://martinfowler.com/bliki/CanaryRelease.html"
+                target="_blank"
+                >canary</a
+              >, or rolling deploys. Feature flags. Rollback triggers. Smoke
+              test criteria decided before the first release, not during it.
+            </div>
+          </div>
+        </div>
+
+        <!-- 5.2 Testing -->
+        <div class="sub-divider">
+          <div class="sub-divider-line"></div>
+          <div class="sub-divider-label">5.2 — Testing strategy</div>
+          <div class="sub-divider-line"></div>
+        </div>
+        <p>
+          Architects define the
+          <a
+            href="https://martinfowler.com/articles/practical-test-pyramid.html"
+            target="_blank"
+            >testing pyramid</a
+          >
+          for the whole system. Getting this wrong is expensive — too many E2E
+          tests and your pipeline becomes slow and brittle; too few integration
+          tests and production surprises you constantly.
+        </p>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-title">
+              <a
+                href="https://martinfowler.com/articles/practical-test-pyramid.html#UnitTests"
+                target="_blank"
+                >Unit tests</a
+              >
+            </div>
+            <div class="card-body">
+              Fast, isolated, developer-owned. Cover every branch. Your cheapest
+              safety net — invest heavily here first.
+            </div>
+            <div class="badge b-must">Foundation</div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <a
+                href="https://martinfowler.com/articles/practical-test-pyramid.html#IntegrationTests"
+                target="_blank"
+                >Integration tests</a
+              >
+            </div>
+            <div class="card-body">
+              Verify components work together correctly. Test contracts between
+              them, not internal implementations.
+            </div>
+            <div class="badge b-must">Foundation</div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <a
+                href="https://martinfowler.com/articles/practical-test-pyramid.html#End-to-endTests"
+                target="_blank"
+                >End-to-end tests</a
+              >
+            </div>
+            <div class="card-body">
+              Simulate complete user journeys. Keep the suite small — focused on
+              the most critical business flows only.
+            </div>
+            <div class="badge b-good">Strategic</div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <a href="https://docs.pact.io/" target="_blank">Contract tests</a>
+            </div>
+            <div class="card-body">
+              Validate API contracts between services (e.g. Pact). Essential in
+              microservices to catch breaking changes before they reach
+              production.
+            </div>
+            <div class="badge b-bonus">Advanced</div>
+          </div>
+        </div>
+
+        <!-- 5.3 Observability -->
+        <div class="sub-divider">
+          <div class="sub-divider-line"></div>
+          <div class="sub-divider-label">5.3 — Observability</div>
+          <div class="sub-divider-line"></div>
+        </div>
+        <p>
+          Once your code is live in production, how do you know it's healthy?
+          Observability is the practice of making your system's internal state
+          visible from the outside — so that when something goes wrong (and it
+          will), you can debug it fast instead of guessing in the dark.
+        </p>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-title">
+              <a
+                href="https://www.datadoghq.com/knowledge-center/structured-logging/"
+                target="_blank"
+                >Structured logging</a
+              >
+            </div>
+            <div class="card-body">
+              Every service logs in a consistent, machine-readable format
+              (JSON). Logs tell you <em>what happened</em>. Ship them to a
+              centralised store like
+              <a href="https://www.elastic.co/what-is/elk-stack" target="_blank"
+                >ELK Stack</a
+              >
+              or
+              <a href="https://grafana.com/oss/loki/" target="_blank">Loki</a>.
+              Unstructured log strings are impossible to query at scale.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <a
+                href="https://opentelemetry.io/docs/concepts/observability-primer/#distributed-traces"
+                target="_blank"
+                >Distributed tracing</a
+              >
+            </div>
+            <div class="card-body">
+              Traces tell you <em>where a request went</em> — across every
+              service it touched. Tools like
+              <a href="https://www.jaegertracing.io/" target="_blank">Jaeger</a>
+              or <a href="https://zipkin.io/" target="_blank">Zipkin</a>, built
+              on
+              <a href="https://opentelemetry.io/" target="_blank"
+                >OpenTelemetry</a
+              >, let you follow one request through 10 microservices in a single
+              view.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <a
+                href="https://prometheus.io/docs/introduction/overview/"
+                target="_blank"
+                >Metrics &amp; dashboards</a
+              >
+            </div>
+            <div class="card-body">
+              Metrics tell you <em>how much</em> — request rate, error rate,
+              latency.
+              <a href="https://prometheus.io/" target="_blank">Prometheus</a> +
+              <a href="https://grafana.com/" target="_blank">Grafana</a> is the
+              most common open-source pairing. Build your dashboards before
+              go-live, not after the first incident.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">
+              <a
+                href="https://www.pagerduty.com/resources/learn/what-is-alerting/"
+                target="_blank"
+                >Alerting strategy</a
+              >
+            </div>
+            <div class="card-body">
+              Alert on symptoms, not causes. Alert when an
+              <a
+                href="https://sre.google/workbook/alerting-on-slos/"
+                target="_blank"
+                >SLO is at risk</a
+              >
+              — not when CPU hits 70%. Every alert must have a clear owner, a
+              runbook link, and a defined response time.
+            </div>
+          </div>
+        </div>
+        <div class="callout">
+          <div class="callout-label">The three pillars of observability</div>
+          <p>
+            <strong>Logs</strong> tell you what happened.
+            <strong>Traces</strong> tell you where the request went.
+            <strong>Metrics</strong> tell you how the system is behaving over
+            time. Design for all three before you deploy — not after you're
+            debugging a live incident with no visibility.
+          </p>
+        </div>
+
+        <!-- 5.4 Documentation -->
+        <div class="sub-divider">
+          <div class="sub-divider-line"></div>
+          <div class="sub-divider-label">5.4 — Documentation</div>
+          <div class="sub-divider-line"></div>
+        </div>
+        <p>
+          An architect who doesn't document is creating institutional debt.
+          Every significant decision should leave a written record that future
+          engineers can read without needing to ask anyone.
+        </p>
+
+        <h3>
+          <a href="https://adr.github.io/" target="_blank"
+            >Architecture Decision Records (ADRs)</a
+          >
+        </h3>
+        <p>
+          The most important document an architect can write. Captures not just
+          what you decided but <em>why</em> — including the options you
+          considered and rejected. Future engineers will inherit your choices;
+          the ADR is how they understand your reasoning instead of cursing your
+          decisions.
+        </p>
+        <div class="adr">
+          <div class="adr-hdr">
+            Example ADR — Choosing a message broker for the event pipeline
+          </div>
+          <div class="adr-row">
+            <div class="adr-field">Title</div>
+            <div class="adr-val">
+              ADR-004: Use Apache Kafka for the telemetry event pipeline
+            </div>
+          </div>
+          <div class="adr-row">
+            <div class="adr-field">Status</div>
+            <div class="adr-val">Accepted</div>
+          </div>
+          <div class="adr-row">
+            <div class="adr-field">Context</div>
+            <div class="adr-val">
+              We need to process 50k+ events/second from distributed sensors
+              with replay capability and consumer group isolation.
+            </div>
+          </div>
+          <div class="adr-row">
+            <div class="adr-field">Decision</div>
+            <div class="adr-val">
+              Use
+              <a href="https://kafka.apache.org/intro" target="_blank"
+                >Apache Kafka</a
+              >
+              — supports high throughput, log compaction, and consumer groups
+              natively.
+            </div>
+          </div>
+          <div class="adr-row">
+            <div class="adr-field">Alternatives</div>
+            <div class="adr-val">
+              RabbitMQ — rejected (no log replay) · AWS SQS — rejected (limited
+              throughput) · Redis Streams — rejected (insufficient maturity at
+              this scale)
+            </div>
+          </div>
+          <div class="adr-row">
+            <div class="adr-field">Consequences</div>
+            <div class="adr-val">
+              Higher operational overhead. Team needs Kafka training. Long-term
+              benefit in replay and audit capability.
+            </div>
+          </div>
+        </div>
+
+        <h3>Other documents every system needs</h3>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-title">Deployment strategy doc</div>
+            <div class="card-body">
+              Defines the release approach — blue-green, canary, rolling.
+              Includes rollback triggers, smoke test criteria, and who signs off
+              on go-live. Write this before the first release.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">SOP (Standard Operating Procedure)</div>
+            <div class="card-body">
+              Step-by-step runbooks for deployments, incident response,
+              certificate rotation. Written clearly enough for anyone to follow
+              at 3am under pressure.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">User guide for business</div>
+            <div class="card-body">
+              Non-technical documentation in plain language explaining how the
+              system supports business workflows. Stakeholders who understand
+              the system trust you more and ask better questions.
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Threat model</div>
+            <div class="card-body">
+              Identifies attack surfaces and mitigations. Even a lightweight
+              <a
+                href="https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats"
+                target="_blank"
+                >STRIDE analysis</a
+              >
+              at architecture phase adds enormous security value at minimal
+              cost.
+            </div>
+          </div>
+        </div>
+
+        <div class="callout ok">
+          <div class="callout-label">The Dossier is a living document</div>
+          <p>
+            It's not written once and filed away. It evolves as the system
+            evolves. Every ADR, every deployment decision, every observability
+            threshold you define is a record of how you think. The team reads it
+            when you're not in the room — make sure it speaks clearly on your
+            behalf.
+          </p>
+        </div>
+        <p class="bridge">
+          Dossier covered. Now the most important section — the on-the-job
+          skills no course, cert, or side project can teach you.
+        </p>
+      </div>
+
+      <!-- S6 -->
+      <div class="section" id="s6">
+        <div class="section-header">
+          <div class="sec-num warm">6</div>
+          <h2>On-the-job reality — what only the role teaches</h2>
+        </div>
+        <p>
+          Some skills you can study and simulate. Others only crystallise when
+          the business is looking at you for answers, the budget is real, and
+          five teams are waiting on your decision. No tutorial replicates that.
+        </p>
+        <p>
+          The Solutions Architect role asks you to wear several hats across a
+          project's lifecycle — not all at once, but fluidly. You don't own
+          every role, but you provide the technical perspective across all of
+          them.
+        </p>
+
+        <h3>The flow: from business problem to delivered software</h3>
+
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-circle fc-blue">
+              <span class="ft-blue">1</span>
+            </div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-role ft-blue">Functional Architect hat</div>
+            <div class="flow-title">
+              Understand the business first — before touching technology
+            </div>
+            <div class="flow-body">
+              Resist the urge to jump to a solution. Sit with the business,
+              listen carefully, and build a
+              <a
+                href="https://en.wikipedia.org/wiki/Functional_model"
+                target="_blank"
+                >Functional Diagram</a
+              >
+              — a technology-agnostic picture of the business flow, the actors,
+              the data, and the outcomes. Until the business can look at this
+              and say "yes, that's our world," you haven't earned the right to
+              start designing a system.
+            </div>
+            <div class="flow-tags">
+              <span class="flow-tag">Business workshops</span
+              ><span class="flow-tag">Functional diagrams</span
+              ><span class="flow-tag">Actor mapping</span
+              ><span class="flow-tag">Domain modelling</span>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-circle fc-teal">
+              <span class="ft-teal">2</span>
+            </div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-role ft-teal">Solutions Architect hat</div>
+            <div class="flow-title">
+              Translate functional requirements into systems and technology
+            </div>
+            <div class="flow-body">
+              Only after the functional picture is clear do you put on the
+              technical lens. You produce a High-Level Architecture — the
+              services, integrations, data stores, and APIs that will deliver
+              the outcome. This HLD becomes the north star for every technical
+              decision that follows.
+            </div>
+            <div class="flow-tags">
+              <span class="flow-tag">HLD diagram</span
+              ><span class="flow-tag">Technology selection</span
+              ><span class="flow-tag">NFR definition</span
+              ><span class="flow-tag">PoC recommendations</span>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-circle fc-amber">
+              <span class="ft-amber">3</span>
+            </div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-role ft-amber">Estimator hat</div>
+            <div class="flow-title">
+              Break the work into bricks — estimate by deliverable, not by
+              project
+            </div>
+            <div class="flow-body">
+              Estimating the whole project as one number is a trap. Decompose
+              the architecture into deliverables — each one an
+              <a
+                href="https://www.agilealliance.org/glossary/mvp/"
+                target="_blank"
+                >MVP</a
+              >-sized brick of working value. Estimate each independently:
+              scope, effort, dependencies, risk. This keeps delivery honest and
+              surfaces trade-offs before they become crises.
+            </div>
+            <div class="flow-tags">
+              <span class="flow-tag">MVP decomposition</span
+              ><span class="flow-tag">Work breakdown</span
+              ><span class="flow-tag">Effort estimation</span
+              ><span class="flow-tag">Risk sizing</span>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-circle fc-purple">
+              <span class="ft-purple">4</span>
+            </div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-role ft-purple">Budget advisor hat</div>
+            <div class="flow-title">
+              Give the business a budget — broken down by deliverable
+            </div>
+            <div class="flow-body">
+              Each deliverable gets a budget line. This is architecture work,
+              not finance work. Architects who understand the cost of their
+              choices — cloud infra, licensing, team effort — earn a level of
+              leadership trust that purely technical architects never achieve.
+            </div>
+            <div class="flow-tags">
+              <span class="flow-tag">Cloud cost modelling</span
+              ><span class="flow-tag">Licence &amp; tooling costs</span
+              ><span class="flow-tag">Trade-off advisory</span>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-circle fc-blue">
+              <span class="ft-blue">5</span>
+            </div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-role ft-blue">Product Manager hat</div>
+            <div class="flow-title">
+              Fit deliverables into a roadmap — give the business a "when"
+            </div>
+            <div class="flow-body">
+              Sequence your MVPs into a roadmap the business can commit to:
+              which bricks land in which quarter, what dependencies must be
+              resolved first, what the critical path is. The business now has a
+              real answer to "when are we getting this?" — anchored in technical
+              reality, not wishful thinking.
+            </div>
+            <div class="flow-tags">
+              <span class="flow-tag">Roadmap sequencing</span
+              ><span class="flow-tag">Critical path</span
+              ><span class="flow-tag">Milestone definition</span>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-circle fc-teal">
+              <span class="ft-teal">6</span>
+            </div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-role ft-teal">Orchestrator hat</div>
+            <div class="flow-title">
+              Break the roadmap into features and stories — hand it to the team
+            </div>
+            <div class="flow-body">
+              Each roadmap item gets broken into features and
+              <a
+                href="https://www.atlassian.com/agile/project-management/user-stories"
+                target="_blank"
+                >user stories</a
+              >
+              the dev team can execute. Your LLD, API contracts, and
+              architecture diagrams become the team's working specifications.
+              The quality of this handoff determines how faithfully the system
+              gets built.
+            </div>
+            <div class="flow-tags">
+              <span class="flow-tag">Epic decomposition</span
+              ><span class="flow-tag">Story mapping</span
+              ><span class="flow-tag">Architecture handoff</span>
+            </div>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-left">
+            <div class="flow-circle fc-coral">
+              <span class="ft-coral">7</span>
+            </div>
+            <div class="flow-line"></div>
+          </div>
+          <div class="flow-content">
+            <div class="flow-role ft-coral">Governance hat</div>
+            <div class="flow-title">
+              Track, review, and keep the thread intact
+            </div>
+            <div class="flow-body">
+              You're not the
+              <a
+                href="https://www.scrum.org/resources/what-is-a-scrum-master"
+                target="_blank"
+                >Scrum Master</a
+              >
+              or the
+              <a
+                href="https://scaledagileframework.com/release-train-engineer/"
+                target="_blank"
+                >RTE</a
+              >
+              — but you review completed deliverables against the original
+              architecture, flag drift before it becomes debt, and provide the
+              technical narrative in milestone reviews.
+            </div>
+            <div class="flow-tags">
+              <span class="flow-tag">Architecture review</span
+              ><span class="flow-tag">Drift detection</span
+              ><span class="flow-tag">Risk escalation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout warn">
+          <div class="callout-label">The most important distinction</div>
+          <p>
+            You wear many hats — but you don't own all the roles. The PM, Scrum
+            Master, and RTE each own their domain. Your job is to provide the
+            technical opinion across all of them. You are the connective tissue
+            between the business problem and delivered software.
+          </p>
+        </div>
+
+        <h3>Where the architect owns, collaborates, and advises</h3>
+        <div class="boundary">
+          <div class="boundary-hdr">Responsibility map</div>
+          <div class="brow">
+            <div class="bcol own">Owns</div>
+            <div class="bval">
+              Technical vision · HLD &amp; LLD · Technology selection &amp; PoC
+              · NFR definition · ADRs · Technical review · DevSecOps &amp;
+              security strategy
+            </div>
+          </div>
+          <div class="brow">
+            <div class="bcol collab">Collaborates</div>
+            <div class="bval">
+              Functional diagrams with BAs · Roadmap with PMs · Epic &amp; story
+              decomposition with Scrum Masters · Budget modelling with project
+              managers
+            </div>
+          </div>
+          <div class="brow">
+            <div class="bcol advise">Advises</div>
+            <div class="bval">
+              Resource allocation · Sprint capacity · Vendor &amp; procurement
+              choices · Organisational changes driven by technical decisions
+            </div>
+          </div>
+        </div>
+        <p class="bridge">
+          On-the-job reality covered. Now: the secondary skills that determine
+          how far your technical work actually travels.
+        </p>
+      </div>
+
+      <!-- S7 -->
+      <div class="section" id="s7">
+        <div class="section-header">
+          <div class="sec-num green">7</div>
+          <h2>Secondary skills — the career multipliers</h2>
+        </div>
+        <p>
+          These rarely appear in job descriptions. But they separate architects
+          who are technically correct from those who actually drive change.
+        </p>
+        <div class="grid grid-2">
+          <div class="card">
+            <div class="card-title">Presentation &amp; storytelling</div>
+            <div class="card-body">
+              Your architecture is only as good as your ability to make others
+              believe in it. Every explanation needs a "so what" — why this
+              decision matters to the business, not just the system.
+            </div>
+            <div class="badge b-must">Critical</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Structured curiosity</div>
+            <div class="card-body">
+              A disciplined habit of going deep on one new topic each month and
+              documenting the takeaways. Blogs, PoCs, and talks are the visible
+              output of this curiosity.
+            </div>
+            <div class="badge b-must">Critical</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Stakeholder management</div>
+            <div class="card-body">
+              Aligning developers, PMs, business owners, and security teams —
+              all with different priorities. Learn to negotiate constraints
+              rather than just design around them.
+            </div>
+            <div class="badge b-good">Important</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Technical writing</div>
+            <div class="card-body">
+              Clear documentation outlasts any verbal explanation. Master the
+              ADR format, RFC structure, and the art of writing a runbook
+              someone can follow at 3am under stress.
+            </div>
+            <div class="badge b-good">Important</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Mentoring</div>
+            <div class="card-body">
+              The architect who lifts junior developers up multiplies their own
+              impact exponentially. The best technical leaders are also the best
+              teachers in the room.
+            </div>
+            <div class="badge b-bonus">Bonus</div>
+          </div>
+          <div class="card">
+            <div class="card-title">Domain knowledge</div>
+            <div class="card-body">
+              Understanding the business domain you build for lets you challenge
+              requirements — not just implement them. Business fluency is a
+              genuine competitive advantage.
+            </div>
+            <div class="badge b-bonus">Bonus</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- S8 -->
+      <div class="section" id="s8">
+        <div class="section-header">
+          <div class="sec-num green">8</div>
+          <h2>Certifications — good to have, not enough alone</h2>
+        </div>
+        <p>
+          Certifications don't make you an architect — but they signal
+          commitment, validate your cloud fundamentals, and force you to fill
+          knowledge gaps that project work alone might never expose.
+        </p>
+        <div class="cert-row">
+          <div class="cert">
+            <div class="cert-level cl-green">Associate · AWS</div>
+            <div class="cert-name">
+              <a
+                href="https://aws.amazon.com/certification/certified-solutions-architect-associate/"
+                target="_blank"
+                >AWS Solutions Architect Associate</a
+              >
+            </div>
+            <div class="cert-body">
+              Your entry point into cloud architecture thinking. Covers compute,
+              storage, networking, IAM, and core services. Start here — it
+              restructures how you think about infrastructure design.
+            </div>
+          </div>
+          <div class="cert">
+            <div class="cert-level cl-amber">Professional · AWS</div>
+            <div class="cert-name">
+              <a
+                href="https://aws.amazon.com/certification/certified-solutions-architect-professional/"
+                target="_blank"
+                >AWS Solutions Architect Professional</a
+              >
+            </div>
+            <div class="cert-body">
+              Advanced multi-account architecture, complex migrations, and
+              enterprise integration patterns. This is the cert that earns
+              credibility in architecture conversations.
+            </div>
+          </div>
+          <div class="cert">
+            <div class="cert-level cl-blue">Associate · HashiCorp</div>
+            <div class="cert-name">
+              <a
+                href="https://developer.hashicorp.com/certifications/infrastructure-automation"
+                target="_blank"
+                >Terraform Associate</a
+              >
+            </div>
+            <div class="cert-body">
+              Validates IaC fundamentals — provisioning, state, modules,
+              workspaces. Infrastructure as code is no longer optional for
+              architects who want to stay relevant.
+            </div>
+          </div>
+        </div>
+        <div class="callout warn">
+          <div class="callout-label">The cert trap</div>
+          <p>
+            A certification without hands-on experience is a badge on a wall.
+            Earn the cert and immediately apply it — provision real
+            infrastructure with Terraform, architect a project in AWS, and
+            document your decisions publicly. The cert opens the door; your
+            portfolio gets you the role.
+          </p>
+        </div>
+      </div>
+
+      <!-- S9 -->
+      <div class="section" id="s9">
+        <div class="section-header">
+          <div class="sec-num green">9</div>
+          <h2>Building your personal brand in public</h2>
+        </div>
+        <p>
+          This is the highest-ROI career investment on this list — and the one
+          most engineers skip because it feels uncomfortable or
+          self-promotional. It's neither. When you document your learning
+          consistently and publicly, something shifts: recruiters and companies
+          begin coming to you. You stop applying for roles — opportunities find
+          you.
+        </p>
+        <div class="pb-grid">
+          <div class="pb">
+            <div class="pb-title">
+              Write articles on
+              <a href="https://medium.com/@tsabunkar" target="_blank">Medium</a>
+            </div>
+            <div class="pb-body">
+              Publish every project, learning, and architectural decision. Even
+              short "what I learned" posts compound over time into public proof
+              of expertise no CV can replicate.
+            </div>
+            <div class="pb-benefit">Credibility + discoverability</div>
+          </div>
+          <div class="pb">
+            <div class="pb-title">
+              Record videos on
+              <a href="https://www.youtube.com/@tsabunkar" target="_blank"
+                >YouTube</a
+              >
+            </div>
+            <div class="pb-body">
+              Explain your projects — how the system works, how the code is
+              structured, why you made the decisions you made. Authenticity and
+              clarity matter more than production quality.
+            </div>
+            <div class="pb-benefit">Reach + trust</div>
+          </div>
+          <div class="pb">
+            <div class="pb-title">
+              Live coding &amp; building on
+              <a href="https://www.instagram.com/arch2lead/" target="_blank"
+                >Instagram</a
+              >,
+              <a href="https://www.youtube.com/@tsabunkar" target="_blank"
+                >YouTube</a
+              >
+            </div>
+            <div class="pb-body">
+              Share the messy parts — debugging, searching, figuring things out
+              in real time. The gap between polished tutorials and reality is
+              where people are most stuck, and where you can help most.
+            </div>
+            <div class="pb-benefit">Community + authenticity</div>
+          </div>
+          <div class="pb">
+            <div class="pb-title">
+              Document every repo on
+              <a href="https://github.com/tsabunkar" target="_blank">GitHub</a>
+            </div>
+            <div class="pb-body">
+              Every project needs a comprehensive README, architecture diagram,
+              setup guide, and decision log. A well-documented repo is a silent
+              portfolio piece working for you around the clock.
+            </div>
+            <div class="pb-benefit">Portfolio + hiring signal</div>
+          </div>
+        </div>
+        <div class="callout ok">
+          <div class="callout-label">The compounding effect</div>
+          <p>
+            Documenting your work doesn't only build your brand — it sharpens
+            your thinking. Writing and teaching forces deeper understanding than
+            doing alone. You'll also develop skills you didn't plan on: video
+            editing, article writing, communication, and teaching. You give back
+            to the community — and the community gives back to your career in
+            ways you can't predict.
+          </p>
+        </div>
+      </div>
+
+      <!-- S10 -->
+      <div class="section" id="s10">
+        <div class="section-header">
+          <div class="sec-num red">10</div>
+          <h2>Mindset shift + self-assessment checklist</h2>
+        </div>
+        <p>
+          Acquiring new technical knowledge is the easy part. The hard part is
+          unlearning the expert's instinct — the tendency to favour the tools
+          you know over the tools that fit. This shift takes deliberate,
+          sustained effort.
+        </p>
+        <div class="mindset-grid">
+          <div class="card">
+            <div class="card-title">Developer mindset</div>
+            <div class="card-body" style="line-height: 1.9">
+              "How do I implement this?"<br />"What is the most elegant
+              solution?"<br />"Which tool is technically superior here?"<br />"Let
+              me pick the best technology for this module."
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">Architect mindset</div>
+            <div class="card-body" style="line-height: 1.9">
+              "Should we build this, buy it, or use an existing service?"<br />"What
+              happens when this fails at 3am under peak load?"<br />"What does
+              this decision cost us in three years?"<br />"What can our team
+              actually operate well?"
+            </div>
+          </div>
+        </div>
+        <div class="callout warn">
+          <div class="callout-label">The most common trap</div>
+          <p>
+            Over-engineering. The best architecture is the simplest one that
+            reliably meets the NFRs. Complexity is a liability, not a
+            demonstration of expertise. When in doubt, choose boring, proven
+            technology your team already understands. Novelty is not a feature.
+          </p>
+        </div>
+
+        <div class="quote">
+          <p>
+            "An architect's greatest tool is not a diagram. It is a well-formed
+            question asked at exactly the right moment."
+          </p>
+          <cite>— Tejas Sabunkar</cite>
+        </div>
+
+        <h3>Are you ready? An honest checklist</h3>
+        <p>Not a gate — a diagnostic. Use it to find where to invest next.</p>
+        <div style="margin: 1rem 0">
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I can sketch a complete HLD from a 30-minute requirements
+              conversation on a system I've never worked on before</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I've written at least one
+              <a href="https://adr.github.io/" target="_blank">ADR</a> that was
+              accepted and implemented by a real team</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I've presented a technical architecture to a non-technical
+              executive and answered their follow-up questions without
+              retreating to jargon</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I've run a PoC, documented the results, and recommended against
+              my original assumption based on evidence</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I can define the complete NFR profile of a system I own — SLAs,
+              security posture, deployment strategy, cost model</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I've set up observability for a production system — structured
+              logging, distributed tracing, metrics dashboards, and
+              alerting</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I've built or contributed to a CI/CD pipeline with
+              containerisation and
+              <a href="https://www.terraform.io/intro" target="_blank">IaC</a>
+              from the ground up</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I've produced a Functional Diagram with business stakeholders
+              before drawing any system architecture</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I've estimated a project by deliverable — with scope, effort, and
+              budget — and stood behind those estimates in a business
+              review</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I've documented a project publicly (repo, article, or video) and
+              know that someone else learned from it</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I've disagreed with a technology or design decision in writing,
+              with evidence and alternatives, and defended it</span
+            >
+          </div>
+          <div class="check-item">
+            <div class="check-box"></div>
+            <span
+              >I understand the business domain I build for well enough to
+              challenge a requirement — not just implement it</span
+            >
+          </div>
+        </div>
+
+        <hr />
+        <p>
+          The journey from developer to architect is not a ladder with a top
+          rung. It's a widening lens. The code never stops mattering — but the
+          picture you hold it up to gets larger, more complex, and more
+          consequential every year. The more generously you share what you see
+          through that lens, the further your career and impact will go.
+        </p>
+
+        <div class="quote">
+          <p>
+            "I didn't want just horizontal depth of knowledge. I wanted vertical
+            overview — across infrastructure, data, application, and business
+            layers — all at once. That hunger is still what drives me."
+          </p>
+          <cite>— Tejas Sabunkar</cite>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">#SolutionsArchitect</span>
+          <span class="tag">#CareerRoadmap</span>
+          <span class="tag">#SystemDesign</span>
+          <span class="tag">#DevSecOps</span>
+          <span class="tag">#IaC</span>
+          <span class="tag">#Terraform</span>
+          <span class="tag">#AWSArchitect</span>
+          <span class="tag">#BuildInPublic</span>
+          <span class="tag">#TechLeadership</span>
+          <span class="tag">#NFRs</span>
+          <span class="tag">#Observability</span>
+          <span class="tag">#ArchitectureDossier</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
