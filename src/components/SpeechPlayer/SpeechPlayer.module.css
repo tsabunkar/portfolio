@@ -1,0 +1,247 @@
+/**
+ * components/SpeechPlayer/SpeechPlayer.module.css
+ * Styles for the floating text-to-speech player bar.
+ */
+
+/* ── Container ───────────────────────────────────────────────────── */
+.player {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px 20px;
+  margin: 32px 0;
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Subtle glow when playing */
+.player.playing {
+  border-color: rgba(167, 139, 250, 0.5); /* violet-ish */
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.12);
+}
+
+.player.paused {
+  border-color: rgba(251, 191, 36, 0.4); /* amber */
+  box-shadow: 0 0 16px rgba(251, 191, 36, 0.08);
+}
+
+/* Animated shimmer when playing */
+.player.playing::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(167, 139, 250, 0.05) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2.4s infinite linear;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ── Left section ────────────────────────────────────────────────── */
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.micWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-mid, #888);
+}
+
+.player.playing .micWrapper {
+  color: #a78bfa; /* violet */
+}
+
+.player.paused .micWrapper {
+  color: #fbbf24; /* amber */
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statusLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  font-family: "Inter", system-ui, sans-serif;
+  white-space: nowrap;
+}
+
+.currentWord {
+  font-size: 0.78rem;
+  color: #a78bfa;
+  font-style: italic;
+  font-family: "Inter", system-ui, sans-serif;
+  min-height: 1em;
+  transition: opacity 0.15s ease;
+  animation: wordPop 0.15s ease;
+}
+
+@keyframes wordPop {
+  0% { opacity: 0; transform: translateY(2px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.voiceHint {
+  font-size: 0.74rem;
+  color: var(--text-dim, #666);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ── Sound-wave animation ────────────────────────────────────────── */
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 20px;
+}
+
+.bar {
+  display: inline-block;
+  width: 3px;
+  border-radius: 3px;
+  background: currentColor;
+  opacity: 0.3;
+  height: 6px;
+  transition: opacity 0.3s;
+}
+
+.waveActive .bar {
+  opacity: 1;
+  animation: bounce 0.8s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * 0.12s);
+}
+
+@keyframes bounce {
+  0%   { height: 4px; }
+  100% { height: 18px; }
+}
+
+/* ── Progress wrapper ────────────────────────────────────────────── */
+.progressWrapper {
+  flex: 1 1 120px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.progressTrack {
+  flex: 1;
+  height: 5px;
+  background: var(--border, rgba(255,255,255,0.08));
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #a78bfa, #f472b6);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.progressPct {
+  font-size: 0.74rem;
+  color: var(--text-dim, #666);
+  font-variant-numeric: tabular-nums;
+  font-family: "Inter", system-ui, sans-serif;
+  white-space: nowrap;
+  min-width: 32px;
+  text-align: right;
+}
+
+/* ── Controls ────────────────────────────────────────────────────── */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btnPrimary {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, #a78bfa, #f472b6);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(167, 139, 250, 0.35);
+}
+
+.btnPrimary:hover {
+  box-shadow: 0 6px 20px rgba(167, 139, 250, 0.5);
+}
+
+.btnSecondary {
+  width: 36px;
+  height: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-mid, #888);
+}
+
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+}
+
+/* ── Mobile responsive ───────────────────────────────────────────── */
+@media (max-width: 560px) {
+  .player {
+    gap: 14px;
+    padding: 12px 14px;
+  }
+
+  .progressWrapper {
+    flex-basis: 100%;
+    order: 3;
+  }
+
+  .voiceHint {
+    display: none;
+  }
+}

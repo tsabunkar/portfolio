@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ARTICLES_CONTENT } from "@/data/articles";
 import { useTheme } from "@/hooks/useTheme";
+import SpeechPlayer from "@/components/SpeechPlayer/SpeechPlayer";
 import styles from "./ArticleView.module.css";
 
 export default function ArticleView() {
@@ -56,6 +57,12 @@ export default function ArticleView() {
           <span className={styles.dot}>•</span>
           <span className={styles.readTime}>{article.readTime}</span>
         </div>
+
+        {/* ── Text-to-speech player ── */}
+        {html && (
+          <SpeechPlayer html={html} title={article.title} />
+        )}
+
         {article.heroImage && (
           <img
             src={article.heroImage}
