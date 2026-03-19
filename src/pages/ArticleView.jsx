@@ -58,10 +58,6 @@ export default function ArticleView() {
           <span className={styles.readTime}>{article.readTime}</span>
         </div>
 
-        {/* ── Text-to-speech player ── */}
-        {html && (
-          <SpeechPlayer html={html} title={article.title} />
-        )}
 
         {article.heroImage && (
           <img
@@ -88,6 +84,9 @@ export default function ArticleView() {
           Back to Articles
         </Link>
       </footer>
+
+      {/* ── Floating TTS player — fixed overlay, draggable ── */}
+      {html && <SpeechPlayer html={html} />}
     </article>
   );
 }

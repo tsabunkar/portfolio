@@ -4,7 +4,7 @@
 .articlePage {
   max-width: 740px;
   margin: 0 auto;
-  padding: 120px 24px 80px;
+  padding: 120px 24px 110px; /* extra bottom clears the fixed TTS player */
   line-height: 1.8;
   color: var(--text);
 }
