@@ -9,8 +9,12 @@
     --saa-text: var(--text, #1c1a17);
     --saa-text-secondary: var(--text-mid, #6b6760);
     --saa-text-muted: var(--text-low, #9b9790);
-    
-    font-family: "Inter", system-ui, -apple-system, sans-serif;
+
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
     color: var(--saa-text);
     line-height: 1.8;
   }
@@ -23,7 +27,7 @@
     --saa-border: var(--border, rgba(255, 255, 255, 0.15));
     --saa-border-strong: rgba(255, 255, 255, 0.22);
     --saa-text: var(--text, #f5f5f5);
-    --saa-text-secondary: var(--text-mid, rgba(245, 245, 245, 0.70));
+    --saa-text-secondary: var(--text-mid, rgba(245, 245, 245, 0.7));
     --saa-text-muted: var(--text-low, rgba(245, 245, 245, 0.45));
   }
 
@@ -137,7 +141,9 @@
     border-radius: 12px;
     padding: 1.5rem 1rem;
     text-align: center;
-    transition: border-color 0.2s, transform 0.2s;
+    transition:
+      border-color 0.2s,
+      transform 0.2s;
   }
   .aws-saa-article .stat-card:hover {
     border-color: var(--saa-orange);
@@ -279,7 +285,9 @@
     border-radius: 12px;
     border: 1px solid var(--saa-border);
     shape-outside: margin-box;
-    transition: border-color 0.3s, transform 0.3s;
+    transition:
+      border-color 0.3s,
+      transform 0.3s;
   }
   .aws-saa-article .article-start-image:hover {
     border-color: var(--saa-orange);
@@ -316,6 +324,14 @@
     line-height: 1.65;
     color: var(--saa-text-secondary);
   }
+  .aws-saa-article .credly-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .aws-saa-article .credly-link:hover .credly-label {
+    text-decoration: underline;
+  }
 
   @media (max-width: 640px) {
     .aws-saa-article .phase-divider-label {
@@ -342,11 +358,6 @@
 </style>
 
 <div class="aws-saa-article">
-  <!-- ── PHASE 01 ── -->
-  <div class="phase-divider">
-    <span class="phase-divider-label">Phase 01 of 03</span>
-  </div>
-
   <div class="phase-header">
     <div class="phase-num">01</div>
     <div class="phase-meta">
@@ -354,55 +365,51 @@
       <h2 class="phase-title">Preparation: Trusting the Process (Mostly)</h2>
     </div>
   </div>
-
   <img
     src="/assets/aws-saa-cert.png"
     alt="AWS Solutions Architect Associate Certification"
     class="article-start-image"
   />
-
   <p class="body-text">
     Every certification journey starts with that beautiful, delusional
-    confidence. You crack open Tutorial Dojo, start hammering mock exams,
-    get a decent score, and think: <em>yeah, I've got this.</em>
+    confidence. You crack open Tutorial Dojo, start hammering mock exams, get a
+    decent score, and think: <em>yeah, I've got this.</em>
   </p>
 
   <p class="body-text">
-    I was one of those people. I practiced religiously. I went through
-    mock after mock. The scenarios in Tutorial Dojo felt familiar, the
-    logic was clicking. By the time I hit my exam date, I felt prepared —
-    the kind of prepared that comes with a slight swagger and a "let's get
-    this done" energy.
+    I was one of those people. I practiced religiously. I went through mock
+    after mock. The scenarios in Tutorial Dojo felt familiar, the logic was
+    clicking. By the time I hit my exam date, I felt prepared — the kind of
+    prepared that comes with a slight swagger and a "let's get this done"
+    energy.
   </p>
 
   <div class="callout">
     <div class="callout-label">Real Talk</div>
     <p>
       Only about 10% of the actual exam questions felt remotely similar to
-      Tutorial Dojo mocks. The other 90%? Brand new scenarios. AWS is not
-      here to repeat itself.
+      Tutorial Dojo mocks. The other 90%? Brand new scenarios. AWS is not here
+      to repeat itself.
     </p>
   </div>
 
   <p class="body-text">
-    But here's the thing — that doesn't mean the preparation was wasted.
-    Far from it. What the mocks actually trained was <em>thinking</em>,
-    not memorising. The scenarios changed but the mental framework — read
-    carefully, identify what AWS is really asking, eliminate aggressively
-    — that transferred perfectly.
+    But here's the thing — that doesn't mean the preparation was wasted. Far
+    from it. What the mocks actually trained was <em>thinking</em>, not
+    memorising. The scenarios changed but the mental framework — read carefully,
+    identify what AWS is really asking, eliminate aggressively — that
+    transferred perfectly.
   </p>
 
-  <p class="body-text">
-    Two things made a real difference in prep:
-  </p>
+  <p class="body-text">Two things made a real difference in prep:</p>
 
   <div class="tip-block">
     <div class="tip-icon">🃏</div>
     <div class="tip-text">
       <strong>Flashcards on Tutorial Dojo</strong>
-      AWS SAA is fundamentally an exam about knowing AWS services — what
-      they do, when to use them, what makes them different. The flashcards
-      drill exactly this. They're not glamorous. They work.
+      AWS SAA is fundamentally an exam about knowing AWS services — what they
+      do, when to use them, what makes them different. The flashcards drill
+      exactly this. They're not glamorous. They work.
     </div>
   </div>
 
@@ -410,16 +417,16 @@
     <div class="tip-icon">📓</div>
     <div class="tip-text">
       <strong>Personal notes — a greatest hits of failure</strong>
-      Every question I got wrong in Tutorial Dojo, I noted it down. The
-      night before the exam, I revised nothing else. Just those notes.
-      Just the gaps. That last-day revision hit different.
+      Every question I got wrong in Tutorial Dojo, I noted it down. The night
+      before the exam, I revised nothing else. Just those notes. Just the gaps.
+      That last-day revision hit different.
     </div>
   </div>
 
   <p class="body-text">
     Think of the flashcards as your product catalogue — AWS is essentially
-    advertising its own services in every question, and you need to know
-    the catalogue well. Know the product, know the answer.
+    advertising its own services in every question, and you need to know the
+    catalogue well. Know the product, know the answer.
   </p>
 
   <!-- ── PHASE 02 ── -->
@@ -431,20 +438,21 @@
     <div class="phase-num">02</div>
     <div class="phase-meta">
       <div class="phase-tag">The Morning Of</div>
-      <h2 class="phase-title">Exam Day: Documents, Signatures &amp; Mild Anxiety</h2>
+      <h2 class="phase-title">
+        Exam Day: Documents, Signatures &amp; Mild Anxiety
+      </h2>
     </div>
   </div>
 
   <p class="body-text">
-    I booked an offline exam centre — a Sunday at 10:30 AM. On paper, a
-    relaxed start. In practice, I was at the venue by 9:45 AM, because
-    apparently "be 15 minutes early" is hardwired into my entire
-    personality.
+    I booked an offline exam centre — a Sunday at 10:30 AM. On paper, a relaxed
+    start. In practice, I was at the venue by 9:45 AM, because apparently "be 15
+    minutes early" is hardwired into my entire personality.
   </p>
 
   <p class="body-text">
-    Here's the check-in process if you've never done a Pearson VUE offline
-    exam before:
+    Here's the check-in process if you've never done a Pearson VUE offline exam
+    before:
   </p>
 
   <div class="timeline">
@@ -456,8 +464,8 @@
       <div class="tl-content">
         <div class="tl-title">Arrive at venue</div>
         <div class="tl-desc">
-          Early, calm, caffeinated. Let the front desk know you're there
-          for the Pearson VUE exam.
+          Early, calm, caffeinated. Let the front desk know you're there for the
+          Pearson VUE exam.
         </div>
       </div>
     </div>
@@ -470,8 +478,8 @@
       <div class="tl-content">
         <div class="tl-title">Sign the Pearson VUE acknowledgement</div>
         <div class="tl-desc">
-          Standard stuff — you're confirming you understand the exam rules
-          and conduct policy. Sign it. Don't over-read it.
+          Standard stuff — you're confirming you understand the exam rules and
+          conduct policy. Sign it. Don't over-read it.
         </div>
       </div>
     </div>
@@ -484,8 +492,8 @@
       <div class="tl-content">
         <div class="tl-title">Document verification</div>
         <div class="tl-desc">
-          Aadhaar as primary ID, PAN as secondary. Two docs, no drama.
-          Bring both, don't wing this part.
+          Aadhaar as primary ID, PAN as secondary. Two docs, no drama. Bring
+          both, don't wing this part.
         </div>
       </div>
     </div>
@@ -497,17 +505,17 @@
       <div class="tl-content" style="padding-bottom: 0">
         <div class="tl-title">Exam begins — 20 mins early</div>
         <div class="tl-desc">
-          They let me start early. No complaints whatsoever. The countdown
-          clock begins.
+          They let me start early. No complaints whatsoever. The countdown clock
+          begins.
         </div>
       </div>
     </div>
   </div>
 
   <p class="body-text">
-    Starting 20 minutes early was a nice surprise. The room was quiet. The
-    kind of quiet that makes you suddenly hyper-aware of your own
-    breathing. And then — the first question appeared on screen.
+    Starting 20 minutes early was a nice surprise. The room was quiet. The kind
+    of quiet that makes you suddenly hyper-aware of your own breathing. And then
+    — the first question appeared on screen.
   </p>
 
   <!-- ── PHASE 03 ── -->
@@ -519,22 +527,24 @@
     <div class="phase-num">03</div>
     <div class="phase-meta">
       <div class="phase-tag">Inside the Exam</div>
-      <h2 class="phase-title">What AWS Actually Tests (Spoiler: Scenarios. All Scenarios.)</h2>
+      <h2 class="phase-title">
+        What AWS Actually Tests (Spoiler: Scenarios. All Scenarios.)
+      </h2>
     </div>
   </div>
 
   <p class="body-text">
     Let me set expectations correctly for anyone who thinks this is a
-    straightforward "what does S3 stand for" kind of exam. It is not. Not
-    even a little bit.
+    straightforward "what does S3 stand for" kind of exam. It is not. Not even a
+    little bit.
   </p>
 
   <p class="body-text">
-    Every. Single. Question. Was a scenario. Some company, some problem,
-    some constraint — and you have to architect a solution. There were
-    zero direct factual questions. AWS doesn't care if you can recite the
-    definition of a NAT Gateway. It wants to know if you'd use one over a
-    NAT instance in a multi-AZ setup for a cost-sensitive workload.
+    Every. Single. Question. Was a scenario. Some company, some problem, some
+    constraint — and you have to architect a solution. There were zero direct
+    factual questions. AWS doesn't care if you can recite the definition of a
+    NAT Gateway. It wants to know if you'd use one over a NAT instance in a
+    multi-AZ setup for a cost-sensitive workload.
   </p>
 
   <div class="stat-row">
@@ -557,46 +567,44 @@
   </div>
 
   <p class="body-text">
-    The multi-answer questions — 7 to 8 with two correct picks, 4 to 5
-    with three — are where people trip. You can't just find one right
-    answer and move on. You have to hold multiple correct ideas in your
-    head simultaneously, which means half-right answers will absolutely
-    get you if you're rushing.
+    The multi-answer questions — 7 to 8 with two correct picks, 4 to 5 with
+    three — are where people trip. You can't just find one right answer and move
+    on. You have to hold multiple correct ideas in your head simultaneously,
+    which means half-right answers will absolutely get you if you're rushing.
   </p>
 
   <div class="callout">
     <div class="callout-label">The Real Secret Weapon</div>
     <p>
-      Read the question fully. Then read it again. Then read the last line
-      one more time. The question tells you exactly what to optimise for —
-      cost, performance, security, availability. Once you know the
-      constraint, eliminate ruthlessly.
+      Read the question fully. Then read it again. Then read the last line one
+      more time. The question tells you exactly what to optimise for — cost,
+      performance, security, availability. Once you know the constraint,
+      eliminate ruthlessly.
     </p>
   </div>
 
   <p class="body-text">
-    The difficulty felt like a solid medium — not a bloodbath, but
-    definitely not easy. Questions were carefully worded, options were
-    plausible enough that overconfidence will betray you. The exam rewards
-    people who think, not people who memorise.
+    The difficulty felt like a solid medium — not a bloodbath, but definitely
+    not easy. Questions were carefully worded, options were plausible enough
+    that overconfidence will betray you. The exam rewards people who think, not
+    people who memorise.
   </p>
 
   <p class="body-text">
-    What actually saved me was slowing down. Reading every option. Not
-    picking the first thing that sounded familiar but asking:
+    What actually saved me was slowing down. Reading every option. Not picking
+    the first thing that sounded familiar but asking:
     <em>"Does this actually solve what the scenario is asking?"</em>
-    Elimination was my best friend. Knock out the two obviously wrong
-    options, then choose carefully from what remains.
+    Elimination was my best friend. Knock out the two obviously wrong options,
+    then choose carefully from what remains.
   </p>
 
   <div class="tip-block">
     <div class="tip-icon">🔍</div>
     <div class="tip-text">
       <strong>Find the priority word first</strong>
-      The question almost always tells you the priority —
-      "cost-effective", "highly available", "lowest operational overhead".
-      Whatever word appears there, that's your north star for the entire
-      question.
+      The question almost always tells you the priority — "cost-effective",
+      "highly available", "lowest operational overhead". Whatever word appears
+      there, that's your north star for the entire question.
     </div>
   </div>
 
@@ -604,37 +612,49 @@
     <div class="tip-icon">📣</div>
     <div class="tip-text">
       <strong>AWS is advertising its own services</strong>
-      Every question is an opportunity to say "and this is why you should
-      use AWS Service X". Know the services, know their strengths, and
-      you're already ahead of 70% of the room.
+      Every question is an opportunity to say "and this is why you should use
+      AWS Service X". Know the services, know their strengths, and you're
+      already ahead of 70% of the room.
     </div>
   </div>
 
   <!-- CLOSING -->
   <div class="closing">
     <p class="closing-quote">
-      "The scenarios will surprise you. The specific questions will be
-      nothing like your mocks. And somehow — if you've built the right
-      mental model — you'll know what to do anyway."
+      "The scenarios will surprise you. The specific questions will be nothing
+      like your mocks. And somehow — if you've built the right mental model —
+      you'll know what to do anyway."
     </p>
     <p class="body-text">
-      Passing the AWS Certified Solutions Architect – Associate wasn't
-      about being brilliant. It was about being prepared in the right way
-      — flashcards for service knowledge, failed questions for
-      gap-filling, and genuine slow careful reading during the exam
-      itself.
+      Passing the AWS Certified Solutions Architect – Associate wasn't about
+      being brilliant. It was about being prepared in the right way — flashcards
+      for service knowledge, failed questions for gap-filling, and genuine slow
+      careful reading during the exam itself.
     </p>
     <p class="body-text">
       That's the whole point of the exam. And now you know it too.
     </p>
 
     <div class="credly-section">
-      <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="c23f1207-d9b7-46a8-8ee0-0fe1df2a77d8" data-share-badge-host="https://www.credly.com"></div>
+      <div
+        data-iframe-width="150"
+        data-iframe-height="270"
+        data-share-badge-id="c23f1207-d9b7-46a8-8ee0-0fe1df2a77d8"
+        data-share-badge-host="https://www.credly.com"
+      ></div>
       <div class="credly-info">
-        <div class="credly-label">Verified Credential</div>
-        <p class="credly-text">
-          This certification is verified on Credly. Click the badge to view the full credential details and verification.
-        </p>
+        <a
+          href="https://www.credly.com/badges/c23f1207-d9b7-46a8-8ee0-0fe1df2a77d8"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="credly-link"
+        >
+          <div class="credly-label">Verified Credential ↗</div>
+          <p class="credly-text">
+            This certification is verified on Credly. Click here to view the
+            full credential details and verification.
+          </p>
+        </a>
       </div>
     </div>
 
