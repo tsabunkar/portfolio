@@ -55,6 +55,14 @@ export const ARTICLES = [
     url: "/article/developer-to-architect-roadmap",
     internal: true,
   },
+  {
+    slug: "aws-solutions-architect-associate",
+    title: "I Passed the AWS SAA — Here's What Actually Happened",
+    reads: "New",
+    date: "May 2026",
+    url: "/article/aws-solutions-architect-associate",
+    internal: true,
+  },
 ];
 
 export const YOUTUBE_PLAYLISTS = [

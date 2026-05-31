@@ -29,4 +29,13 @@ export const ARTICLES_CONTENT = [
     heroImage: "/assets/roadmap.png",
     contentFile: "https://tsabunkar.com/portfolio-articles/developer-to-architect-roadmap.html",
   },
+  {
+    slug: "aws-solutions-architect-associate",
+    title: "I Passed the AWS SAA — Here's What Actually Happened",
+    date: "May 2026",
+    author: "Tejas Sabunkar",
+    readTime: "8 min read",
+    heroImage: "/assets/aws-saa-cert.png",
+    contentFile: "https://tsabunkar.com/portfolio-articles/aws-solutions-architect-associate.html",
+  },
 ];
