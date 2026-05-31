@@ -11,6 +11,43 @@ resource "aws_s3_bucket_public_access_block" "block" {
   restrict_public_buckets = true
 }
 
+
+// S3 Bucket for Portfolio Articles
+resource "aws_s3_bucket" "portfolio_articles" {
+  bucket = "portfolio-articles-${var.domain_name}"
+}
+
+resource "aws_s3_bucket_public_access_block" "articles_block" {
+  bucket                  = aws_s3_bucket.portfolio_articles.id
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+resource "aws_s3_bucket_policy" "articles_policy" {
+  bucket = aws_s3_bucket.portfolio_articles.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "cloudfront.amazonaws.com"
+        }
+        Action   = "s3:GetObject"
+        Resource = "${aws_s3_bucket.portfolio_articles.arn}/*"
+        Condition = {
+          StringEquals = {
+            "AWS:SourceArn" = aws_cloudfront_distribution.cdn.arn
+          }
+        }
+      }
+    ]
+  })
+}
+
 // CloudFront Origin Access Control (OAC)
 resource "aws_cloudfront_origin_access_control" "oac" {
   name                              = "portfolio-oac"
@@ -102,6 +139,12 @@ resource "aws_cloudfront_distribution" "cdn" {
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
   }
 
+origin {
+    domain_name              = aws_s3_bucket.portfolio_articles.bucket_regional_domain_name
+    origin_id                = "articles-origin"
+    origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
+  }
+
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
     cached_methods   = ["GET", "HEAD"]
@@ -119,6 +162,23 @@ resource "aws_cloudfront_distribution" "cdn" {
     function_association {
       event_type   = "viewer-request"
       function_arn = aws_cloudfront_function.redirect_www_to_root.arn
+    }
+  }
+
+ordered_cache_behavior {
+    path_pattern     = "/portfolio-articles/*"
+    allowed_methods  = ["GET", "HEAD", "OPTIONS"]
+    cached_methods   = ["GET", "HEAD", "OPTIONS"]
+    target_origin_id = "articles-origin"
+
+    viewer_protocol_policy = "redirect-to-https"
+
+    forwarded_values {
+      query_string = false
+      headers      = ["Origin", "Access-Control-Request-Headers", "Access-Control-Request-Method"]
+      cookies {
+        forward = "none"
+      }
     }
   }
 
@@ -263,4 +323,31 @@ resource "null_resource" "invalidate_cache" {
   }
 
   depends_on = [aws_s3_object.react_files]
+}
+// =============================
+// CORS Configuration for Portfolio Articles
+// =============================
+resource "aws_s3_bucket_cors_configuration" "cors" {
+  bucket = aws_s3_bucket.portfolio_articles.id
+
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["GET", "HEAD"]
+    allowed_origins = ["*"]
+  }
+}
+
+// =============================
+// Upload Articles to S3
+// =============================
+resource "aws_s3_object" "portfolio_articles" {
+  for_each = fileset("${path.module}/articles", "*.html")
+
+  bucket       = aws_s3_bucket.portfolio_articles.id
+  key          = "portfolio-articles/${each.value}"
+  source       = "${path.module}/articles/${each.value}"
+  etag         = filemd5("${path.module}/articles/${each.value}")
+  content_type = "text/html"
+
+  depends_on = [aws_s3_bucket.portfolio_articles]
 }

@@ -8,7 +8,7 @@ export const ARTICLES_CONTENT = [
     author: "Tejas Sabunkar",
     readTime: "6 min read",
     heroImage: "/assets/aws_architecture_diagram_hero.png",
-    contentFile: "/articles/localhost-to-aws.html",
+    contentFile: "https://tsabunkar.com/portfolio-articles/localhost-to-aws.html",
   },
   {
     slug: "hiv-awareness-website",
@@ -18,7 +18,7 @@ export const ARTICLES_CONTENT = [
     author: "Tejas Sabunkar",
     readTime: "4 min read",
     heroImage: "/assets/hiv-awareness.png",
-    contentFile: "/articles/hiv-awareness-website.html",
+    contentFile: "https://tsabunkar.com/portfolio-articles/hiv-awareness-website.html",
   },
   {
     slug: "developer-to-architect-roadmap",
@@ -27,6 +27,6 @@ export const ARTICLES_CONTENT = [
     author: "Tejas Sabunkar",
     readTime: "12 min read",
     heroImage: "/assets/roadmap.png",
-    contentFile: "/articles/developer-to-architect-roadmap.html",
+    contentFile: "https://tsabunkar.com/portfolio-articles/developer-to-architect-roadmap.html",
   },
 ];
