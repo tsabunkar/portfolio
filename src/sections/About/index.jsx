@@ -4,18 +4,24 @@
 
 import { useState } from "react";
 import { useReveal } from "@/hooks/useReveal";
-import { TECH_STACK, EDUCATION, EXPERIENCE } from "@/data";
+import { TECH_STACK, EDUCATION, EXPERIENCE, CERTIFICATIONS } from "@/data";
 import ExperienceCard from "./ExperienceCard";
+import CertificationCard from "./CertificationCard";
 import styles from "./About.module.css";
 
 export default function AboutSection() {
   const leftRef = useReveal();
   const rightRef = useReveal();
   const experienceRef = useReveal();
+  const certificationsRef = useReveal();
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <section id="about" className="section" style={{ background: "transparent" }}>
+    <section
+      id="about"
+      className="section"
+      style={{ background: "transparent" }}
+    >
       <div className="inner">
         {/* Top grid: Text + Flip card */}
         <div className={`grid-2 ${styles.grid}`}>
@@ -30,8 +36,8 @@ export default function AboutSection() {
             <p className={styles.body}>
               I'm a Solutions Architect with 10+ years of experience designing
               cloud platforms, enterprise integration patterns, and resilient
-              distributed systems for organisations ranging from Series-B startups
-              to global enterprises.
+              distributed systems for organisations ranging from Series-B
+              startups to global enterprises.
             </p>
             <p className={styles.body}>
               I teach architecture on YouTube, write articles on Medium, and
@@ -54,7 +60,9 @@ export default function AboutSection() {
 
           {/* ── Flip card: Toolbox / Education ── */}
           <div ref={rightRef} className="reveal slide-right">
-            <div className={`${styles.flipContainer} ${isFlipped ? styles.flipped : ''}`}>
+            <div
+              className={`${styles.flipContainer} ${isFlipped ? styles.flipped : ""}`}
+            >
               <div className={styles.flipInner}>
                 {/* Front: Toolbox */}
                 <div className={styles.flipFront}>
@@ -98,18 +106,24 @@ export default function AboutSection() {
                   <div className={`card ${styles.educationContent}`}>
                     <p className={styles.cardLabel}>Education</p>
 
-                    <h3 className={styles.institution}>{EDUCATION.institution}</h3>
+                    <h3 className={styles.institution}>
+                      {EDUCATION.institution}
+                    </h3>
                     <p className={styles.degree}>{EDUCATION.degree}</p>
                     <p className={styles.field}>{EDUCATION.field}</p>
 
                     <div className={styles.eduMeta}>
                       <div className={styles.metaItem}>
                         <span className={styles.metaLabel}>Duration</span>
-                        <span className={styles.metaValue}>{EDUCATION.years}</span>
+                        <span className={styles.metaValue}>
+                          {EDUCATION.years}
+                        </span>
                       </div>
                       <div className={styles.metaItem}>
                         <span className={styles.metaLabel}>Grade</span>
-                        <span className={styles.metaValue}>{EDUCATION.grade}</span>
+                        <span className={styles.metaValue}>
+                          {EDUCATION.grade}
+                        </span>
                       </div>
                     </div>
 
@@ -129,7 +143,10 @@ export default function AboutSection() {
         </div>
 
         {/* Experience section */}
-        <div ref={experienceRef} className={`reveal ${styles.experienceSection}`}>
+        <div
+          ref={experienceRef}
+          className={`reveal ${styles.experienceSection}`}
+        >
           <div className={styles.experienceHeader}>
             <p className={styles.eyebrow}>Experience</p>
             <h2 className={styles.experienceHeading}>
@@ -143,7 +160,31 @@ export default function AboutSection() {
                 key={`exp-card-${exp.company}-${i}`}
                 experience={exp}
                 index={i}
-                cardId={`exp-${exp.company.toLowerCase().replace(/\s+/g, '-')}-${i}`}
+                cardId={`exp-${exp.company.toLowerCase().replace(/\s+/g, "-")}-${i}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Certifications section */}
+        <div
+          ref={certificationsRef}
+          className={`reveal ${styles.certificationsSection}`}
+        >
+          <div className={styles.certificationsHeader}>
+            <p className={styles.eyebrow}>Certifications</p>
+            <h2 className={styles.certificationsHeading}>
+              Industry credentials & recognitions
+            </h2>
+          </div>
+
+          <div className={styles.certificationsGrid}>
+            {CERTIFICATIONS.map((cert, i) => (
+              <CertificationCard
+                key={`cert-card-${cert.credentialId}-${i}`}
+                certification={cert}
+                index={i}
+                cardId={`cert-${cert.credentialId}`}
               />
             ))}
           </div>

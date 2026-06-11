@@ -5,33 +5,33 @@
 }
 
 .eyebrow {
-  color:          #30d158;
-  font-size:      clamp(10px, 1.3vw, 12px);
-  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #30d158;
+  font-size: clamp(10px, 1.3vw, 12px);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: 2.2px;
-  font-weight:    700;
-  margin:         0 0 12px;
+  font-weight: 700;
+  margin: 0 0 12px;
   text-transform: uppercase;
 }
 
 .heading {
-  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size:      clamp(26px, 4.5vw, 50px);
-  font-weight:    800;
-  color:          var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(26px, 4.5vw, 50px);
+  font-weight: 800;
+  color: var(--text);
   letter-spacing: clamp(-0.8px, -0.026em, -1.8px);
-  margin:         0 0 20px;
-  line-height:    1.1;
-  transition:     color 0.45s ease;
+  margin: 0 0 20px;
+  line-height: 1.1;
+  transition: color 0.45s ease;
 }
 
 .body {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size:   clamp(14px, 1.5vw, 15px);
-  color:       var(--text-mid);
+  font-size: clamp(14px, 1.5vw, 15px);
+  color: var(--text-mid);
   line-height: 1.85;
-  margin:      0 0 14px;
-  transition:  color 0.45s ease;
+  margin: 0 0 14px;
+  transition: color 0.45s ease;
 }
 
 .actions {
@@ -55,65 +55,68 @@
 }
 
 .cardLabel {
-  font-size:      clamp(9px, 1.1vw, 10px);
-  color:          var(--text-low);
-  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(9px, 1.1vw, 10px);
+  color: var(--text-low);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: 1.8px;
-  font-weight:    700;
-  margin:         0 0 14px;
+  font-weight: 700;
+  margin: 0 0 14px;
   text-transform: uppercase;
-  transition:     color 0.45s ease;
+  transition: color 0.45s ease;
 }
 
 .tags {
-  display:        flex;
+  display: flex;
   flex-direction: column;
-  gap:            clamp(6px, 1vw, 9px);
+  gap: clamp(6px, 1vw, 9px);
 }
 
 .tagRow {
-  display:  flex;
+  display: flex;
   flex-wrap: wrap;
-  gap:      clamp(6px, 1vw, 8px);
+  gap: clamp(6px, 1vw, 8px);
 }
 
 .tag {
-  background:     var(--skill-bg);
-  color:          var(--text-mid);
-  border-radius:  7px;
-  padding:        5px 12px;
-  font-size:      clamp(10px, 1.2vw, 12px);
-  font-family:    'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
-  border:         1px solid var(--skill-border);
-  transition:     background 0.45s ease, color 0.45s ease, border-color 0.45s ease;
+  background: var(--skill-bg);
+  color: var(--text-mid);
+  border-radius: 7px;
+  padding: 5px 12px;
+  font-size: clamp(10px, 1.2vw, 12px);
+  font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+  border: 1px solid var(--skill-border);
+  transition:
+    background 0.45s ease,
+    color 0.45s ease,
+    border-color 0.45s ease;
 }
 
 .statusRow {
-  margin-top:  22px;
+  margin-top: 22px;
   padding-top: 20px;
-  border-top:  1px solid var(--border);
+  border-top: 1px solid var(--border);
 }
 
 .status {
-  display:     flex;
+  display: flex;
   align-items: center;
-  gap:         10px;
+  gap: 10px;
 }
 
 .statusDot {
-  width:         8px;
-  height:        8px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background:    #30d158;
-  box-shadow:    0 0 7px rgba(48, 209, 88, 0.55);
-  flex-shrink:   0;
+  background: #30d158;
+  box-shadow: 0 0 7px rgba(48, 209, 88, 0.55);
+  flex-shrink: 0;
 }
 
 .statusText {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size:   clamp(12px, 1.4vw, 13px);
-  color:       var(--text-mid);
-  transition:  color 0.45s ease;
+  font-size: clamp(12px, 1.4vw, 13px);
+  color: var(--text-mid);
+  transition: color 0.45s ease;
 }
 
 /* Card flip container */
@@ -329,6 +332,91 @@
 
 @media (min-width: 1024px) {
   .experienceGrid {
+    gap: 20px;
+  }
+}
+
+/* Certifications section */
+.certificationsSection {
+  margin-top: 50px;
+}
+
+@media (min-width: 640px) {
+  .certificationsSection {
+    margin-top: 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .certificationsSection {
+    margin-top: 80px;
+  }
+}
+
+.certificationsHeader {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .certificationsHeader {
+    margin-bottom: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .certificationsHeader {
+    margin-bottom: 40px;
+  }
+}
+
+.certificationsHeading {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.5px;
+  margin: 8px 0 0;
+  line-height: 1.2;
+  transition: color 0.45s ease;
+}
+
+@media (min-width: 640px) {
+  .certificationsHeading {
+    font-size: 28px;
+    letter-spacing: -0.8px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .certificationsHeading {
+    font-size: 36px;
+    letter-spacing: -1.2px;
+  }
+}
+
+.certificationsGrid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .certificationsGrid {
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .certificationsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .certificationsGrid {
     gap: 20px;
   }
 }
