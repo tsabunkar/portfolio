@@ -1,0 +1,123 @@
+/* components/ui/DogWidget/DogWidget.module.css */
+
+/* ── Wrapper (fixed, bottom-right) ──────────────────────── */
+.wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
+  /* idle bob */
+  animation: dogBob 2.8s ease-in-out infinite;
+}
+
+/* ── Dog image ───────────────────────────────────────────── */
+.dogImg {
+  width: 110px;
+  height: auto;
+  display: block;
+  transition: transform 0.2s ease;
+  transform-origin: bottom center;
+}
+
+.wrapper:hover .dogImg {
+  transform: scale(1.07);
+}
+
+/* ── Tooltip ─────────────────────────────────────────────── */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 14px);
+  right: 0;
+  background: linear-gradient(135deg, #ff9a3c, #ff6f00);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 7px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(8px) scale(0.92);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+  box-shadow: 0 4px 16px rgba(255, 111, 0, 0.35);
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  right: 22px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #ff6f00;
+}
+
+.tooltipVisible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ── Paw shadow ──────────────────────────────────────────── */
+.shadow {
+  display: block;
+  width: 80px;
+  height: 12px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.28) 0%, transparent 70%);
+  border-radius: 50%;
+  margin-top: -6px;
+  animation: shadowPulse 2.8s ease-in-out infinite;
+}
+
+/* ── Click ripple ring ───────────────────────────────────── */
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 152, 0, 0.7);
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+.ringActive {
+  animation: ringPop 1.2s ease-out forwards;
+}
+
+/* ── Tail wag (applied on hover / click) ─────────────────── */
+.wagging .dogImg {
+  animation: tailWag 0.35s ease-in-out infinite alternate;
+}
+
+/* ── Keyframes ───────────────────────────────────────────── */
+@keyframes dogBob {
+  0%, 100% { transform: translateY(0);   }
+  50%       { transform: translateY(-7px); }
+}
+
+@keyframes shadowPulse {
+  0%, 100% { transform: scaleX(1);    opacity: 0.8; }
+  50%       { transform: scaleX(0.78); opacity: 0.45; }
+}
+
+@keyframes tailWag {
+  0%   { transform: rotate(-7deg) scale(1.07); }
+  100% { transform: rotate(7deg)  scale(1.07); }
+}
+
+@keyframes ringPop {
+  0%   { opacity: 0.9; transform: scale(0.85); }
+  60%  { opacity: 0.4; transform: scale(1.4);  }
+  100% { opacity: 0;   transform: scale(1.8);  }
+}
