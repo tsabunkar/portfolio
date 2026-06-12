@@ -22,14 +22,14 @@
 }
 
 .tableLabel {
-  font-size:      clamp(9px, 1.1vw, 10px);
-  color:          var(--text-low);
-  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(9px, 1.1vw, 10px);
+  color: var(--text-low);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: 1.8px;
-  font-weight:    700;
-  margin:         0 0 16px;
+  font-weight: 700;
+  margin: 0 0 16px;
   text-transform: uppercase;
-  transition:     color 0.45s ease;
+  transition: color 0.45s ease;
 }
 
 .articleRow {
@@ -88,22 +88,22 @@
 }
 
 .articleMeta {
-  display:    flex;
-  gap:        clamp(10px, 2vw, 18px);
+  display: flex;
+  gap: clamp(10px, 2vw, 18px);
   flex-shrink: 0;
 }
 
 .reads {
-  font-size:   clamp(10px, 1.2vw, 12px);
-  color:       #bf5af2;
+  font-size: clamp(10px, 1.2vw, 12px);
+  color: #bf5af2;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .date {
-  font-size:   clamp(10px, 1.2vw, 12px);
-  color:       var(--text-low);
+  font-size: clamp(10px, 1.2vw, 12px);
+  color: var(--text-low);
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  transition:  color 0.45s ease;
+  transition: color 0.45s ease;
 }
 
 /* YouTube Playlists Section */
@@ -112,14 +112,14 @@
 }
 
 .playlistsLabel {
-  font-size:      clamp(9px, 1.1vw, 10px);
-  color:          var(--text-low);
-  font-family:    -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(9px, 1.1vw, 10px);
+  color: var(--text-low);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   letter-spacing: 1.8px;
-  font-weight:    700;
-  margin:         0 0 20px;
+  font-weight: 700;
+  margin: 0 0 20px;
   text-transform: uppercase;
-  transition:     color 0.45s ease;
+  transition: color 0.45s ease;
 }
 
 .playlistsGrid {
@@ -137,6 +137,42 @@
 
 @media (min-width: 1024px) {
   .playlistsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Live Toy Projects Section */
+.projectsSection {
+  margin-top: clamp(32px, 4vw, 48px);
+}
+
+.projectsLabel {
+  font-size: clamp(9px, 1.1vw, 10px);
+  color: var(--text-low);
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  transition: color 0.45s ease;
+}
+
+.projectsGrid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .projectsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .projectsGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }

@@ -7,7 +7,8 @@ import { useReveal } from "@/hooks/useReveal";
 import SectionHeader from "@/components/ui/SectionHeader";
 import PlatformCard from "./PlatformCard";
 import PlaylistCard from "./PlaylistCard";
-import { FOOTPRINT, ARTICLES, YOUTUBE_PLAYLISTS } from "@/data";
+import ToyProjectCard from "./ToyProjectCard";
+import { FOOTPRINT, ARTICLES, YOUTUBE_PLAYLISTS, TOY_PROJECTS } from "@/data";
 import styles from "./Footprint.module.css";
 
 export default function FootprintSection() {
@@ -83,6 +84,16 @@ export default function FootprintSection() {
           <div className={styles.playlistsGrid}>
             {YOUTUBE_PLAYLISTS.map((playlist) => (
               <PlaylistCard key={playlist.title} playlist={playlist} />
+            ))}
+          </div>
+        </div>
+
+        {/* Live Toy Projects */}
+        <div className={styles.projectsSection}>
+          <p className={styles.projectsLabel}>Live Toy Projects</p>
+          <div className={styles.projectsGrid}>
+            {TOY_PROJECTS.map((project) => (
+              <ToyProjectCard key={project.name} project={project} />
             ))}
           </div>
         </div>

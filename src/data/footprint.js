@@ -91,3 +91,18 @@ export const YOUTUBE_PLAYLISTS = [
     url: "https://www.youtube.com/@tsabunkar/playlists",
   },
 ];
+
+export const TOY_PROJECTS = [
+  {
+    name: "Batman Study",
+    url: "https://d2sp3xp56r8kh5.cloudfront.net/",
+  },
+  {
+    name: "HIV Aware",
+    url: "https://d59s5g9yk2nky.cloudfront.net/",
+  },
+  {
+    name: "Face Verification",
+    url: "https://d1gxr6cligqpav.cloudfront.net/",
+  },
+];
