@@ -12,9 +12,7 @@ const Footer = memo(function Footer() {
       <div className={styles.inner}>
         <span className={styles.logo}>&lt;Tejas Sabunkar /&gt;</span>
 
-        <span className={styles.copy}>
-          © 2026 · Solutions Architect · Built with React
-        </span>
+        <span className={styles.copy}>© 2026 · Built with React & Love</span>
 
         <nav className={styles.links} aria-label="Footer social links">
           {CONNECT_LINKS.map(({ label, url, accent }) => (
