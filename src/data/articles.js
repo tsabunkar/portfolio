@@ -41,4 +41,12 @@ export const ARTICLES_CONTENT = [
     contentFile:
       "https://tsabunkar.com/portfolio-articles/aws-solutions-architect-associate.html",
   },
+  {
+    slug: "stories-to-learn-tech",
+    title: "50 Stories to Learn Tech (2026 Edition)",
+    date: "June 2026",
+    author: "Tejas Sabunkar",
+    readTime: "10 min read",
+    contentFile: "local-dvd",
+  },
 ];

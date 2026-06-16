@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { ARTICLES_CONTENT } from "@/data/articles";
 import { useTheme } from "@/hooks/useTheme";
 import SpeechPlayer from "@/components/SpeechPlayer/SpeechPlayer";
+import DvdStoriesPlayer from "@/components/DvdStoriesPlayer/DvdStoriesPlayer";
 import styles from "./ArticleView.module.css";
 
 export default function ArticleView() {
@@ -15,12 +16,16 @@ export default function ArticleView() {
   const [html, setHtml] = useState("");
 
   useEffect(() => {
-    if (article?.contentFile) {
+    if (article?.contentFile && slug !== "stories-to-learn-tech") {
       fetch(article.contentFile)
         .then((res) => res.text())
         .then((text) => setHtml(text));
     }
-  }, [article]);
+  }, [article, slug]);
+
+  if (slug === "stories-to-learn-tech") {
+    return <DvdStoriesPlayer />;
+  }
 
   if (!article) {
     return (

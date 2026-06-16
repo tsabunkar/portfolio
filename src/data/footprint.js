@@ -63,6 +63,14 @@ export const ARTICLES = [
     url: "/article/aws-solutions-architect-associate",
     internal: true,
   },
+  {
+    slug: "stories-to-learn-tech",
+    title: "50 Stories to Learn Tech (2026 Edition)",
+    reads: "New",
+    date: "June 2026",
+    url: "/article/stories-to-learn-tech",
+    internal: true,
+  },
 ];
 
 export const YOUTUBE_PLAYLISTS = [
