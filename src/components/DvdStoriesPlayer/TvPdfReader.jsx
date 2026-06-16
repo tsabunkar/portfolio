@@ -5,10 +5,10 @@
 
 import { useEffect, useRef, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
-import pdfjsWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
+// import pdfjsWorker from "pdfjs-dist/build/pdf.worker.min.js?url";
 import styles from "./DvdStoriesPlayer.module.css";
 
-pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
+pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 
 export default function TvPdfReader({ src, page, onPageCount }) {
   const canvasRef = useRef(null);
