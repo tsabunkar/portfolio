@@ -117,4 +117,8 @@ export const TOY_PROJECTS = [
     name: "Arch2Lead Interviewer",
     url: "https://arch2lead-interviewer.tsabunkar.com/",
   },
+  {
+    name: "What's Next",
+    url: "https://whats-next.tsabunkar.com/",
+  },
 ];
