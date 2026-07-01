@@ -1,0 +1,15 @@
+services:
+  admin-api:
+    build:
+      context: ./infra/lambda
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - HOME=/root
+      - ADMIN_USERNAME=tsabunkar
+      - ADMIN_PASSWORD=admin123
+      - JWT_SECRET=local-dev-jwt-secret-2024
+      - GITHUB_TOKEN=${GITHUB_TOKEN:?GITHUB_TOKEN must be set}
+    volumes:
+      - ~/.aws:/root/.aws:ro

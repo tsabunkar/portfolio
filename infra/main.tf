@@ -72,8 +72,8 @@ resource "aws_acm_certificate" "cert" {
 }
 
 
-// Route53 DNS Validation
-resource "aws_route53_zone" "zone" {
+// Route53 DNS Validation — existing hosted zone, looked up by domain
+data "aws_route53_zone" "zone" {
   name = var.domain_name
 }
 
@@ -87,7 +87,7 @@ resource "aws_route53_record" "cert_validation" {
     }
   }
 
-  zone_id = aws_route53_zone.zone.zone_id
+  zone_id = data.aws_route53_zone.zone.zone_id
   name    = each.value.name
   type    = each.value.type
   records = [each.value.value]
@@ -139,7 +139,7 @@ resource "aws_cloudfront_distribution" "cdn" {
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
   }
 
-origin {
+  origin {
     domain_name              = aws_s3_bucket.portfolio_articles.bucket_regional_domain_name
     origin_id                = "articles-origin"
     origin_access_control_id = aws_cloudfront_origin_access_control.oac.id
@@ -165,7 +165,7 @@ origin {
     }
   }
 
-ordered_cache_behavior {
+  ordered_cache_behavior {
     path_pattern     = "/portfolio-articles/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
     cached_methods   = ["GET", "HEAD", "OPTIONS"]
@@ -237,7 +237,7 @@ resource "aws_s3_bucket_policy" "policy" {
 
 // Route53 Alias Record → CloudFront
 resource "aws_route53_record" "root" {
-  zone_id = aws_route53_zone.zone.zone_id
+  zone_id = data.aws_route53_zone.zone.zone_id
   name    = var.domain_name
   type    = "A"
 
@@ -249,7 +249,7 @@ resource "aws_route53_record" "root" {
 }
 
 resource "aws_route53_record" "www" {
-  zone_id = aws_route53_zone.zone.zone_id
+  zone_id = data.aws_route53_zone.zone.zone_id
   name    = var.www_domain
   type    = "A"
 

@@ -1,5 +1,5 @@
 variable "aws_region" {
-  default = "ap-south-1"
+  default = "us-east-1"
 }
 
 variable "domain_name" {
@@ -8,4 +8,10 @@ variable "domain_name" {
 
 variable "www_domain" {
   description = "WWW domain"
+}
+
+variable "github_username" {
+  description = "GitHub username for contribution graph"
+  type        = string
+  default     = "tsabunkar"
 }

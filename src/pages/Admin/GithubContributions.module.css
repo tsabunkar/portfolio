@@ -1,0 +1,105 @@
+.box {
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  background: var(--card-bg);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: var(--text);
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text-mid);
+  margin: 0 0 24px;
+}
+
+.graph {
+  overflow-x: auto;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+
+.dayLabels {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 20px;
+  flex-shrink: 0;
+}
+
+.dayLabel {
+  height: 12px;
+  font-size: 10px;
+  color: var(--text-mid);
+  line-height: 12px;
+}
+
+.monthRow {
+  position: relative;
+  margin-bottom: 4px;
+  height: 16px;
+}
+
+.monthLabel {
+  font-size: 10px;
+  color: var(--text-mid);
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.weeks {
+  display: flex;
+  gap: 3px;
+}
+
+.week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.day {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  cursor: default;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 12px;
+  justify-content: flex-end;
+}
+
+.legendLabel {
+  font-size: 10px;
+  color: var(--text-mid);
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.loading,
+.error {
+  text-align: center;
+  color: var(--text-mid);
+  font-size: 14px;
+  padding: 40px 0;
+}
