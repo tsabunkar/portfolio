@@ -18,7 +18,7 @@ export default function AdminLayout({ children }) {
   return (
     <div className={styles.layout}>
       <header className={styles.header}>
-        <h2 className={styles.heading}>Admin Dashboard</h2>
+        <h2 className={styles.heading}>Control Center</h2>
         <button className={styles.logoutBtn} onClick={logout}>
           Logout
         </button>

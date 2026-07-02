@@ -1,4 +1,4 @@
-CMDS := login authorizer costExplorer githubContributions
+CMDS := login authorizer costExplorer githubContributions youtubeMetrics
 BIN_DIR := bin
 GOOS := linux
 GOARCH := amd64

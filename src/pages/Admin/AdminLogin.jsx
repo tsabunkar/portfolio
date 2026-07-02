@@ -80,8 +80,7 @@ export default function AdminLogin() {
       }
       const verifyData = await verifyRes.json();
 
-      const confPct = Math.round(verifyData.confidence * 1000);
-      if (!verifyData.isMatch || confPct < 999) {
+      if (!verifyData.isMatch) {
         throw new Error("Bro you are not Tejas");
       }
 

@@ -1,0 +1,45 @@
+.box {
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  background: var(--card-bg);
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 20px;
+  color: var(--text);
+}
+
+.stats {
+  display: flex;
+  gap: 32px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.statLabel {
+  font-size: 12px;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.loading,
+.error {
+  text-align: center;
+  color: var(--text-mid);
+  font-size: 14px;
+  padding: 40px 0;
+}

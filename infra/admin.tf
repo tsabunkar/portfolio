@@ -81,6 +81,31 @@ resource "aws_secretsmanager_secret_version" "admin_github_token" {
   })
 }
 
+resource "aws_ssm_parameter" "admin_youtube_api_key" {
+  name   = "/admin/youtube-api-key"
+  type   = "SecureString"
+  value  = "pending"
+
+  lifecycle { ignore_changes = [value] }
+}
+
+data "aws_ssm_parameter" "admin_youtube_api_key" {
+  name       = "/admin/youtube-api-key"
+  depends_on = [aws_ssm_parameter.admin_youtube_api_key]
+}
+
+resource "aws_secretsmanager_secret" "admin_youtube_api_key" {
+  name = "/admin/youtube-api-key"
+}
+
+resource "aws_secretsmanager_secret_version" "admin_youtube_api_key" {
+  secret_id = aws_secretsmanager_secret.admin_youtube_api_key.id
+  secret_string = jsonencode({
+    api_key = data.aws_ssm_parameter.admin_youtube_api_key.value
+  })
+}
+
+
 // =============================
 // IAM Roles for Lambda Functions
 // =============================
@@ -182,6 +207,28 @@ resource "aws_iam_role_policy" "admin_github" {
   policy = data.aws_iam_policy_document.github_lambda.json
 }
 
+data "aws_iam_policy_document" "youtube_lambda" {
+  statement {
+    actions   = ["secretsmanager:GetSecretValue"]
+    resources = [aws_secretsmanager_secret.admin_youtube_api_key.arn]
+  }
+  statement {
+    actions   = ["logs:CreateLogGroup", "logs:CreateLogStream", "logs:PutLogEvents"]
+    resources = ["arn:aws:logs:*:*:*"]
+  }
+}
+
+resource "aws_iam_role" "admin_youtube" {
+  name               = "admin-youtube-lambda"
+  assume_role_policy = data.aws_iam_policy_document.lambda_assume.json
+}
+
+resource "aws_iam_role_policy" "admin_youtube" {
+  role   = aws_iam_role.admin_youtube.name
+  policy = data.aws_iam_policy_document.youtube_lambda.json
+}
+
+
 // =============================
 // CloudWatch Log Groups
 // =============================
@@ -205,6 +252,12 @@ resource "aws_cloudwatch_log_group" "admin_github" {
   name              = "/aws/lambda/admin-github-contributions"
   retention_in_days = 14
 }
+
+resource "aws_cloudwatch_log_group" "admin_youtube" {
+  name              = "/aws/lambda/admin-youtube-metrics"
+  retention_in_days = 14
+}
+
 
 // =============================
 // Lambda Functions
@@ -259,6 +312,22 @@ resource "aws_lambda_function" "admin_github" {
   depends_on = [aws_cloudwatch_log_group.admin_github, null_resource.build_lambda]
 }
 
+resource "aws_lambda_function" "admin_youtube" {
+  filename         = "${local.lambda_zip_dir}/youtubeMetrics.zip"
+  function_name    = "admin-youtube-metrics"
+  role             = aws_iam_role.admin_youtube.arn
+  handler          = "bootstrap"
+  runtime          = "provided.al2023"
+  source_code_hash = filebase64sha256("${local.lambda_zip_dir}/youtubeMetrics.zip")
+  environment {
+    variables = {
+      YOUTUBE_HANDLE = "@tsabunkar"
+    }
+  }
+  depends_on = [aws_cloudwatch_log_group.admin_youtube, null_resource.build_lambda]
+}
+
+
 // =============================
 // API Gateway (HTTP API v2)
 // =============================
@@ -308,6 +377,14 @@ resource "aws_apigatewayv2_integration" "admin_github" {
   payload_format_version = "2.0"
 }
 
+resource "aws_apigatewayv2_integration" "admin_youtube" {
+  api_id                 = aws_apigatewayv2_api.admin.id
+  integration_type       = "AWS_PROXY"
+  integration_uri        = aws_lambda_function.admin_youtube.invoke_arn
+  payload_format_version = "2.0"
+}
+
+
 // --- Routes ---
 
 resource "aws_apigatewayv2_route" "admin_login" {
@@ -329,6 +406,14 @@ resource "aws_apigatewayv2_route" "admin_github" {
   target        = "integrations/${aws_apigatewayv2_integration.admin_github.id}"
   authorizer_id = aws_apigatewayv2_authorizer.admin.id
 }
+
+resource "aws_apigatewayv2_route" "admin_youtube" {
+  api_id        = aws_apigatewayv2_api.admin.id
+  route_key     = "GET /youtube-metrics"
+  target        = "integrations/${aws_apigatewayv2_integration.admin_youtube.id}"
+  authorizer_id = aws_apigatewayv2_authorizer.admin.id
+}
+
 
 // --- Stage ---
 
@@ -360,6 +445,14 @@ resource "aws_lambda_permission" "admin_github" {
   principal     = "apigateway.amazonaws.com"
   source_arn    = "${aws_apigatewayv2_api.admin.execution_arn}/*/*/github-contributions"
 }
+
+resource "aws_lambda_permission" "admin_youtube" {
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.admin_youtube.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_apigatewayv2_api.admin.execution_arn}/*/*/youtube-metrics"
+}
+
 
 resource "aws_lambda_permission" "admin_authorizer" {
   action        = "lambda:InvokeFunction"

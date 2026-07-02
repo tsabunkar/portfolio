@@ -31,12 +31,30 @@ type errorResponse struct {
 	Error string `json:"error"`
 }
 
+type youtubeApiResponse struct {
+	Items []struct {
+		Statistics struct {
+			SubscriberCount string `json:"subscriberCount"`
+			VideoCount      string `json:"videoCount"`
+			ViewCount       string `json:"viewCount"`
+		} `json:"statistics"`
+	} `json:"items"`
+}
+
+type youtubeMetricsResponse struct {
+	SubscriberCount string `json:"subscriberCount"`
+	VideoCount      string `json:"videoCount"`
+	ViewCount       string `json:"viewCount"`
+}
+
+
 var (
-	adminUsername string
-	adminPassword string
-	jwtSecret     string
-	githubToken   string
-	ceClient      *costexplorer.Client
+	adminUsername    string
+	adminPassword    string
+	jwtSecret        string
+	githubToken      string
+	youtubeApiKey    string
+	ceClient         *costexplorer.Client
 )
 
 func init() {
@@ -50,6 +68,11 @@ func init() {
 	githubToken = os.Getenv("GITHUB_TOKEN")
 	if githubToken == "" {
 		log.Println("GITHUB_TOKEN not set, /github-contributions will return an error")
+	}
+
+	youtubeApiKey = os.Getenv("YOUTUBE_API_KEY")
+	if youtubeApiKey == "" {
+		log.Println("YOUTUBE_API_KEY not set, /youtube-metrics will return an error")
 	}
 
 	cfg, err := config.LoadDefaultConfig(context.Background())
@@ -224,6 +247,59 @@ func handleGitHubContributions(w http.ResponseWriter, r *http.Request) {
 	respond(w, resp.StatusCode, result)
 }
 
+func handleYouTubeMetrics(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodGet {
+		respond(w, http.StatusMethodNotAllowed, errorResponse{Error: "method not allowed"})
+		return
+	}
+	if youtubeApiKey == "" {
+		respond(w, http.StatusBadRequest, errorResponse{Error: "YOUTUBE_API_KEY not configured"})
+		return
+	}
+
+	handle := os.Getenv("YOUTUBE_HANDLE")
+	if handle == "" {
+		handle = "@tsabunkar"
+	}
+
+	url := fmt.Sprintf("https://www.googleapis.com/youtube/v3/channels?part=statistics&forHandle=%s&key=%s", handle, youtubeApiKey)
+
+	resp, err := http.Get(url)
+	if err != nil {
+		respond(w, http.StatusBadGateway, errorResponse{Error: fmt.Sprintf("youtube api error: %v", err)})
+		return
+	}
+	defer resp.Body.Close()
+
+	respBody, _ := io.ReadAll(resp.Body)
+
+	if resp.StatusCode != http.StatusOK {
+		respond(w, resp.StatusCode, errorResponse{Error: fmt.Sprintf("youtube api returned %d: %s", resp.StatusCode, string(respBody))})
+		return
+	}
+
+	var apiResp youtubeApiResponse
+	if err := json.Unmarshal(respBody, &apiResp); err != nil {
+		respond(w, http.StatusBadGateway, errorResponse{Error: "invalid youtube response"})
+		return
+	}
+
+	if len(apiResp.Items) == 0 {
+		respond(w, http.StatusNotFound, errorResponse{Error: "channel not found"})
+		return
+	}
+
+	stats := apiResp.Items[0].Statistics
+	result := youtubeMetricsResponse{
+		SubscriberCount: stats.SubscriberCount,
+		VideoCount:      stats.VideoCount,
+		ViewCount:       stats.ViewCount,
+	}
+
+	respond(w, http.StatusOK, result)
+}
+
+
 func respond(w http.ResponseWriter, status int, body interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(status)
@@ -237,6 +313,8 @@ func main() {
 	mux.HandleFunc("/login", handleLogin)
 	mux.HandleFunc("/cost-explorer", jwtMiddleware(handleCostExplorer))
 	mux.HandleFunc("/github-contributions", jwtMiddleware(handleGitHubContributions))
+	mux.HandleFunc("/youtube-metrics", jwtMiddleware(handleYouTubeMetrics))
+
 
 	port := os.Getenv("PORT")
 	if port == "" {

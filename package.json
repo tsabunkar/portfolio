@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:backend": "docker compose build && docker compose up",
     "build": "vite build --mode prod",
     "preview": "vite preview",
     "deploy": "npm run build && cd infra/lambda && make all && cd .. && terraform apply -var='domain_name=tsabunkar.com' -var='www_domain=www.tsabunkar.com'",
