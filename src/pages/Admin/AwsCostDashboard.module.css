@@ -27,6 +27,11 @@
 
 .chartSection {
   width: 100%;
+  --chart-bar: #1a1a1a;
+}
+
+[data-theme="dark"] .chartSection {
+  --chart-bar: rgba(255,255,255,0.75);
 }
 
 .chartSection:last-child {

@@ -134,7 +134,7 @@ export default function AwsCostDashboard() {
               <XAxis dataKey="date" tick={{ fontSize: 11 }} tickFormatter={(d) => d.slice(5)} />
               <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
               <Tooltip formatter={(v) => [`$${v}`, "Cost"]} />
-              <Bar dataKey="cost" fill="var(--accent)" radius={[3, 3, 0, 0]} />
+              <Bar dataKey="cost" fill="var(--chart-bar)" radius={[3, 3, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -147,7 +147,7 @@ export default function AwsCostDashboard() {
               <XAxis type="number" tick={{ fontSize: 12 }} tickFormatter={(v) => `$${v}`} />
               <YAxis type="category" dataKey="name" tick={{ fontSize: 12 }} width={170} tickMargin={4} />
               <Tooltip formatter={(v) => [`$${v}`, "Cost"]} />
-              <Bar dataKey="cost" fill="var(--accent)" radius={[0, 3, 3, 0]} maxBarSize={24} />
+              <Bar dataKey="cost" fill="var(--chart-bar)" radius={[0, 3, 3, 0]} maxBarSize={24} />
             </BarChart>
           </ResponsiveContainer>
         </div>
