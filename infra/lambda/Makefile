@@ -1,4 +1,4 @@
-CMDS := login authorizer costExplorer githubContributions youtubeMetrics
+CMDS := login authorizer costExplorer githubContributions youtubeMetrics setup-totp
 BIN_DIR := bin
 GOOS := linux
 GOARCH := amd64

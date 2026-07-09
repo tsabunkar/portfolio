@@ -10,11 +10,13 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/tsabunkar/admin/internal/jwt"
 	"github.com/tsabunkar/admin/internal/secrets"
+	"github.com/tsabunkar/admin/internal/totp"
 )
 
 type loginRequest struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
+	TOTPCode string `json:"totp_code"`
 }
 
 type loginResponse struct {
@@ -27,6 +29,10 @@ type credentialsSecret struct {
 }
 
 type jwtSecret struct {
+	Secret string `json:"secret"`
+}
+
+type totpSecret struct {
 	Secret string `json:"secret"`
 }
 
@@ -57,6 +63,16 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (events
 
 	if req.Username != creds.Username || req.Password != creds.Password {
 		return respond(http.StatusUnauthorized, map[string]string{"error": "invalid credentials"})
+	}
+
+	var totpSec totpSecret
+	if err := secretsClient.GetJSON(ctx, "/admin/totp-secret", &totpSec); err == nil && totpSec.Secret != "" {
+		if req.TOTPCode == "" {
+			return respond(http.StatusUnauthorized, map[string]string{"error": "TOTP code required"})
+		}
+		if !totp.ValidateCode(totpSec.Secret, req.TOTPCode) {
+			return respond(http.StatusUnauthorized, map[string]string{"error": "invalid TOTP code"})
+		}
 	}
 
 	var jwtSec jwtSecret

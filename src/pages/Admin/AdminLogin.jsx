@@ -12,6 +12,7 @@ export default function AdminLogin() {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [totpCode, setTotpCode] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [cameraOverlay, setCameraOverlay] = useState(false);
@@ -84,7 +85,7 @@ export default function AdminLogin() {
         throw new Error("Bro you are not Tejas");
       }
 
-      await login(username, password);
+      await login(username, password, totpCode);
       navigate("/admin/dashboard", { replace: true });
     } catch (err) {
       if (stream) {
@@ -122,6 +123,20 @@ export default function AdminLogin() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             autoComplete="current-password"
+          />
+        </label>
+
+        <label className={styles.label}>
+          Authenticator Code
+          <input
+            className={`${styles.input} ${styles.totpInput}`}
+            type="text"
+            inputMode="numeric"
+            maxLength={6}
+            value={totpCode}
+            onChange={(e) => setTotpCode(e.target.value.replace(/\D/g, "").slice(0, 6))}
+            placeholder="000000"
+            autoComplete="one-time-code"
           />
         </label>
 

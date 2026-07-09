@@ -39,11 +39,11 @@ export function AuthProvider({ children }) {
     }
   }, [token]);
 
-  const login = useCallback(async (username, password) => {
+  const login = useCallback(async (username, password, totpCode) => {
     const res = await fetch(`${API_URL}/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ username, password, totp_code: totpCode || "" }),
     });
     if (!res.ok) {
       const err = await res.json().catch(() => ({}));

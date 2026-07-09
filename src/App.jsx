@@ -9,6 +9,7 @@ import HomePage from "@/pages/Home";
 import ArticleView from "@/pages/ArticleView";
 import AdminLogin from "@/pages/Admin/AdminLogin";
 import AdminDashboard from "@/pages/Admin/AdminDashboard";
+import AdminSetupTotp from "@/pages/Admin/AdminSetupTotp";
 import ScrollManager from "@/components/utils/ScrollManager";
 
 export default function App() {
@@ -33,6 +34,14 @@ export default function App() {
               element={
                 <AuthProvider>
                   <AdminDashboard />
+                </AuthProvider>
+              }
+            />
+            <Route
+              path="/admin/setup-totp"
+              element={
+                <AuthProvider>
+                  <AdminSetupTotp />
                 </AuthProvider>
               }
             />

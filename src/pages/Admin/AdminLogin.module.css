@@ -68,6 +68,14 @@
   cursor: not-allowed;
 }
 
+.totpInput {
+  font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+  font-size: 24px;
+  letter-spacing: 8px;
+  text-align: center;
+  padding: 10px 8px;
+}
+
 .btn:not(:disabled):hover {
   opacity: 0.9;
 }

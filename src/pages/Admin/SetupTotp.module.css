@@ -1,0 +1,109 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 0;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+}
+
+.description {
+  font-size: 14px;
+  color: var(--text-mid);
+  text-align: center;
+  max-width: 420px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.status {
+  font-size: 14px;
+  color: var(--text-mid);
+}
+
+.btn {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent-yellow);
+  color: #1a1a1a;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled):hover {
+  opacity: 0.9;
+}
+
+.qrSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.qrCode {
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+}
+
+.secretBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.secretLabel {
+  font-size: 12px;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.secret {
+  font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 10px 16px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  user-select: all;
+}
+
+.hint {
+  font-size: 13px;
+  color: var(--text-mid);
+  text-align: center;
+  max-width: 360px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.error {
+  color: #d32f2f;
+  font-size: 13px;
+  margin: 0;
+}
+
+.success {
+  color: #2e7d32;
+  font-size: 13px;
+  margin: 0;
+}

@@ -14,11 +14,42 @@
   border-bottom: 1px solid var(--border);
 }
 
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .heading {
   font-size: 24px;
   font-weight: 700;
   margin: 0;
   color: var(--text);
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.navLink {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.navLink:hover {
+  background: var(--border);
+  color: var(--text);
+}
+
+.navLink[aria-current="page"] {
+  background: var(--accent-yellow);
+  color: #1a1a1a;
 }
 
 .logoutBtn {

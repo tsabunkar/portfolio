@@ -16,11 +16,13 @@ import (
 	"github.com/aws/aws-sdk-go-v2/service/costexplorer"
 	"github.com/aws/aws-sdk-go-v2/service/costexplorer/types"
 	"github.com/tsabunkar/admin/internal/jwt"
+	"github.com/tsabunkar/admin/internal/totp"
 )
 
 type loginRequest struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
+	TOTPCode string `json:"totp_code"`
 }
 
 type loginResponse struct {
@@ -52,6 +54,7 @@ var (
 	adminUsername    string
 	adminPassword    string
 	jwtSecret        string
+	totpSecret       string
 	githubToken      string
 	youtubeApiKey    string
 	ceClient         *costexplorer.Client
@@ -61,6 +64,7 @@ func init() {
 	adminUsername = os.Getenv("ADMIN_USERNAME")
 	adminPassword = os.Getenv("ADMIN_PASSWORD")
 	jwtSecret = os.Getenv("JWT_SECRET")
+	totpSecret = os.Getenv("TOTP_SECRET")
 	if adminUsername == "" || adminPassword == "" || jwtSecret == "" {
 		panic("ADMIN_USERNAME, ADMIN_PASSWORD, and JWT_SECRET must be set")
 	}
@@ -138,6 +142,17 @@ func handleLogin(w http.ResponseWriter, r *http.Request) {
 	if req.Username != adminUsername || req.Password != adminPassword {
 		respond(w, http.StatusUnauthorized, errorResponse{Error: "invalid credentials"})
 		return
+	}
+
+	if totpSecret != "" {
+		if req.TOTPCode == "" {
+			respond(w, http.StatusUnauthorized, errorResponse{Error: "TOTP code required"})
+			return
+		}
+		if !totp.ValidateCode(totpSecret, req.TOTPCode) {
+			respond(w, http.StatusUnauthorized, errorResponse{Error: "invalid TOTP code"})
+			return
+		}
 	}
 
 	token, err := jwt.Sign(jwtSecret, req.Username, time.Hour)

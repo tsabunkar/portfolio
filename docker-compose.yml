@@ -10,6 +10,7 @@ services:
       - ADMIN_USERNAME=tsabunkar
       - ADMIN_PASSWORD=admin123
       - JWT_SECRET=local-dev-jwt-secret-2024
+      - TOTP_SECRET=323232
       - GITHUB_TOKEN=${GITHUB_TOKEN:?GITHUB_TOKEN must be set}
       - YOUTUBE_API_KEY=${YOUTUBE_API_KEY:?YOUTUBE_API_KEY must be set}
       - YOUTUBE_HANDLE=@tsabunkar
