@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer,
   CartesianGrid,
@@ -13,6 +13,15 @@ export default function AwsCostDashboard() {
   const [totals, setTotals] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 640px)");
+    setIsMobile(mq.matches);
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   const fetchCosts = useCallback(async () => {
     setLoading(true);
@@ -131,8 +140,8 @@ export default function AwsCostDashboard() {
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={dailyData} margin={{ top: 8, right: 8, left: 8, bottom: 8 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-              <XAxis dataKey="date" tick={{ fontSize: 11 }} tickFormatter={(d) => d.slice(5)} />
-              <YAxis tick={{ fontSize: 11 }} tickFormatter={(v) => `$${v}`} />
+              <XAxis dataKey="date" tick={{ fontSize: isMobile ? 10 : 11 }} tickFormatter={(d) => d.slice(5)} interval={Math.ceil(dailyData.length / 6)} />
+              <YAxis tick={{ fontSize: isMobile ? 10 : 11 }} tickFormatter={(v) => `$${v}`} />
               <Tooltip formatter={(v) => [`$${v}`, "Cost"]} />
               <Bar dataKey="cost" fill="var(--chart-bar)" radius={[3, 3, 0, 0]} />
             </BarChart>
@@ -142,10 +151,10 @@ export default function AwsCostDashboard() {
         <div className={styles.chartSection}>
           <h4 className={styles.chartTitle}>By Service</h4>
           <ResponsiveContainer width="100%" height={serviceChartHeight}>
-            <BarChart data={serviceData} layout="vertical" margin={{ top: 8, right: 40, left: 180, bottom: 8 }}>
+            <BarChart data={serviceData} layout="vertical" margin={{ top: 8, right: isMobile ? 8 : 40, left: isMobile ? 100 : 180, bottom: 8 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-              <XAxis type="number" tick={{ fontSize: 12 }} tickFormatter={(v) => `$${v}`} />
-              <YAxis type="category" dataKey="name" tick={{ fontSize: 12 }} width={170} tickMargin={4} />
+              <XAxis type="number" tick={{ fontSize: isMobile ? 10 : 12 }} tickFormatter={(v) => `$${v}`} />
+              <YAxis type="category" dataKey="name" tick={{ fontSize: isMobile ? 10 : 12 }} width={isMobile ? 90 : 170} tickMargin={4} />
               <Tooltip formatter={(v) => [`$${v}`, "Cost"]} />
               <Bar dataKey="cost" fill="var(--chart-bar)" radius={[0, 3, 3, 0]} maxBarSize={24} />
             </BarChart>

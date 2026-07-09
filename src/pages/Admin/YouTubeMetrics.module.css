@@ -15,7 +15,14 @@
 
 .stats {
   display: flex;
-  gap: 32px;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .stats {
+    gap: 16px;
+  }
 }
 
 .stat {

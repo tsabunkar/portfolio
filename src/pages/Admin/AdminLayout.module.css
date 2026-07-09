@@ -4,6 +4,12 @@
   margin: 0 auto;
 }
 
+@media (max-width: 640px) {
+  .layout {
+    padding: 80px 16px;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -14,10 +20,26 @@
   border-bottom: 1px solid var(--border);
 }
 
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+}
+
 .headerLeft {
   display: flex;
   align-items: center;
   gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .headerLeft {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
 }
 
 .heading {
