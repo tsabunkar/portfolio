@@ -121,4 +121,8 @@ export const TOY_PROJECTS = [
     name: "What's Next",
     url: "https://whats-next.tsabunkar.com/",
   },
+  {
+    name: "Downloads-Projects",
+    url: "https://downloads.tsabunkar.com/",
+  },
 ];
