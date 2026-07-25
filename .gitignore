@@ -31,3 +31,5 @@ infra/lambda/bin/
 infra/lambda/*.zip
 infra/lambda/vendor/
 
+# Serena
+.serena/
